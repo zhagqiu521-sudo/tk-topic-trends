@@ -22,6 +22,10 @@ CHALLENGES = {
     "hypiccreator": "7234524314999980059",
     "godpic": "1657530774358033",
 }
+PRODUCTS = {
+    "capcut": {"label": "CapCut（剪映）", "tags": ["capcut", "capcutpioneer", "capcutnow"]},
+    "hypic": {"label": "Hypic（醒图）", "tags": ["hypic", "hypiccreator", "godpic"]},
+}
 COUNT_PER_PAGE = 20
 MAX_PAGES = 15            # hard cap per topic (safety)
 STOP_WHEN_FRESH_BELOW = 5 # page yields fewer in-window items → topic done
