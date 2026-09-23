@@ -82,8 +82,6 @@
 <body>
 <button class="refresh" onclick="load()">刷新</button>
 <h1>TikTok 话题最新作品</h1>
-<div class="sub">CapCut（剪映）：#capcut · #capcutpioneer · #capcutnow ｜ Hypic（醒图）：#hypic · #hypiccreator · #Godpic<br>
-数据：<b id="snapTime">…</b>，每小时自动更新 · 列表发布时间跟随右侧所选时区</div>
 
 <div class="tzbar">
   <div class="tzbox">
@@ -199,7 +197,6 @@ async function load(){
         products[k] = Array.isArray(v) ? {label: k, tags: v} : {label: v.label || k, tags: v.tags || []};
       }
     }
-    document.getElementById("snapTime").textContent = snap.captured_at.replace("T"," ").slice(0,16)+" UTC";
     render();
   }catch(e){
     const el=document.getElementById("list");
