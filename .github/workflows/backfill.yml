@@ -19,6 +19,7 @@ jobs:
       - name: Run TikHub backfill
         env:
           TIKHUB_TOKEN: ${{ secrets.TIKHUB_TOKEN }}
+          DATA_KEY: ${{ secrets.DATA_KEY }}
         run: python3 backfill.py
       - name: Commit snapshot
         run: |
@@ -33,6 +34,6 @@ jobs:
           fi
       - name: Purge jsDelivr CDN cache
         run: |
-          for f in index.json latest.json registry.json; do
+          for f in index.json.enc latest.json.enc registry.json.enc; do
             curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/$f" -o /dev/null
           done
