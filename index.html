@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok 话题趋势 · capcut / capcutpioneer / capcutnow</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root { --bg:#0d1117; --card:#161b22; --border:#30363d; --text:#e6edf3; --dim:#8b949e;
+          --green:#3fb950; --blue:#58a6ff; --purple:#bc8cff; --orange:#f0883e; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--text); font-family:"Segoe UI",system-ui,sans-serif; padding:20px; }
+  h1 { font-size:20px; margin-bottom:4px; }
+  .sub { color:var(--dim); font-size:13px; margin-bottom:18px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-bottom:18px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+  .card h3 { font-size:14px; margin-bottom:8px; }
+  .tag-dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
+  .stat { display:flex; justify-content:space-between; font-size:13px; padding:3px 0; }
+  .stat b { font-weight:600; }
+  .num { color:var(--green); }
+  .panel { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:18px; }
+  .panel h2 { font-size:15px; margin-bottom:12px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; color:var(--dim); font-weight:500; padding:6px 8px; border-bottom:1px solid var(--border); }
+  td { padding:6px 8px; border-bottom:1px solid #21262d; }
+  tr:hover td { background:#1c2129; }
+  .title-cell { max-width:420px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .delta-up { color:var(--green); font-size:12px; }
+  .loading { color:var(--dim); padding:40px; text-align:center; }
+  .refresh { position:fixed; right:20px; top:20px; background:var(--card); border:1px solid var(--border);
+             color:var(--text); border-radius:8px; padding:8px 14px; cursor:pointer; font-size:13px; }
+  .refresh:hover { border-color:var(--blue); }
+  .hint { color:var(--dim); font-size:12px; margin-top:8px; }
+</style>
+</head>
+<body>
+<button class="refresh" onclick="load()">刷新数据</button>
+<h1>TikTok 话题趋势</h1>
+<div class="sub">#capcut · #capcutpioneer · #capcutnow — 每小时快照，近 7 天发布作品</div>
+
+<div id="main" class="loading">正在加载数据（首次运行后趋势需几小时积累）……</div>
+
+<div class="panel" id="trendPanel" style="display:none">
+  <h2>话题总点赞趋势（每次快照时点，近 7 天作品合计）</h2>
+  <canvas id="trendChart" height="90"></canvas>
+  <div class="hint">曲线上升 = 该话题新作品热度在增长；平台每小时自动抓取一次。</div>
+</div>
+
+<div class="panel" id="tablePanel" style="display:none">
+  <h2>最新快照 · 作品明细（按点赞排序，前 30）</h2>
+  <div style="overflow-x:auto"><table id="videos">
+    <thead><tr><th>#</th><th>作品</th><th>话题</th><th>点赞</th><th>收藏</th><th>评论</th><th>分享</th><th>播放</th><th>发布于</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</div>
+
+<script>
+const BASE = "https://cdn.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data";
+const COLORS = { capcut:"#58a6ff", capcutpioneer:"#bc8cff", capcutnow:"#f0883e" };
+const NAMES  = { capcut:"#capcut", capcutpioneer:"#capcutpioneer", capcutnow:"#capcutnow" };
+const fmt = n => n>=10000 ? (n/10000).toFixed(1)+"w" : n>=1000 ? (n/1000).toFixed(1)+"k" : String(n);
+
+async function getJSON(url){
+  const r = await fetch(url, {cache:"no-store"});
+  if(!r.ok) throw new Error(url+" -> "+r.status);
+  return r.json();
+}
+
+let trendChart = null;
+
+async function load(){
+  const main = document.getElementById("main");
+  try{
+    main.className = "loading"; main.style.display=""; 
+    main.innerHTML = "正在加载数据……";
+    const idx = await getJSON(BASE+"/index.json");
+    const recent = idx.slice(0, 24);                    // last 24 hourly snapshots
+    const snaps = [];
+    for(const p of recent.reverse()){                   // oldest first for the chart
+      try{ snaps.push(await getJSON(BASE+"/"+p)); }catch(e){ /* skip missing */ }
+    }
+    if(!snaps.length) throw new Error("no snapshots loaded");
+    renderCards(snaps[snaps.length-1]);
+    renderTrend(snaps);
+    renderTable(snaps[snaps.length-1]);
+    main.style.display="none";
+  }catch(e){
+    main.innerHTML = "加载失败："+e.message+"<br>数据可能还没生成或 CDN 缓存未刷新，稍后点右上角刷新。";
+  }
+}
+
+function renderCards(latest){
+  let html = '<div class="cards">';
+  for(const [tag, t] of Object.entries(latest.topics)){
+    const sumLikes   = t.items.reduce((s,v)=>s+v.digg,0);
+    const sumCollect = t.items.reduce((s,v)=>s+v.collect,0);
+    const sumPlay    = t.items.reduce((s,v)=>s+v.play,0);
+    html += `<div class="card">
+      <h3><span class="tag-dot" style="background:${COLORS[tag]}"></span>${NAMES[tag]}</h3>
+      <div class="stat"><span>近7天作品（已捕获）</span><b>${t.count_7d}</b></div>
+      <div class="stat"><span>合计点赞</span><b class="num">${fmt(sumLikes)}</b></div>
+      <div class="stat"><span>合计收藏</span><b class="num">${fmt(sumCollect)}</b></div>
+      <div class="stat"><span>合计播放</span><b>${fmt(sumPlay)}</b></div>
+      <div class="stat"><span>接口状态</span><b>${t.api_status}</b></div>
+    </div>`;
+  }
+  html += "</div>";
+  const main = document.getElementById("main");
+  main.className=""; main.style.display=""; main.innerHTML = html;
+}
+
+function renderTrend(snaps){
+  document.getElementById("trendPanel").style.display="";
+  const labels = snaps.map(s=>s.captured_at.slice(5,16).replace("T"," "));
+  const datasets = Object.keys(NAMES).map(tag=>({
+    label: NAMES[tag],
+    data: snaps.map(s=>s.topics[tag] ? s.topics[tag].items.reduce((x,v)=>x+v.digg,0) : null),
+    borderColor: COLORS[tag], backgroundColor: COLORS[tag]+"33",
+    tension:0.3, spanGaps:true, pointRadius:2, fill:true,
+  }));
+  if(trendChart) trendChart.destroy();
+  trendChart = new Chart(document.getElementById("trendChart"), {
+    type:"line",
+    data:{ labels, datasets },
+    options:{
+      responsive:true,
+      scales:{ y:{ ticks:{ color:"#8b949e", callback:fmt }, grid:{color:"#21262d"} },
+               x:{ ticks:{ color:"#8b949e", maxTicksLimit:12 }, grid:{display:false} } },
+      plugins:{ legend:{ labels:{ color:"#e6edf3" } } },
+    },
+  });
+}
+
+function renderTable(latest){
+  document.getElementById("tablePanel").style.display="";
+  const rows = [];
+  for(const [tag, t] of Object.entries(latest.topics))
+    for(const v of t.items) rows.push({...v, tag});
+  rows.sort((a,b)=>b.digg-a.digg);
+  const tb = document.querySelector("#videos tbody");
+  tb.innerHTML = rows.slice(0,30).map((v,i)=>{
+    const d = v.created_at ? new Date(v.created_at*1000) : null;
+    const date = d ? `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}` : "—";
+    return `<tr>
+      <td>${i+1}</td>
+      <td class="title-cell" title="${v.title.replace(/"/g,"")}">${v.title||"(无标题)"}</td>
+      <td><span class="tag-dot" style="background:${COLORS[v.tag]}"></span>${NAMES[v.tag].slice(1)}</td>
+      <td><b class="num">${v.digg.toLocaleString()}</b></td>
+      <td>${v.collect.toLocaleString()}</td>
+      <td>${v.comment.toLocaleString()}</td>
+      <td>${v.share.toLocaleString()}</td>
+      <td>${fmt(v.play)}</td>
+      <td>${date}</td>
+    </tr>`;
+  }).join("");
+}
+
+load();
+setInterval(load, 10*60*1000);   // auto refresh every 10 min
+</script>
+</body>
+</html>
