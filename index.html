@@ -104,27 +104,19 @@
              border-radius:4px; padding:8px; cursor:pointer; font-size:14px; }
   .authsep { text-align:center; color:var(--dim); font-size:12px; margin:12px 0; }
   #amsg { text-align:center; color:var(--dim); font-size:12.5px; min-height:18px; margin-top:10px; }
-  #regToggle { cursor:pointer; }
-  #regToggle:hover { color:var(--text); }
-  .authnote { text-align:center; color:var(--dim); font-size:11.5px; margin-top:8px; }
 </style>
 </head>
 <body>
 <div id="authGate" style="display:none">
   <div class="authcard">
     <h2>TikTok 话题看板 · 登录</h2>
-    <form id="loginForm" autocomplete="on">
-      <div class="authrow"><input id="au" name="username" placeholder="用户名" autocomplete="username"></div>
-      <div class="authrow"><input id="ap" name="password" type="password" placeholder="密码" autocomplete="current-password"></div>
-      <button class="authbtn" id="alogin" type="submit">登 录</button>
-    </form>
-    <div class="authsep" id="regToggle">— 没有账号？点此注册 —</div>
-    <div id="regBox" style="display:none">
-      <div class="authrow"><input id="ru" name="new-username" placeholder="用户名（字母数字._-）" autocomplete="off"></div>
-      <div class="authrow"><input id="rp" name="new-password" type="password" placeholder="密码（至少 6 位）" autocomplete="new-password"></div>
-      <button class="authbtn" id="areg" type="button">注 册</button>
-      <div class="authnote">注册后需管理员批准才能登录</div>
-    </div>
+    <div class="authrow"><input id="au" placeholder="用户名" autocomplete="username"></div>
+    <div class="authrow"><input id="ap" type="password" placeholder="密码" autocomplete="current-password"></div>
+    <button class="authbtn" id="alogin">登 录</button>
+    <div class="authsep">— 没有账号？注册一个（需管理员批准）—</div>
+    <div class="authrow"><input id="ru" placeholder="用户名（字母数字._-）"></div>
+    <div class="authrow"><input id="rp" type="password" placeholder="密码（至少 6 位）"></div>
+    <button class="authbtn" id="areg">注 册</button>
     <div id="amsg"></div>
   </div>
 </div>
@@ -186,8 +178,8 @@
 <button id="toTop" title="返回顶部">↑</button>
 
 <script>
-// data source auto-detect: file:// -> jsDelivr CDN; http(s) -> same origin (github.io subpath or worker root)
-const BASE = location.protocol === "file:"
+// data source: encrypted JSON lives on github.io (same-origin) and jsDelivr (CORS open, for file:// and tk.exapple.xyz)
+const BASE = (location.protocol === "file:" || location.hostname.endsWith("exapple.xyz"))
   ? "https://cdn.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data"
   : location.pathname.replace(/index\.html?$/, "") + "data";
 
@@ -235,14 +227,27 @@ async function getJSON(url){
   return r.json();
 }
 
+// ---- encrypted data layer: file = [16B IV][AES-256-CBC ciphertext] ----
+function hexBuf(h){ const a=new Uint8Array(h.length/2); for(let i=0;i<a.length;i++) a[i]=parseInt(h.substr(i*2,2),16); return a; }
+async function getEncJSON(name){
+  if(!window._dkey) throw new Error("未取得数据密钥");
+  const r = await fetch(BASE+"/"+name+".enc", {cache:"no-store"});
+  if(!r.ok) throw new Error(r.status+" "+name);
+  const buf = new Uint8Array(await r.arrayBuffer());
+  const key = await crypto.subtle.importKey("raw", hexBuf(window._dkey), {name:"AES-CBC"}, false, ["decrypt"]);
+  const plain = await crypto.subtle.decrypt({name:"AES-CBC", iv: buf.slice(0,16)}, key, buf.slice(16));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+
 let cache = null, products = FALLBACK_PRODUCTS;
 
 async function load(){
-  if(window._creds){ authAPI({action:"ping", username:window._creds.username, token:window._creds.token}).catch(()=>{}); }
+  if(window._creds){ authAPI({action:"ping", username:window._creds.username, token:window._creds.token})
+    .then(r=>{ if(r.ok && r.dkey) window._dkey = r.dkey; }).catch(()=>{}); }
   try{
     const el=document.getElementById("list");
     el.className="loading"; el.textContent="正在加载……";
-    const snap = await getJSON(BASE+"/latest.json");
+    const snap = await getEncJSON("latest.json");
     cache = snap;
     // normalize products: accept both {tag:[...]} legacy shape and {label,tags} shape
     if(snap.products){
@@ -462,37 +467,30 @@ async function initAuth(){
   if(c && c.username && c.token){
     try{
       const r = await authAPI({action:"ping", username:c.username, token:c.token});
-      if(r.ok){ showApp(); return; }
+      if(r.ok){ if(r.dkey) window._dkey = r.dkey; showApp(); return; }
     }catch(e){ /* 登录服务不可达：本次放行（游客模式），数据本身公开 */ }
   }
   showGate();
 }
-document.getElementById("loginForm").addEventListener("submit", async (e)=>{
-  e.preventDefault();
+document.getElementById("alogin").addEventListener("click", async ()=>{
   const u = document.getElementById("au").value.trim().toLowerCase();
   const p = document.getElementById("ap").value;
   document.getElementById("amsg").textContent = "登录中……";
   const r = await authAPI({action:"login", username:u, password:p}).catch(e=>({ok:false,msg:"登录服务不可达，稍后重试"}));
   if(r.ok){
     localStorage.setItem("tk_auth", JSON.stringify({username:u, token:r.token}));
-    localStorage.setItem("tk_user", u);
     window._creds = {username:u, token:r.token};
+    if(r.dkey) window._dkey = r.dkey;
     showApp();
   } else { document.getElementById("amsg").textContent = r.msg || "登录失败"; }
 });
-document.getElementById("regToggle").addEventListener("click", ()=>{
-  const b = document.getElementById("regBox");
-  b.style.display = b.style.display==="none" ? "block" : "none";
-  document.getElementById("amsg").textContent = "";
-});
-try{ const su = localStorage.getItem("tk_user") || ""; if(su) document.getElementById("au").value = su; }catch(e){}
 document.getElementById("areg").addEventListener("click", async ()=>{
   document.getElementById("amsg").textContent = "提交中……";
   const r = await authAPI({action:"register",
     username:document.getElementById("ru").value.trim().toLowerCase(),
     password:document.getElementById("rp").value}).catch(e=>({ok:false,msg:"注册服务不可达，稍后重试"}));
   document.getElementById("amsg").textContent = r.msg || "";
-  if(r.ok){ document.getElementById("ru").value=""; document.getElementById("rp").value=""; document.getElementById("regBox").style.display="none"; }
+  if(r.ok){ document.getElementById("ru").value=""; document.getElementById("rp").value=""; }
 });
 document.getElementById("logoutBtn").addEventListener("click", ()=>{
   localStorage.removeItem("tk_auth"); location.reload();
