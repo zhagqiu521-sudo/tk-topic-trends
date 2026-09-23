@@ -1,0 +1,28 @@
+name: probe8
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: dump full anchors object + capcut links
+        run: |
+          curl -s -m 25 -L "https://www.tiktok.com/@thao_denn/video/7688642866750459154" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -o pg.html
+          node -e '
+          const s=require("fs").readFileSync("pg.html","utf8");
+          // full anchors array
+          const i=s.indexOf("\"anchors\":");
+          if(i>=0){
+            let depth=0,j=i+"\"anchors\":".length,start=j;
+            for(;j<s.length;j++){const c=s[j];if(c===\"[\")depth++;if(c===\"]\"){depth--;if(depth===0){j++;break;}}}
+            const arr=s.slice(start,j);
+            console.log("ANCHORS_FULL:",arr.slice(0,1800));
+          } else console.log("no anchors");
+          // any capcut.com links in page
+          const caps=s.match(/https:(\\u002F|/)\/(\\u002F|\/)?[^\"\\\\ ]*capcut[^\"\\\\ ]*/gi)||[];
+          console.log("CAPCUT LINKS:",[...new Set(caps)].slice(0,5).join("  ||  "));
+          const tpl=s.match(/template[_-]?detail[^\"]*/i);
+          console.log("TEMPLATE DETAIL REF:",tpl?tpl[0].slice(0,150):"none");
+          '
