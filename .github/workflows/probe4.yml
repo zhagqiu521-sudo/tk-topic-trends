@@ -1,0 +1,19 @@
+name: probe4
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: full data of linked video (CapCut anchor)
+        run: |
+          curl -s -m 20 "https://www.tikwm.com/api/?url=https://www.tiktok.com/@thao_denn/video/7688642866750459154" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -H "Accept: application/json" \
+            | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{try{const j=JSON.parse(d);const v=j.data||{};console.log('KEYS:',Object.keys(v).join(','));const s=JSON.stringify(v);for(const m of ['anchor','template','video_label','videoLabel','text_extra','textExtra','sticker','CapCut','capcut']){const i=s.indexOf(m);console.log('marker',m,':',i>=0?('FOUND @'+i+' => '+s.slice(Math.max(0,i-40),i+120)):'none');}}catch(e){console.log('parse fail:',d.slice(0,150))}})"
+      - name: list endpoint carries markers?
+        run: |
+          curl -s -m 20 "https://www.tikwm.com/api/challenge/posts/?challenge_id=1684704995991554&count=20&cursor=0" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -H "Accept: application/json" \
+            | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{try{const j=JSON.parse(d);const v=(j.data&&j.data.videos)||[];console.log('items:',v.length);const k=new Set();v.forEach(x=>Object.keys(x).forEach(y=>k.add(y)));console.log('ITEM KEYS:',[...k].join(','));for(const m of ['anchor','template','video_label','text_extra','textExtra']){const c=v.filter(x=>JSON.stringify(x).includes(m)).length;console.log('marker',m,':',c,'/',v.length);}}catch(e){console.log('parse fail:',d.slice(0,150))}})"
