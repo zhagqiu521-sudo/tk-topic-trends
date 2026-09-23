@@ -90,10 +90,39 @@
            cursor:pointer; display:none; z-index:50; box-shadow:0 4px 14px rgba(0,0,0,.4); }
   #toTop.show { display:block; }
   #toTop:hover { border-color:var(--green); color:var(--green); }
+
+  /* 登录门 */
+  #authGate { position:fixed; inset:0; background:var(--bg); z-index:100; display:none;
+              align-items:center; justify-content:center; }
+  .authcard { background:var(--panel); border:1px solid var(--border); border-radius:10px;
+              padding:26px 28px; width:320px; }
+  .authcard h2 { text-align:center; font-size:16px; margin-bottom:16px; }
+  .authrow { margin-bottom:10px; }
+  .authcard input { width:100%; box-sizing:border-box; background:#252a33; color:var(--text);
+                    border:1px solid var(--border); border-radius:4px; padding:8px 10px; font-size:14px; }
+  .authbtn { width:100%; background:var(--green); color:#0d1014; font-weight:bold; border:none;
+             border-radius:4px; padding:8px; cursor:pointer; font-size:14px; }
+  .authsep { text-align:center; color:var(--dim); font-size:12px; margin:12px 0; }
+  #amsg { text-align:center; color:var(--dim); font-size:12.5px; min-height:18px; margin-top:10px; }
 </style>
 </head>
 <body>
+<div id="authGate" style="display:none">
+  <div class="authcard">
+    <h2>TikTok 话题看板 · 登录</h2>
+    <div class="authrow"><input id="au" placeholder="用户名" autocomplete="username"></div>
+    <div class="authrow"><input id="ap" type="password" placeholder="密码" autocomplete="current-password"></div>
+    <button class="authbtn" id="alogin">登 录</button>
+    <div class="authsep">— 没有账号？注册一个（需管理员批准）—</div>
+    <div class="authrow"><input id="ru" placeholder="用户名（字母数字._-）"></div>
+    <div class="authrow"><input id="rp" type="password" placeholder="密码（至少 6 位）"></div>
+    <button class="authbtn" id="areg">注 册</button>
+    <div id="amsg"></div>
+  </div>
+</div>
+<div id="app" style="display:none">
 <button class="refresh" onclick="load()">刷新</button>
+<button class="refresh" id="logoutBtn" style="margin-right:8px">退出</button>
 <h1>TikTok 话题最新作品</h1>
 
 <div class="tzbar">
@@ -201,6 +230,7 @@ async function getJSON(url){
 let cache = null, products = FALLBACK_PRODUCTS;
 
 async function load(){
+  if(window._creds){ authAPI({action:"ping", username:window._creds.username, token:window._creds.token}).catch(()=>{}); }
   try{
     const el=document.getElementById("list");
     el.className="loading"; el.textContent="正在加载……";
@@ -396,8 +426,55 @@ const toTop=document.getElementById("toTop");
 window.addEventListener("scroll",()=>{ toTop.classList.toggle("show", window.scrollY>400); });
 toTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 
-load();
-setInterval(load, 10*60*1000);
+// ---- 登录门（tk-auth Worker）----
+const AUTH_URL = "https://tk-auth.zhagqiu-tk.workers.dev/api";
+async function authAPI(payload){
+  const r = await fetch(AUTH_URL, { method:"POST", headers:{ "content-type":"application/json" }, body: JSON.stringify(payload) });
+  return r.json();
+}
+function showApp(){
+  document.getElementById("authGate").style.display="none";
+  document.getElementById("app").style.display="block";
+  if(!window._loaded){ window._loaded = true; load(); setInterval(load, 10*60*1000); } else { load(); }
+}
+function showGate(){
+  document.getElementById("authGate").style.display="flex";
+  document.getElementById("app").style.display="none";
+}
+async function initAuth(){
+  const c = JSON.parse(localStorage.getItem("tk_auth") || "null");
+  window._creds = c;
+  if(c && c.username && c.token){
+    try{
+      const r = await authAPI({action:"ping", username:c.username, token:c.token});
+      if(r.ok){ showApp(); return; }
+    }catch(e){ /* 登录服务不可达：本次放行（游客模式），数据本身公开 */ }
+  }
+  showGate();
+}
+document.getElementById("alogin").addEventListener("click", async ()=>{
+  const u = document.getElementById("au").value.trim().toLowerCase();
+  const p = document.getElementById("ap").value;
+  document.getElementById("amsg").textContent = "登录中……";
+  const r = await authAPI({action:"login", username:u, password:p}).catch(e=>({ok:false,msg:"登录服务不可达，稍后重试"}));
+  if(r.ok){
+    localStorage.setItem("tk_auth", JSON.stringify({username:u, token:r.token}));
+    window._creds = {username:u, token:r.token};
+    showApp();
+  } else { document.getElementById("amsg").textContent = r.msg || "登录失败"; }
+});
+document.getElementById("areg").addEventListener("click", async ()=>{
+  document.getElementById("amsg").textContent = "提交中……";
+  const r = await authAPI({action:"register",
+    username:document.getElementById("ru").value.trim().toLowerCase(),
+    password:document.getElementById("rp").value}).catch(e=>({ok:false,msg:"注册服务不可达，稍后重试"}));
+  document.getElementById("amsg").textContent = r.msg || "";
+  if(r.ok){ document.getElementById("ru").value=""; document.getElementById("rp").value=""; }
+});
+document.getElementById("logoutBtn").addEventListener("click", ()=>{
+  localStorage.removeItem("tk_auth"); location.reload();
+});
+initAuth();
 </script>
 </body>
 </html>
