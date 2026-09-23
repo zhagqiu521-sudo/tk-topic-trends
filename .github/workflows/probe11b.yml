@@ -1,0 +1,35 @@
+name: probe11b
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: parse universal data precisely
+        run: |
+          curl -s -m 25 -L "https://www.tiktok.com/@prvvo.asia/video/7688755825690578198" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -o v.html -w "http %{http_code}, %{size_download} bytes\n"
+          cat > x.js <<'EOF'
+          const fs = require("fs");
+          const s = fs.readFileSync("v.html", "utf8");
+          const m = s.match(/<script id="__UNIVERSAL_DATA_FOR_REHYDRATION__"[^>]*>([\s\S]*?)<\/script>/);
+          if (!m) { console.log("universal data NOT FOUND"); process.exit(0); }
+          const j = JSON.parse(m[1]);
+          const scope = j.__DEFAULT_SCOPE__ || {};
+          const vd = scope["webapp.video-detail"];
+          if (!vd) { console.log("webapp.video-detail absent; scope keys:", Object.keys(scope).join(",")); process.exit(0); }
+          const it = vd.itemInfo && vd.itemInfo.itemStruct;
+          if (!it) { console.log("itemStruct absent:", JSON.stringify(vd).slice(0,300)); process.exit(0); }
+          console.log("video_id   :", it.id);
+          console.log("author     :", it.author && it.author.uniqueId, "|", it.author && it.author.nickname);
+          console.log("createTime :", it.createTime, "->", new Date(it.createTime * 1000).toISOString());
+          console.log("北京时间    :", new Intl.DateTimeFormat("zh-CN", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(it.createTime * 1000)));
+          console.log("纽约时间    :", new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(it.createTime * 1000)));
+          console.log("desc       :", (it.desc || "").slice(0, 80));
+          console.log("stats      :", JSON.stringify(it.stats || {}));
+          const a = (it.anchors || []);
+          console.log("anchors    :", a.length ? a.map(x => x.keyword).join(" | ") : "无（未挂链）");
+          console.log("music      :", it.music && it.music.title, "| id:", it.music && it.music.id);
+          EOF
+          node x.js
