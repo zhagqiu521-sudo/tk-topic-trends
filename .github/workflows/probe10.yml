@@ -1,0 +1,15 @@
+name: probe10
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: install playwright + chromium
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm i playwright --no-fund --no-audit 2>&1 | tail -1
+          npx playwright install chromium --with-deps 2>&1 | tail -2
+      - name: browse tiktok search (newest filter)
+        run: node browse.js
