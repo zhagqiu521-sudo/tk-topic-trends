@@ -1,0 +1,19 @@
+name: probe8b
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: dump anchors + capcut links via grep
+        run: |
+          curl -s -m 25 -L "https://www.tiktok.com/@thao_denn/video/7688642866750459154" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -o pg.html
+          echo "=== anchors 原文（前后各400字符）==="
+          grep -o '.\{80\}\\"anchors\\":\[.\{400\}' pg.html | head -2
+          grep -o '"anchors":\[.\{400\}' pg.html | head -2
+          echo "=== 页面里的 capcut 链接 ==="
+          grep -oiE 'https:[^" ]*capcut[^" ]*' pg.html | sort -u | head -6
+          echo "=== template 字样上下文 ==="
+          grep -oiE '.{50}template.{120}' pg.html | grep -iv "css\|script src" | head -4
