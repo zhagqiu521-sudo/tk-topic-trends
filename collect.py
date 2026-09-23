@@ -6,6 +6,7 @@ Output: data/snapshots/<UTC timestamp>.json + data/latest.json (also printed to 
 """
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -33,6 +34,40 @@ SLEEP_BETWEEN_REQ = 1.6   # tikwm: 1 request/sec per IP
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+# ---- linked-video (anchor) detection ----
+# tikwm list data has anchors stripped; the video PAGE SSR data carries them:
+# "anchors":[{"id":"0","type":54,"keyword":"CapCut · Smart chroma key",...}]
+# Each video is page-checked once (first time seen); results cached in data/flags.json.
+ANCHOR_RE = re.compile(r'"anchors":\[\{"id":"\d+","type":(\d+),"keyword":"([^"]*)"')
+MAX_PAGE_CHECKS = 40   # per run; unchecked videos queue up for later runs
+
+def load_flags():
+    if os.path.exists("data/flags.json"):
+        try:
+            with open("data/flags.json", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, OSError):
+            return {}
+    return {}
+
+def check_anchor(vid, author):
+    """Fetch the video page once; return {'linked':bool,'keyword':str} or None on failure."""
+    url = f"https://www.tiktok.com/@{author}/video/{vid}"
+    try:
+        out = subprocess.run(
+            ["curl", "-s", "-m", "20", "-L",
+             "-H", f"User-Agent: {UA}",
+             "-H", "Accept: text/html,application/xhtml+xml",
+             "-H", "Accept-Language: en-US,en;q=0.9",
+             url],
+            capture_output=True, text=True, timeout=30, check=True)
+        m = ANCHOR_RE.search(out.stdout)
+        if m:
+            return {"linked": True, "keyword": m.group(2)}
+        return {"linked": False}
+    except subprocess.SubprocessError:
+        return None
 
 # tikwm's Cloudflare blocks python-urllib's TLS fingerprint (verified 2026-09-23);
 # curl with browser headers passes from GitHub Actions egress — always shell out.
@@ -111,6 +146,36 @@ def main():
 
     ok = all(t["api_status"] == "success" for t in snap["topics"].values())
     total = sum(t["count_fresh"] for t in snap["topics"].values())
+
+    # ---- anchor (linked) detection: page-check first-seen videos only ----
+    flags = load_flags()
+    checked = 0
+    all_items = [it for t in snap["topics"].values() for it in t["items"]]
+    for it in all_items:
+        key = it["video_id"]
+        if key in flags:
+            it["linked"] = flags[key].get("linked", False)
+            it["anchor"] = flags[key].get("keyword", "")
+        elif checked < MAX_PAGE_CHECKS:
+            res = check_anchor(key, it["author"])
+            checked += 1
+            if res is None:
+                it["linked"] = None   # check failed; retry next run (not cached)
+                it["anchor"] = ""
+            else:
+                flags[key] = res
+                it["linked"] = res["linked"]
+                it["anchor"] = res.get("keyword", "")
+            time.sleep(2)
+        else:
+            it["linked"] = None       # over per-run cap: queued for later runs
+            it["anchor"] = ""
+    if checked:
+        os.makedirs("data", exist_ok=True)
+        with open("data/flags.json", "w", encoding="utf-8") as f:
+            json.dump(flags, f, ensure_ascii=False)
+        print(f"anchor checks: {checked} new videos page-checked, "
+              f"{sum(1 for it in all_items if it.get('linked'))} linked in this snapshot", flush=True)
     print(f"\nVERDICT: {'PASS' if ok and total > 0 else 'FAIL'} | api_ok={ok} | fresh_items_7d={total}")
     for tag, t in snap["topics"].items():
         top = t["items"][0] if t["items"] else None
