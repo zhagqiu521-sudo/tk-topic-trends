@@ -1,0 +1,38 @@
+name: backfill
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 1 * * *"    # 09:00 北京
+    - cron: "0 9 * * *"    # 17:00 北京
+    - cron: "0 17 * * *"   # 01:00 北京
+permissions:
+  contents: write
+concurrency:
+  group: backfill
+  cancel-in-progress: false
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run TikHub backfill
+        env:
+          TIKHUB_TOKEN: ${{ secrets.TIKHUB_TOKEN }}
+        run: python3 backfill.py
+      - name: Commit snapshot
+        run: |
+          git config user.name  "collector-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "backfill $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
+      - name: Purge jsDelivr CDN cache
+        run: |
+          for f in index.json latest.json registry.json; do
+            curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/$f" -o /dev/null
+          done
