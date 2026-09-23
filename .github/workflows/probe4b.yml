@@ -1,0 +1,13 @@
+name: probe4b
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: dump non-null anchors samples
+        run: |
+          curl -s -m 20 "https://www.tikwm.com/api/challenge/posts/?challenge_id=1684704995991554&count=20&cursor=0" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -H "Accept: application/json" \
+            | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{try{const j=JSON.parse(d);const v=(j.data&&j.data.videos)||[];const linked=v.filter(x=>x.anchors&&JSON.stringify(x.anchors)!=='[]'&&JSON.stringify(x.anchors)!=='null');console.log('linked:',linked.length,'/',v.length);linked.slice(0,3).forEach(x=>{console.log('---');console.log('id:',x.video_id);console.log('title:',(x.title||'').slice(0,60));console.log('anchors:',JSON.stringify(x.anchors).slice(0,500));});}catch(e){console.log('parse fail:',d.slice(0,150))}})"
