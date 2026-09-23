@@ -5,10 +5,10 @@ Rate-limit aware: tikwm allows 1 req/sec per IP; we sleep between all requests.
 Output: data/snapshots/<UTC timestamp>.json + data/latest.json (also printed to stdout).
 """
 import json
+import os
+import subprocess
 import sys
 import time
-import urllib.request
-import urllib.error
 from datetime import datetime, timezone, timedelta
 
 API = "https://www.tikwm.com/api/challenge/posts"
@@ -26,11 +26,18 @@ SLEEP_BETWEEN_REQ = 1.6   # tikwm: 1 request/sec per IP
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 
-
+# tikwm's Cloudflare blocks python-urllib's TLS fingerprint (verified 2026-09-23);
+# curl with browser headers passes from GitHub Actions egress — always shell out.
 def fetch_json(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read().decode("utf-8", "replace"))
+    out = subprocess.run(
+        ["curl", "-s", "-m", "30", "--compressed",
+         "-H", f"User-Agent: {UA}",
+         "-H", "Accept: application/json, text/plain, */*",
+         "-H", "Accept-Language: en-US,en;q=0.9",
+         "-H", "Referer: https://www.tiktok.com/",
+         url],
+        capture_output=True, text=True, timeout=45, check=True)
+    return json.loads(out.stdout)
 
 
 def collect_topic(tag, cid, cutoff):
@@ -40,7 +47,7 @@ def collect_topic(tag, cid, cutoff):
         url = f"{API}/?challenge_id={cid}&count={COUNT_PER_PAGE}&cursor={cursor}"
         try:
             j = fetch_json(url)
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+        except (subprocess.SubprocessError, json.JSONDecodeError, ValueError) as e:
             api_status = f"error: {e}"
             break
         api_status = j.get("msg", "?")
@@ -96,6 +103,7 @@ def main():
         print(f"  {tag}: {t['api_status']} | {t['count_7d']} items | {top_s}")
 
     ts = now.strftime("%Y-%m-%dT%H%M") + "Z"
+    os.makedirs("data/snapshots", exist_ok=True)
     with open(f"data/snapshots/{ts}.json", "w", encoding="utf-8") as f:
         json.dump(snap, f, ensure_ascii=False, indent=1)
     with open("data/latest.json", "w", encoding="utf-8") as f:
