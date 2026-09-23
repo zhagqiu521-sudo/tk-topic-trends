@@ -1,0 +1,23 @@
+name: probe6
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: extract music_id from linked video page
+        run: |
+          curl -s -m 25 -L "https://www.tiktok.com/@thao_denn/video/7688642866750459154" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -o page.html
+          node -e "const s=require('fs').readFileSync('page.html','utf8');const m=s.match(/\"music\":\{\"id\":(\d+)/);console.log('music_id:',m?m[1]:'NOT FOUND');const a=s.match(/\"anchors\":\[\{\"id\":\"0\",\"type\":(\d+),\"keyword\":\"([^\"]*)\"/);console.log('anchor:',a?('type '+a[1]+' kw '+a[2]):'none');"
+      - name: fetch music page and check video list
+        run: |
+          MID=$(node -e "const s=require('fs').readFileSync('page.html','utf8');const m=s.match(/\"music\":\{\"id\":(\d+)/);console.log(m?m[1]:'')")
+          echo "music_id=$MID"
+          if [ -n "$MID" ]; then
+            curl -s -m 25 -L "https://www.tiktok.com/music/x-$MID" \
+              -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+              -o music.html -w "music page http %{http_code}, %{size_download} bytes\n"
+            node -e "const s=require('fs').readFileSync('music.html','utf8');console.log('contains itemList:',s.includes('itemList'));console.log('video href count:',(s.match(/\/video\/\d+/g)||[]).length);console.log('music id in page:',s.includes('$MID'));"
+          fi
