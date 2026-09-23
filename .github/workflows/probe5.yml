@@ -1,0 +1,28 @@
+name: probe5
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: video page HTML anchor check (screenshot video)
+        run: |
+          curl -s -m 25 -L "https://www.tiktok.com/@thao_denn/video/7688642866750459154" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -H "Accept: text/html,application/xhtml+xml" -H "Accept-Language: en-US,en;q=0.9" \
+            -o page.html -w "page http %{http_code}, %{size_download} bytes\n"
+          for m in "anchors" "CapCut" "template" "video_label" "smart_color_key" "anchor"; do
+            C=$(grep -o "$m" page.html | wc -l)
+            echo "marker '$m': $C occurrences"
+          done
+          echo "--- anchors context ---"
+          grep -o '.\{60\}anchors.\{200\}' page.html | head -2
+      - name: detail API anchors on 3 more videos
+        run: |
+          for id in 7688593165959400734 7688612701819505928 7688697044701039885; do
+            curl -s -m 20 "https://www.tikwm.com/api/?url=https://www.tiktok.com/@x/video/$id" \
+              -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+              -H "Accept: application/json" \
+              | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{try{const j=JSON.parse(d);const v=j.data||{};console.log('$id','anchors:',JSON.stringify(v.anchors).slice(0,200));}catch(e){console.log('$id','fail')}})"
+            sleep 2
+          done
