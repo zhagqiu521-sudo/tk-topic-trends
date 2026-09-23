@@ -1,0 +1,20 @@
+name: probe9
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: check two user-provided videos
+        run: |
+          for U in "https://www.tiktok.com/@dg_nana56/video/7688688828864941345" "https://www.tiktok.com/@bradleyzuan67/video/7688682724189654294"; do
+            echo "====== $U"
+            curl -s -m 25 -L "$U" \
+              -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+              -o v.html -w "http %{http_code}, %{size_download} bytes\n"
+            grep -o '"anchors":\[.\{300\}' v.html | head -1
+            echo "-- 关键词 --"
+            grep -o '"anchors":\[\{"id":"[0-9]*","type":[0-9]*,"keyword":"[^"]*"' v.html | head -1
+            echo "-- 模板链接 --"
+            grep -oiE 'https:[^" ]*capcut[^" ]*' v.html | sort -u | head -3
+          done
