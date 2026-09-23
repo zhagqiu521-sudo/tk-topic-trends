@@ -12,11 +12,19 @@ import time
 from datetime import datetime, timezone, timedelta
 
 API = "https://www.tikwm.com/api/challenge/posts"
-# challenge_id values resolved & verified 2026-09-23 (see delivery doc section 8)
+# challenge_id values resolved via tikwm search (capcut trio 2026-09-23, hypic trio 2026-09-24)
 CHALLENGES = {
     "capcut": "1663935709411330",
     "capcutpioneer": "7356025154310733831",
     "capcutnow": "1684704995991554",
+    "hypic": "1667855826908166",
+    "hypiccreator": "7234524314999980059",
+    "godpic": "1657530774358033",
+}
+# product grouping consumed by the dashboard
+PRODUCTS = {
+    "capcut": ["capcut", "capcutpioneer", "capcutnow"],
+    "hypic": ["hypic", "hypiccreator", "godpic"],
 }
 PAGES_PER_TOPIC = 6       # big topics return mixed-age feeds; more pages = more fresh hits
 COUNT_PER_PAGE = 20
@@ -91,7 +99,8 @@ def main():
         print(f"snapshot for {ts} already exists — skipping (hourly dedupe)")
         return 0
     cutoff = int((now - timedelta(hours=MAX_AGE_HOURS)).timestamp())
-    snap = {"captured_at": now.isoformat(), "window_hours": MAX_AGE_HOURS, "topics": {}}
+    snap = {"captured_at": now.isoformat(), "window_hours": MAX_AGE_HOURS,
+            "products": PRODUCTS, "topics": {}}
 
     for tag, cid in CHALLENGES.items():
         print(f"[{tag}] collecting...", flush=True)
