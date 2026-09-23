@@ -92,7 +92,9 @@ def collect_topic(tag, cid, cutoff):
 
 
 def main():
-    now = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
+    now = datetime.now(timezone.utc).replace(second=0, microsecond=0)
+    # 30-minute buckets: two snapshots per hour (HH:00 and HH:30)
+    now = now.replace(minute=0 if now.minute < 30 else 30)
     ts = now.strftime("%Y-%m-%dT%H%M") + "Z"
     # six cron fires per hour; only the first one this hour actually collects
     if os.path.exists(os.path.join("data", "snapshots", ts + ".json")):
@@ -134,7 +136,7 @@ def main():
     if f"snapshots/{ts}.json" not in idx:
         idx.insert(0, f"snapshots/{ts}.json")
     with open(idx_path, "w", encoding="utf-8") as f:
-        json.dump(idx[:720], f, indent=1)  # 30 days of hourly snapshots
+        json.dump(idx[:1440], f, indent=1)  # 30 days of half-hourly snapshots
     return 0 if (ok and total > 0) else 1
 
 
