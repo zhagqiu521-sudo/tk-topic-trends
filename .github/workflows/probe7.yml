@@ -1,0 +1,43 @@
+name: probe7
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: fetch 3 pages raw (capcutnow)
+        run: |
+          for P in 0 20 40; do
+            curl -s -m 20 "https://www.tikwm.com/api/challenge/posts/?challenge_id=1684704995991554&count=20&cursor=$P" \
+              -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+              -H "Accept: application/json" -o raw_$P.json
+            sleep 2
+          done
+          wc -c raw_*.json
+      - name: group by music_id + anchors check
+        run: |
+          node -e '
+          const fs=require("fs");
+          const items=[];
+          for(const p of [0,20,40]){ try{const j=JSON.parse(fs.readFileSync("raw_"+p+".json","utf8"));items.push(...((j.data&&j.data.videos)||[]));}catch(e){console.log("page",p,"unreadable");} }
+          console.log("total items:",items.length);
+          const g={};
+          for(const v of items){ const m=v.music_info||{}; const key=String(m.id||"nomusic");
+            if(!g[key]) g[key]={n:0,mtitle:(m.title||""),samples:[],anchors:0};
+            g[key].n++; if(g[key].samples.length<2&&v.title)g[key].samples.push(v.title.slice(0,45));
+            if(v.anchors&&JSON.stringify(v.anchors)!=="[]"&&JSON.stringify(v.anchors)!=="null")g[key].anchors++; }
+          const arr=Object.entries(g).sort((a,b)=>b[1].n-a[1].n);
+          console.log("distinct music_id:",arr.length);
+          for(const [id,info] of arr.slice(0,8)) console.log("music",id,"x"+info.n,"anchors:"+info.anchors,"|声:"+info.mtitle.slice(0,35),"|",info.samples.join(" ;; "));
+          const top=arr[0];
+          if(top&&top[1].n>=3){ const v=items.find(x=>String((x.music_info||{}).id)===top[0]);
+            fs.writeFileSync("bigurl.txt","https://www.tiktok.com/@"+v.author.unique_id+"/video/"+v.video_id);
+            console.log("biggest group sample url written:",v.author.unique_id,v.video_id); }
+          '
+      - name: page-verify biggest group first video
+        run: |
+          if [ -f bigurl.txt ]; then
+            U=$(cat bigurl.txt); echo "checking $U"
+            curl -s -m 25 -L "$U" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" -o pg.html
+            node -e "const s=require('fs').readFileSync('pg.html','utf8');const a=s.match(/\"anchors\":\[\{\"id\":\"0\",\"type\":(\d+),\"keyword\":\"([^\"]*)\"/);console.log('page anchors:',a?('type '+a[1]+' keyword '+a[2]):'none/empty');"
+          fi
