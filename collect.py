@@ -25,15 +25,19 @@ from datetime import datetime, timezone, timedelta
 API = "https://www.tikwm.com/api/challenge/posts"
 CHALLENGES = {
     "capcut": "1663935709411330",
+    "capcutpioneer": "7356025154310733831",
+    "capcutnow": "1684704995991554",
     "hypic": "1667855826908166",
+    "hypiccreator": "7234524314999980059",
+    "godpic": "1657530774358033",
 }
 PRODUCTS = {
-    "capcut": {"label": "CapCut（剪映）", "tags": ["capcut"]},
-    "hypic": {"label": "Hypic（醒图）", "tags": ["hypic"]},
+    "capcut": {"label": "CapCut（剪映）", "tags": ["capcut", "capcutpioneer", "capcutnow"]},
+    "hypic": {"label": "Hypic（醒图）", "tags": ["hypic", "hypiccreator", "godpic"]},
 }
 
-PAGES_PER_TOPIC = 25      # pages scanned per topic per run (from rotating offset)
-ROTATION_STEPS = 8        # 8 distinct windows → 200 pages deep per topic across 4 hours
+PAGES_PER_TOPIC = 15      # pages scanned per topic per run (from rotating offset)
+ROTATION_STEPS = 8        # 8 windows × 15 pages = 120 pages deep per topic across 4 hours
 COUNT_PER_PAGE = 20
 MAX_AGE_HOURS = 48        # rolling registry window
 SLEEP_BETWEEN_REQ = 1.6   # tikwm: 1 request/sec per IP
