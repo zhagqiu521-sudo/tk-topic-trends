@@ -121,18 +121,67 @@ def load_json_file(path, default):
     return default
 
 
+# ---- at-rest encryption: file = [16B IV][AES-256-CBC ciphertext] ----
+def data_key():
+    k = os.environ.get("DATA_KEY", "")
+    try:
+        return bytes.fromhex(k) if k else None
+    except ValueError:
+        return None
+
+
+def enc_write(path, data_bytes, key):
+    """Write plaintext JSON as path + '.enc'. No key → plaintext passthrough."""
+    if not key:
+        with open(path, "wb") as f:
+            f.write(data_bytes)
+        return
+    iv = os.urandom(16)
+    out = subprocess.run(["openssl", "enc", "-aes-256-cbc", "-K", key.hex(), "-iv", iv.hex()],
+                         input=data_bytes, capture_output=True, check=True)
+    with open(path + ".enc", "wb") as f:
+        f.write(iv + out.stdout)
+
+
+def dec_read(path, key):
+    raw = open(path, "rb").read()
+    if not key:
+        return raw
+    out = subprocess.run(["openssl", "enc", "-d", "-aes-256-cbc", "-K", key.hex(), "-iv", raw[:16].hex()],
+                         input=raw[16:], capture_output=True, check=True)
+    return out.stdout
+
+
+def store_json(path, obj, key):
+    enc_write(path, json.dumps(obj, ensure_ascii=False, indent=1).encode("utf-8"), key)
+
+
+def read_json(path, key, default):
+    """Read path.enc (preferred) or legacy plaintext path."""
+    enc_path = path + ".enc"
+    src = enc_path if os.path.exists(enc_path) else (path if os.path.exists(path) else None)
+    if src is None:
+        return default
+    try:
+        return json.loads(dec_read(src, key).decode("utf-8"))
+    except (subprocess.SubprocessError, json.JSONDecodeError, OSError):
+        return default
+
+
 def main():
     now = datetime.now(timezone.utc).replace(second=0, microsecond=0)
     now = now.replace(minute=0 if now.minute < 30 else 30)
     ts = now.strftime("%Y-%m-%dT%H%M") + "Z"
-    if os.path.exists(os.path.join("data", "snapshots", ts + ".json")):
+    if os.path.exists(os.path.join("data", "snapshots", ts + ".json.enc")) or \
+       os.path.exists(os.path.join("data", "snapshots", ts + ".json")):
         print(f"snapshot for {ts} already exists — skipping (half-hour dedupe)")
         return 0
     cutoff = int((now - timedelta(hours=MAX_AGE_HOURS)).timestamp())
     bucket_idx = int(now.timestamp() // 1800) % ROTATION_STEPS
     start_page = bucket_idx * PAGES_PER_TOPIC
     reg_path = "data/registry.json"
-    registry = load_json_file(reg_path, {})
+    DK = data_key()
+    registry = read_json(reg_path, DK, {})
 
     snap = {"captured_at": now.isoformat(), "window_hours": MAX_AGE_HOURS,
             "products": PRODUCTS, "source": "tikwm",
@@ -205,19 +254,15 @@ def main():
         snap["topics"][tag] = {"api_status": statuses.get(tag, "success"),
                                "count_fresh": len(tag_items), "items": tag_items}
 
-    with open(f"data/snapshots/{ts}.json", "w", encoding="utf-8") as f:
-        json.dump(snap, f, ensure_ascii=False, indent=1)
-    with open("data/latest.json", "w", encoding="utf-8") as f:
-        json.dump(snap, f, ensure_ascii=False, indent=1)
-    with open(reg_path, "w", encoding="utf-8") as f:
-        json.dump(registry, f, ensure_ascii=False)
+    store_json(f"data/snapshots/{ts}.json", snap, DK)
+    store_json("data/latest.json", snap, DK)
+    store_json(reg_path, registry, DK)
 
     idx_path = "data/index.json"
-    idx = load_json_file(idx_path, [])
+    idx = read_json(idx_path, DK, [])
     if f"snapshots/{ts}.json" not in idx:
         idx.insert(0, f"snapshots/{ts}.json")
-    with open(idx_path, "w", encoding="utf-8") as f:
-        json.dump(idx[:1440], f, indent=1)
+    store_json(idx_path, idx[:1440], DK)
 
     total = len(items_all)
     ok = all(s == "success" for s in statuses.values())
