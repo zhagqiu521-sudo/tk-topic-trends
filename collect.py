@@ -92,7 +92,7 @@ def collect_topic(tag, cid, cutoff, rot_start_page):
     """Hybrid scan: always refresh freshest pages 0-4 (stats every 30 min for the
     newest cohort) + a rotating deep window of PAGES_PER_TOPIC pages (coverage)."""
     page_nos = list(range(0, 5)) + list(range(rot_start_page, rot_start_page + PAGES_PER_TOPIC))
-    videos, pages, status = [], 0, "success"
+    videos, pages, status, scanned = [], 0, "success", 0
     seen = set()
     for pno in page_nos:
         if pno in seen:
@@ -106,9 +106,10 @@ def collect_topic(tag, cid, cutoff, rot_start_page):
             status = f"error: {e}"
             break
         if j.get("code") != 0 or not j.get("data"):
-            status = j.get("msg", "unknown")
+            status = f"api: {j.get('msg', 'unknown')}"
             break
         batch = j["data"].get("videos") or []
+        scanned += len(batch)
         fresh = [v for v in batch if v.get("create_time", 0) >= cutoff]
         videos.extend(fresh)
         pages += 1
@@ -116,7 +117,7 @@ def collect_topic(tag, cid, cutoff, rot_start_page):
             break
         cursor += COUNT_PER_PAGE
         time.sleep(SLEEP_BETWEEN_REQ)
-    return videos, pages, status
+    return videos, pages, status, scanned
 
 
 def load_json_file(path, default):
@@ -151,9 +152,9 @@ def main():
     statuses = {}
     for tag, cid in CHALLENGES.items():
         print(f"[{tag}] collecting (fresh 0-4 + deep window {start_page}-{start_page + PAGES_PER_TOPIC})...", flush=True)
-        videos, pages, status = collect_topic(tag, cid, cutoff, start_page)
+        videos, pages, status, scanned = collect_topic(tag, cid, cutoff, start_page)
         statuses[tag] = status
-        print(f"  [{tag}] fresh scanned this run: {len(videos)}", flush=True)
+        print(f"  [{tag}] fresh {len(videos)} / scanned {scanned} | pages {pages} | status: {status}", flush=True)
         for v in videos:
             vid = str(v.get("video_id", ""))
             if not vid:
