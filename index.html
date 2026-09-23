@@ -160,7 +160,13 @@ async function load(){
     el.className="loading"; el.textContent="正在加载……";
     const snap = await getJSON(BASE+"/latest.json");
     cache = snap;
-    if(snap.products) products = snap.products;
+    // normalize products: accept both {tag:[...]} legacy shape and {label,tags} shape
+    if(snap.products){
+      products = {};
+      for(const [k,v] of Object.entries(snap.products)){
+        products[k] = Array.isArray(v) ? {label: k, tags: v} : {label: v.label || k, tags: v.tags || []};
+      }
+    }
     document.getElementById("snapTime").textContent = snap.captured_at.replace("T"," ").slice(0,16)+" UTC";
     render();
   }catch(e){
@@ -204,7 +210,7 @@ function render(){
   // meta line: product-level counts within window
   const cnt = {};
   for(const p of Object.keys(products)){
-    const tags = products[p].tags;
+    const tags = (products[p] && products[p].tags) || [];
     cnt[p] = allVideos().filter(v=>v.tags.some(t=>tags.includes(t)) && v.created_at >= nowTs - state.hours*3600).length;
   }
   document.getElementById("meta").innerHTML =
