@@ -17,6 +17,19 @@
              border-radius:8px; padding:6px 13px; cursor:pointer; font-size:13px; }
   .refresh:hover { border-color:var(--blue); }
 
+  /* 时区对比条 */
+  .tzbar { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center;
+           background:var(--card); border:1px solid var(--border); border-radius:10px;
+           padding:10px 16px; margin-bottom:12px; }
+  .tzbox { display:flex; align-items:center; gap:8px; }
+  .tzlabel { color:var(--dim); font-size:13px; }
+  .tzclock { font-size:15px; font-weight:600; font-variant-numeric:tabular-nums; color:var(--green); }
+  .tzbox.compare .tzclock { color:var(--blue); }
+  .tzvs { color:var(--dim); font-size:12px; }
+  .tzbar select { background:var(--card); color:var(--text); border:1px solid var(--border);
+                  border-radius:8px; padding:5px 8px; font-size:13px; cursor:pointer; }
+  .tznote { color:var(--dim); font-size:12px; margin-left:auto; }
+
   .filterbar { position:sticky; top:0; z-index:10; background:var(--bg);
                padding:10px 0 12px; border-bottom:1px solid var(--border); margin-bottom:12px; }
   .chiprow { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
@@ -70,7 +83,20 @@
 <button class="refresh" onclick="load()">刷新</button>
 <h1>TikTok 话题最新作品</h1>
 <div class="sub">CapCut（剪映）：#capcut · #capcutpioneer · #capcutnow ｜ Hypic（醒图）：#hypic · #hypiccreator · #Godpic<br>
-数据：<b id="snapTime">…</b>，每小时自动更新 · 发布时间显示北京时间，鼠标悬停可对比东京/伦敦/纽约/洛杉矶/UTC</div>
+数据：<b id="snapTime">…</b>，每小时自动更新 · 列表发布时间跟随右侧所选时区</div>
+
+<div class="tzbar">
+  <div class="tzbox">
+    <span class="tzlabel">北京时间</span>
+    <span class="tzclock" id="clockBJ">--</span>
+  </div>
+  <span class="tzvs">对比 ⇄</span>
+  <div class="tzbox compare">
+    <select id="tzSelect" title="选择后，下方列表的发布时间将切换为该时区"></select>
+    <span class="tzclock" id="clockSel">--</span>
+  </div>
+  <span class="tznote">切换时区后，下方列表的发布时间同步切换</span>
+</div>
 
 <div class="filterbar">
   <div class="chiprow">
@@ -125,8 +151,14 @@ const TAGCOL = { capcut:"#58a6ff", capcutpioneer:"#bc8cff", capcutnow:"#f0883e",
 const SORTNAMES = { created_at:"发布时间", digg:"点赞", play:"播放", collect:"收藏", share:"转发" };
 const ZONES = [ ["北京","Asia/Shanghai"], ["东京","Asia/Tokyo"], ["伦敦","Europe/London"],
                 ["纽约","America/New_York"], ["洛杉矶","America/Los_Angeles"], ["UTC","UTC"] ];
+const TZ_OPTIONS = [ ["纽约","America/New_York"], ["洛杉矶","America/Los_Angeles"], ["伦敦","Europe/London"],
+                     ["巴黎","Europe/Paris"], ["莫斯科","Europe/Moscow"], ["迪拜","Asia/Dubai"],
+                     ["东京","Asia/Tokyo"], ["首尔","Asia/Seoul"], ["新加坡","Asia/Singapore"],
+                     ["悉尼","Australia/Sydney"], ["北京","Asia/Shanghai"], ["UTC","UTC"] ];
 const PAGE_SIZE = 50;
 const state = { product:"all", sortKey:"created_at", sortDir:"desc", hours:48, page:1 };
+let viewTz = localStorage.getItem("viewTz") || "America/New_York";
+let viewTzName = "纽约";
 
 const fmt = n => n>=10000 ? (n/10000).toFixed(1)+"w" : n>=1000 ? (n/1000).toFixed(1)+"k" : String(n);
 const ago = ts => {
@@ -253,8 +285,7 @@ function render(){
       </div>
       <div class="vtime" title="${escapeHtml(tzTooltip(v.created_at))}">
         <div class="rel">${ago(v.created_at)}</div>
-        <div class="bj">北京 ${tzTime(v.created_at,"Asia/Shanghai")}</div>
-        <div class="ny">纽约 ${tzTime(v.created_at,"America/New_York")}</div>
+        <div class="bj">${viewTzName} ${tzTime(v.created_at, viewTz)}</div>
       </div>
     </a>`;
   }).join("");
@@ -292,6 +323,36 @@ document.getElementById("nextBtn").addEventListener("click",()=>{ state.page++; 
 const toTop=document.getElementById("toTop");
 window.addEventListener("scroll",()=>{ toTop.classList.toggle("show", window.scrollY>400); });
 toTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+// timezone compare bar: Beijing fixed left, selectable zone right; list follows selection
+const tzSelect=document.getElementById("tzSelect");
+for(const [name,tz] of TZ_OPTIONS){
+  const o=document.createElement("option");
+  o.value=tz; o.textContent=name+" "+tz;
+  tzSelect.appendChild(o);
+}
+if(!TZ_OPTIONS.some(([n,t])=>t===viewTz)) viewTz="America/New_York";
+tzSelect.value=viewTz;
+viewTzName=(TZ_OPTIONS.find(([n,t])=>t===viewTz)||[""])[0];
+tzSelect.addEventListener("change",()=>{
+  viewTz=tzSelect.value;
+  viewTzName=(TZ_OPTIONS.find(([n,t])=>t===viewTz)||[""])[0];
+  localStorage.setItem("viewTz",viewTz);
+  tickClocks();
+  render();
+});
+const clockCache={};
+function clock(tz){
+  if(!clockCache[tz]) clockCache[tz]=new Intl.DateTimeFormat("zh-CN",
+    {timeZone:tz,month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});
+  return clockCache[tz].format(new Date());
+}
+function tickClocks(){
+  document.getElementById("clockBJ").textContent=clock("Asia/Shanghai");
+  document.getElementById("clockSel").textContent=clock(viewTz);
+}
+tickClocks();
+setInterval(tickClocks,1000);
 
 load();
 setInterval(load, 10*60*1000);
