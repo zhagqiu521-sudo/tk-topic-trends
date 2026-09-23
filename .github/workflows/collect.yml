@@ -1,0 +1,29 @@
+name: collect
+on:
+  workflow_dispatch: {}   # manual trigger (first-run test)
+  schedule:
+    - cron: "0 * * * *"   # hourly, UTC
+permissions:
+  contents: write         # allow committing data back
+concurrency:
+  group: collect
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run collector
+        run: python3 collect.py
+      - name: Commit snapshot
+        run: |
+          git config user.name  "collector-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
