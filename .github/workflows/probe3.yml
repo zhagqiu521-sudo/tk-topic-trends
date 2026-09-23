@@ -1,0 +1,19 @@
+name: probe3
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: search baseline (default order)
+        run: |
+          curl -s -m 20 "https://www.tikwm.com/api/feed/search?keywords=hypic&count=15" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -H "Accept: application/json" -H "Referer: https://www.tiktok.com/" \
+            | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{try{const j=JSON.parse(d);const v=(j.data&&j.data.videos)||[];console.log('BASE count:',v.length);console.log('BASE create_time order:',v.map(x=>x.create_time).join(','));}catch(e){console.log('BASE parse fail:',d.slice(0,150))}})"
+      - name: search with sort_type=1 publish_time=1 (newest + 24h)
+        run: |
+          curl -s -m 20 "https://www.tikwm.com/api/feed/search?keywords=hypic&count=15&sort_type=1&publish_time=1" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -H "Accept: application/json" -H "Referer: https://www.tiktok.com/" \
+            | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{try{const j=JSON.parse(d);const v=(j.data&&j.data.videos)||[];console.log('SORT count:',v.length);console.log('SORT create_time order:',v.map(x=>x.create_time).join(','));}catch(e){console.log('SORT parse fail:',d.slice(0,150))}})"
