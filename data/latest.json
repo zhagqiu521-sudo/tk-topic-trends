@@ -1,5 +1,5 @@
 {
- "captured_at": "2026-09-23T22:30:00+00:00",
+ "captured_at": "2026-09-23T22:58:13.521002Z",
  "window_hours": 48,
  "products": {
   "capcut": {
@@ -19,15 +19,908 @@
    ]
   }
  },
- "rotation": {
-  "start_page": 250,
-  "steps": 8
- },
+ "source": "tikhub-backfill",
  "topics": {
   "capcut": {
    "api_status": "success",
-   "count_fresh": 3,
+   "count_fresh": 63,
    "items": [
+    {
+     "video_id": "7688868208350072086",
+     "author": "edit_videos_29",
+     "title": "#CapCut #motivation #viral #trending #fyp fyp fyyyyyyyyyp",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 2,
+     "created_at": 1790204150,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688868041244839201",
+     "author": "abdul.samad12343",
+     "title": "#CapCut  ❤️‍🩹🥹",
+     "digg": 2,
+     "collect": 0,
+     "comment": 1,
+     "share": 0,
+     "play": 5,
+     "created_at": 1790204105,
+     "linked": true,
+     "anchor": "ARG 388",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688867981941738774",
+     "author": "paula_w1982",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 2,
+     "created_at": 1790204101,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688867842963295510",
+     "author": "priv.s.f",
+     "title": "#CapCut ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 9,
+     "created_at": 1790204073,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688867692975082774",
+     "author": "zara..6728",
+     "title": "#CapCut ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 4,
+     "created_at": 1790204042,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688867626834988320",
+     "author": "jani__raja227",
+     "title": "#CapCut ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 1,
+     "share": 0,
+     "play": 10,
+     "created_at": 1790204007,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688867540604390678",
+     "author": "ladysham",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 6,
+     "created_at": 1790203998,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688867521377799447",
+     "author": "r.begum584",
+     "title": "#CapCut #foryoupage😔😔😔😔 ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 5,
+     "created_at": 1790203998,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688867292360281366",
+     "author": "edit_videos_29",
+     "title": "#CapCut #gainfollwers #fyp #trending #newticktocker fyp fyp fyyyyyyyyyy fy fyyyyyypppp ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 4,
+     "created_at": 1790203944,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688867177100807447",
+     "author": "sophdavis_x",
+     "title": "Aw, Bonnie!🥺 #fyp #foryou #trending #dog #capcut ",
+     "digg": 3,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 33,
+     "created_at": 1790203913,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866933122288929",
+     "author": "nat60726",
+     "title": "#CapCut #ex #peaceful #glowupchallenge #fypviralシ ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 13,
+     "created_at": 1790203849,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866929242557729",
+     "author": "natyevelyn4",
+     "title": "#CapCut #fyp ",
+     "digg": 11,
+     "collect": 1,
+     "comment": 2,
+     "share": 35,
+     "play": 71,
+     "created_at": 1790203848,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866614296743190",
+     "author": "faith___elise45",
+     "title": "Mwahhh 😚 #trend #fyp #fpyシ #CapCut #draft ",
+     "digg": 5,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 33,
+     "created_at": 1790203781,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866525645720854",
+     "author": "rxzbeats",
+     "title": "Taken down from YouTube! Everyone save the song and enjoy this track on me! For free much love to everyone ❤️ #fyp #punj",
+     "digg": 2,
+     "collect": 0,
+     "comment": 4,
+     "share": 1,
+     "play": 45,
+     "created_at": 1790203762,
+     "linked": false,
+     "anchor": "",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866362218777878",
+     "author": "abdul.moeez5733",
+     "title": "#CapCut ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 11,
+     "created_at": 1790203721,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866301535685910",
+     "author": "chronicallyjj",
+     "title": "#CapCut ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 47,
+     "created_at": 1790203715,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866280622853398",
+     "author": "illusion_artworks",
+     "title": "#fyp #3dposters#customers#thankyou#capcut ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 2,
+     "share": 0,
+     "play": 40,
+     "created_at": 1790203700,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866214684200214",
+     "author": "tinasanna1",
+     "title": "#CapCut  #fyp  #true ❤️🩷",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 3,
+     "created_at": 1790203691,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866241045368096",
+     "author": "fatimanheili",
+     "title": "#CapCut ",
+     "digg": 7,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 16,
+     "created_at": 1790203685,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866153359281430",
+     "author": "kim__pt",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 1,
+     "play": 1,
+     "created_at": 1790203672,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688866053409000726",
+     "author": "angela.gomes1997",
+     "title": "😘💋 #capcut #foryou ",
+     "digg": 4,
+     "collect": 1,
+     "comment": 2,
+     "share": 1,
+     "play": 77,
+     "created_at": 1790203649,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865990179867936",
+     "author": "emmierose123",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 0,
+     "created_at": 1790203623,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865926082497814",
+     "author": "offlinedafinest4",
+     "title": "#CapCut #hmu",
+     "digg": 6,
+     "collect": 1,
+     "comment": 2,
+     "share": 3,
+     "play": 37,
+     "created_at": 1790203617,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865841277832481",
+     "author": "doreen.ingham0",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 4,
+     "created_at": 1790203596,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865776903703840",
+     "author": "reneeespamz",
+     "title": "#CapCut #fyp #xyzabca #bi",
+     "digg": 8,
+     "collect": 2,
+     "comment": 0,
+     "share": 1,
+     "play": 27,
+     "created_at": 1790203578,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865692589788438",
+     "author": "baname212",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 5,
+     "created_at": 1790203567,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865696272452897",
+     "author": "doreen.ingham0",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 37,
+     "created_at": 1790203565,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865676106239250",
+     "author": "d.kyerewaaarkaah",
+     "title": "#fyp #viral #ghanatiktok🇬🇭 #nigeriantiktok🇳🇬 #CapCut ",
+     "digg": 21,
+     "collect": 2,
+     "comment": 4,
+     "share": 0,
+     "play": 46,
+     "created_at": 1790203562,
+     "linked": false,
+     "anchor": "",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865655277260039",
+     "author": "abdulzango0",
+     "title": "#CapCut ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 8,
+     "created_at": 1790203548,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865628551204129",
+     "author": "wardahamra21",
+     "title": "#CapCut ",
+     "digg": 10,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 71,
+     "created_at": 1790203546,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865580027415810",
+     "author": "eeema56",
+     "title": "#CapCut 😈😈😈",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 23,
+     "created_at": 1790203544,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865568430198039",
+     "author": "zojaumar",
+     "title": "#CapCut #Alhamdullilah #blessings #fyp#goviral",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 12,
+     "created_at": 1790203540,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865492098092290",
+     "author": "sonya.dean546",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 2,
+     "created_at": 1790203518,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865426511629600",
+     "author": "layla.somber",
+     "title": "#CapCut #eyesonsome1 ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 6,
+     "created_at": 1790203506,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865418835987735",
+     "author": "kajalpaul8148",
+     "title": "18 pro max 😎#CapCut #explore #tiktoktrending #viral ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 1,
+     "play": 39,
+     "created_at": 1790203503,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865442621885728",
+     "author": "islamh12",
+     "title": "#CapCut ",
+     "digg": 20,
+     "collect": 7,
+     "comment": 8,
+     "share": 1,
+     "play": 70,
+     "created_at": 1790203499,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865366201666848",
+     "author": "doreen.ingham0",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 5,
+     "created_at": 1790203485,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865303727459616",
+     "author": "fatimanheili",
+     "title": "#CapCut ",
+     "digg": 3,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 24,
+     "created_at": 1790203470,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865236320898336",
+     "author": "binteirfan786",
+     "title": "#CapCut ",
+     "digg": 7,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 90,
+     "created_at": 1790203454,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865150912187670",
+     "author": "reina.pt",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 73,
+     "created_at": 1790203439,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865172974226721",
+     "author": "atlasissoocoolo",
+     "title": "#CapCut #vent #reatable #fypppp #fypppp ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 43,
+     "created_at": 1790203439,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688865028077882646",
+     "author": "bianca_maria282",
+     "title": "#CapCut #bogdandelaploiesti #fyp ",
+     "digg": 9,
+     "collect": 1,
+     "comment": 8,
+     "share": 59,
+     "play": 57,
+     "created_at": 1790203416,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864976156544289",
+     "author": "myzsecrets",
+     "title": "#CapCut bored#secretaccount ",
+     "digg": 22,
+     "collect": 1,
+     "comment": 3,
+     "share": 0,
+     "play": 168,
+     "created_at": 1790203388,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864961015074069",
+     "author": "ngwuynhanh23",
+     "title": "#CapCut #fyp ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 18,
+     "created_at": 1790203385,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864862277078294",
+     "author": "haseeb27437",
+     "title": "#CapCut @iGottnorizz @black VASCO @سيد #tiktok don’t under review my videos",
+     "digg": 5,
+     "collect": 0,
+     "comment": 1,
+     "share": 3,
+     "play": 80,
+     "created_at": 1790203376,
+     "linked": true,
+     "anchor": "CapCut · Simply AutoCut",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864863233379592",
+     "author": "mayur.margamwar",
+     "title": "#CapCut ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 5,
+     "created_at": 1790203369,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864762746146070",
+     "author": "ay1_certiii",
+     "title": "Bangarnnnnn💯 #fyp #blowup #trend #capcut ",
+     "digg": 12,
+     "collect": 0,
+     "comment": 1,
+     "share": 0,
+     "play": 64,
+     "created_at": 1790203351,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864730219416865",
+     "author": "melisss9312",
+     "title": "sorry not sorry  #CapCut ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 12,
+     "created_at": 1790203343,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864677979327766",
+     "author": "mamitowapapito0",
+     "title": "#CapCut ",
+     "digg": 0,
+     "collect": 1,
+     "comment": 0,
+     "share": 1,
+     "play": 19,
+     "created_at": 1790203332,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864699412286722",
+     "author": "larper594",
+     "title": "halloween is so soon.    #trending #blowup #famous #fyp #CapCut ",
+     "digg": 3,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 11,
+     "created_at": 1790203331,
+     "linked": false,
+     "anchor": "",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864711449906464",
+     "author": "oufc08",
+     "title": "#CapCut #Oxfordunited #football #oxfordunited #oufc ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 80,
+     "created_at": 1790203329,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864667816463648",
+     "author": "qmmughal3",
+     "title": "#CapCut #foryoupage❤️❤️ #viralvideos #2026 #explore ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 33,
+     "created_at": 1790203318,
+     "linked": true,
+     "anchor": "Glasgow City Centre Oswald Street | CapCut · Photo templates",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864663953558816",
+     "author": "gungun7009",
+     "title": "#CapCut ",
+     "digg": 3,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 38,
+     "created_at": 1790203317,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864560819834134",
+     "author": "mystery00194",
+     "title": "#Meme #MemeCut #CapCut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 29,
+     "created_at": 1790203312,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864591295663392",
+     "author": "butterflybeauty_73",
+     "title": "#CapCut ",
+     "digg": 5,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 73,
+     "created_at": 1790203301,
+     "linked": false,
+     "anchor": "",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688864122821266710",
+     "author": "moolkic",
+     "title": "#CapCut #fyp #targetaudience #dps #MentalHealth ",
+     "digg": 16,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 87,
+     "created_at": 1790203199,
+     "linked": false,
+     "anchor": "",
+     "topics": [
+      "capcut"
+     ]
+    },
     {
      "video_id": "7688826603425647902",
      "author": "uelly_ferra_777",
@@ -61,6 +954,22 @@
      ]
     },
     {
+     "video_id": "7688788913221111062",
+     "author": "gtk.dinaa",
+     "title": "#CapCut #capcutedit #edit #trend #foryou  ",
+     "digg": 175,
+     "collect": 3,
+     "comment": 46,
+     "share": 9,
+     "play": 2001,
+     "created_at": 1790185679,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
      "video_id": "7688513355237051678",
      "author": "dflores61013",
      "title": "#narutoedit #fypシ #edit #capcut ",
@@ -75,12 +984,60 @@
      "topics": [
       "capcut"
      ]
+    },
+    {
+     "video_id": "7688444987482098966",
+     "author": "idivn7",
+     "title": "#viral #clean #xyzcba #CapCut ",
+     "digg": 124,
+     "collect": 2,
+     "comment": 3,
+     "share": 4,
+     "play": 1782,
+     "created_at": 1790105602,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688377491379064086",
+     "author": "lail0ma",
+     "title": "#CapCut #fyp #trend #viralvideos ",
+     "digg": 16097,
+     "collect": 1873,
+     "comment": 517,
+     "share": 2011,
+     "play": 207052,
+     "created_at": 1790089890,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
+    },
+    {
+     "video_id": "7688350804931136775",
+     "author": "us_ahmed5",
+     "title": "#trending #CapCut #tiktok ",
+     "digg": 7569,
+     "collect": 199,
+     "comment": 119,
+     "share": 17,
+     "play": 321214,
+     "created_at": 1790083673,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcut"
+     ]
     }
    ]
   },
   "capcutpioneer": {
    "api_status": "success",
-   "count_fresh": 66,
+   "count_fresh": 31,
    "items": [
     {
      "video_id": "7688810339311357192",
@@ -158,6 +1115,22 @@
      "created_at": 1790185231,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutpioneer"
+     ]
+    },
+    {
+     "video_id": "7688771120744418582",
+     "author": "capcutaistudio",
+     "title": "#CapCut #aidancefilter #aibaby #capcutpioneer #pioneertemplate ",
+     "digg": 63,
+     "collect": 9,
+     "comment": 2,
+     "share": 21,
+     "play": 2042,
+     "created_at": 1790181537,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutpioneer"
      ]
@@ -339,6 +1312,22 @@
      ]
     },
     {
+     "video_id": "7688670587031457031",
+     "author": "jzj12p5",
+     "title": "#capcut #capcutpioneer The template in the lower left corner is ready. Upload a photo to make the same video. La plantil",
+     "digg": 1453,
+     "collect": 120,
+     "comment": 10,
+     "share": 426,
+     "play": 44661,
+     "created_at": 1790158128,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutpioneer"
+     ]
+    },
+    {
      "video_id": "7688661958043766049",
      "author": "user1979083965911",
      "title": "#capcut #capcutpioneer \n ⚡ Modèle de danse TikTok King Nasir ultra simple\n 🔥 Fais exploser ton compte avec cette chorégr",
@@ -436,6 +1425,22 @@
      ]
     },
     {
+     "video_id": "7688411730644438302",
+     "author": "kzfwdaajgghj",
+     "title": "👆 👆Tap \"CapCut · Make the same video\"Wait until your baby starts dancing... #capcut #capcutpioneer #capcutmotivacional #",
+     "digg": 8377,
+     "collect": 1075,
+     "comment": 105,
+     "share": 1769,
+     "play": 408741,
+     "created_at": 1790097880,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutpioneer"
+     ]
+    },
+    {
      "video_id": "7688409133598510353",
      "author": "ary_fadillah05",
      "title": "#CapCut Trend | Asik gini | #capcut #capcutpioneer #pioneertemplate#capcut ",
@@ -463,6 +1468,38 @@
      "created_at": 1790094734,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutpioneer"
+     ]
+    },
+    {
+     "video_id": "7688378732054072606",
+     "author": "geigeyebz2o",
+     "title": "👆 💖Tap \"CapCut · Make the same video\"Wait until your baby starts dancing... #capcut #capcutpioneer #pioneertemplate #aib",
+     "digg": 7006,
+     "collect": 629,
+     "comment": 102,
+     "share": 3304,
+     "play": 255393,
+     "created_at": 1790090204,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutpioneer"
+     ]
+    },
+    {
+     "video_id": "7688377693137620246",
+     "author": "ccutdaily0",
+     "title": "Try this filter ⬆️ #CapCut #backtoit #capcut #pioneertemplate #capcutpioneer ",
+     "digg": 523,
+     "collect": 30,
+     "comment": 2,
+     "share": 251,
+     "play": 11329,
+     "created_at": 1790089934,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutpioneer"
      ]
@@ -498,653 +1535,29 @@
      "topics": [
       "capcutpioneer"
      ]
-    },
-    {
-     "video_id": "7688490334866754830",
-     "author": "ariqmzahoor",
-     "title": "👆 💖Tap \"CapCut · Make the same video\"Wait until your baby starts dancing... #capcut #capcutpioneer #pioneertemplate #aib",
-     "digg": 44,
-     "collect": 4,
-     "comment": 1,
-     "share": 12,
-     "play": 667,
-     "created_at": 1784802100,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688715282692541710",
-     "author": "gfey753678",
-     "title": "#capcut #capcutpioneer #pioneertemplate ",
-     "digg": 1,
-     "collect": 0,
-     "comment": 0,
-     "share": 0,
-     "play": 82,
-     "created_at": 1783232552,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688631949874695457",
-     "author": ".capcut.edit2",
-     "title": "#fypシ゚viral #CapCut #capcutpioneer #pioneertemplate #Edittemplate ",
-     "digg": 587,
-     "collect": 112,
-     "comment": 19,
-     "share": 7,
-     "play": 5029,
-     "created_at": 1778872876,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688721520738290966",
-     "author": "ayeshaa5525",
-     "title": "New viral Templet 🦋☠️#capcut #capcutpioneer #pioneertemplate ",
-     "digg": 3012,
-     "collect": 202,
-     "comment": 83,
-     "share": 38,
-     "play": 39205,
-     "created_at": 1776864632,
-     "linked": true,
-     "anchor": "CapCut · Change video speed",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688638697180384534",
-     "author": "boy23snzeditz",
-     "title": "#capcut #trending #pioneertemplate #capcutpioneer #viraltemplate ",
-     "digg": 76,
-     "collect": 9,
-     "comment": 2,
-     "share": 2,
-     "play": 1219,
-     "created_at": 1776243812,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688139432657997087",
-     "author": "phmhuyn404",
-     "title": "👆 💖Tap \"CapCut · Make the same video\"Wait until your baby starts dancing... #capcut #capcutpioneer #pioneertemplate #aib",
-     "digg": 2206,
-     "collect": 181,
-     "comment": 11,
-     "share": 355,
-     "play": 140128,
-     "created_at": 1775490429,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688638465910639885",
-     "author": "mmmh4168",
-     "title": "New Template ⛄🔥#capcut #capcutpioneer #pioneertemplate #viral #foryou ",
-     "digg": 590,
-     "collect": 29,
-     "comment": 14,
-     "share": 8,
-     "play": 7940,
-     "created_at": 1773747479,
-     "linked": false,
-     "anchor": "",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688711677327592725",
-     "author": "jtemplate001",
-     "title": "#Biscoitocut #CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 66,
-     "collect": 7,
-     "comment": 3,
-     "share": 0,
-     "play": 420,
-     "created_at": 1770661997,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688389483280026893",
-     "author": "lxxxxxx01",
-     "title": "gg fkn ez 🙄🙄🙄#capcut #capcutpioneer #pioneertemplate #fypシ #viral ",
-     "digg": 79,
-     "collect": 22,
-     "comment": 22,
-     "share": 66,
-     "play": 4049,
-     "created_at": 1770146123,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688300764674084117",
-     "author": "swallow20011",
-     "title": "Plantilla de caricatura estilo muñeca, envía un beso de corazón 💖 ¡La tendencia viral que todo el mundo usa! Convierte t",
-     "digg": 251,
-     "collect": 117,
-     "comment": 8,
-     "share": 822,
-     "play": 20736,
-     "created_at": 1768489296,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688492530211523857",
-     "author": "_echolyrics",
-     "title": "🚨👆 Tap \"CapCut\" to use this template with your photos / videos 🎵 Rise Slow Espanhol #CapCut #pioneertemplate #capcutpion",
-     "digg": 1570,
-     "collect": 167,
-     "comment": 22,
-     "share": 180,
-     "play": 38271,
-     "created_at": 1768258585,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688771775009770759",
-     "author": "mr.jonn_",
-     "title": "Plantilla de CapCut 📍  #capcutpioneer #pioneertemplate #capcut #plantilladecapcut   ",
-     "digg": 134,
-     "collect": 18,
-     "comment": 0,
-     "share": 0,
-     "play": 945,
-     "created_at": 1767288221,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688710250895133983",
-     "author": "capcut_themes_",
-     "title": "#Biscoitocut #pioneertemplate #capcutpioneer #fyp #viral ",
-     "digg": 37,
-     "collect": 9,
-     "comment": 1,
-     "share": 1,
-     "play": 422,
-     "created_at": 1757841014,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688718881866779922",
-     "author": "josuue.templates",
-     "title": "#capcut #capcutpioneer #pioneertemplate #fyyyyyyyyyyyyyyyy @🦇🦇 ",
-     "digg": 119,
-     "collect": 34,
-     "comment": 6,
-     "share": 6,
-     "play": 1525,
-     "created_at": 1748782547,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688353163233021205",
-     "author": "mz41musiccapcut07",
-     "title": "#CapCut  #myanmarsong #capcut #capcutpioneer #pioneertemplate ",
-     "digg": 279,
-     "collect": 30,
-     "comment": 3,
-     "share": 11,
-     "play": 3666,
-     "created_at": 1744281473,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688804877316656386",
-     "author": "capcut__791",
-     "title": "New Template 🔥 ☠️#capcut #capcutpioneer #pioneertemplate #viral #foryou @capcut_modelos e edits ",
-     "digg": 65,
-     "collect": 20,
-     "comment": 2,
-     "share": 1,
-     "play": 725,
-     "created_at": 1741295459,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688768979330026765",
-     "author": "la_vida_en_frases1",
-     "title": "#CapCut #capcutpioneer #pioneertemplates ",
-     "digg": 14,
-     "collect": 2,
-     "comment": 0,
-     "share": 8,
-     "play": 417,
-     "created_at": 1732889197,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688732210366532882",
-     "author": "im.putraa__",
-     "title": "#CapCut #pioneertemplate #capcutpioneer ",
-     "digg": 946,
-     "collect": 319,
-     "comment": 0,
-     "share": 40,
-     "play": 19333,
-     "created_at": 1719226498,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688693394423516424",
-     "author": "im.putraa__",
-     "title": "#CapCut #pioneertemplate #capcutpioneer ",
-     "digg": 1421,
-     "collect": 407,
-     "comment": 1,
-     "share": 58,
-     "play": 23926,
-     "created_at": 1719226498,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688733126729796894",
-     "author": "rasooli_templates",
-     "title": "#CapCut #capcut #capcutpioneer #pioneertemplate #capcutworldLa ",
-     "digg": 3,
-     "collect": 1,
-     "comment": 0,
-     "share": 0,
-     "play": 137,
-     "created_at": 1714551110,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688763760869149959",
-     "author": "forrozindokariri",
-     "title": "Ela vale mais que diamante #CutTok #capcut #capcutpioneer #pioneertemplate ",
-     "digg": 967,
-     "collect": 196,
-     "comment": 1,
-     "share": 83,
-     "play": 19068,
-     "created_at": 1708559521,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688591573696761121",
-     "author": "cap.cut.trends.vorlagen",
-     "title": "Try This New Capcut Template ! #capcut #capcutpioneer #pioneertemplate #fyp #new ",
-     "digg": 65,
-     "collect": 5,
-     "comment": 3,
-     "share": 0,
-     "play": 689,
-     "created_at": 1696143352,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688554660193488135",
-     "author": "anoushay_8",
-     "title": "#😩🙌❤️🥀🔥foryou_viral🖤💯 #anoushay_8 #capcut #capcutpioneer #pioneertemplate ",
-     "digg": 611,
-     "collect": 33,
-     "comment": 55,
-     "share": 23,
-     "play": 2657,
-     "created_at": 1671349150,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688735996548058376",
-     "author": "anoushay_8",
-     "title": "#CapCut #anoushay_8 #capcut #capcutpioneer #pioneertemplate ",
-     "digg": 311,
-     "collect": 6,
-     "comment": 32,
-     "share": 1,
-     "play": 961,
-     "created_at": 1671349150,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688419007459773710",
-     "author": "rora_dd",
-     "title": "Want to try the Hotel Lobby trend with anyone you want? 🎤🔥 Turn two photos into an AI duo performance in the iconic oran",
-     "digg": 1262,
-     "collect": 362,
-     "comment": 17,
-     "share": 1979,
-     "play": 91929,
-     "created_at": 1655913450,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688738449347677460",
-     "author": "liiberandomodelos",
-     "title": "#CapCut #capcutpioneer #pioneertemplate #fyp #viralvideo ",
-     "digg": 76,
-     "collect": 12,
-     "comment": 1,
-     "share": 2,
-     "play": 1307,
-     "created_at": 1652988548,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688542450608033037",
-     "author": "canciones_nice",
-     "title": "#CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 2222,
-     "collect": 570,
-     "comment": 6,
-     "share": 353,
-     "play": 49202,
-     "created_at": 1641083084,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688197497180720398",
-     "author": "5y_7..7_v7",
-     "title": "👆👆Tap CapCut to create the same video with this template.✨ #capcut #capcutpioneer#capcutnow اضغط عل CapCut لإنشاء فيديو ",
-     "digg": 499,
-     "collect": 36,
-     "comment": 6,
-     "share": 316,
-     "play": 17872,
-     "created_at": 1637303738,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688417750305213717",
-     "author": "hamer16template",
-     "title": "#CapCut #pioneertemplate #capcutpioneer ",
-     "digg": 70423,
-     "collect": 7886,
-     "comment": 617,
-     "share": 2253,
-     "play": 742794,
-     "created_at": 1621853541,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688717025501318452",
-     "author": "maaf_gamon02",
-     "title": "#CapCut #capcutpioneer #pioneertemplate #fypシ ",
-     "digg": 204,
-     "collect": 38,
-     "comment": 1,
-     "share": 46,
-     "play": 4344,
-     "created_at": 1620184284,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688367106873642247",
-     "author": "userthuhoai81",
-     "title": "#CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 103,
-     "collect": 8,
-     "comment": 7,
-     "share": 14,
-     "play": 1615,
-     "created_at": 1611816090,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688755072934743304",
-     "author": "userthuhoai81",
-     "title": "#CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 76,
-     "collect": 8,
-     "comment": 6,
-     "share": 3,
-     "play": 2018,
-     "created_at": 1611816090,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688730900451888391",
-     "author": "userthuhoai81",
-     "title": "#CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 149,
-     "collect": 14,
-     "comment": 4,
-     "share": 11,
-     "play": 2541,
-     "created_at": 1611816090,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688734430185196807",
-     "author": "userthuhoai81",
-     "title": "#CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 146,
-     "collect": 14,
-     "comment": 7,
-     "share": 11,
-     "play": 4009,
-     "created_at": 1611816090,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688630940943404295",
-     "author": "userthuhoai81",
-     "title": "#CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 168,
-     "collect": 27,
-     "comment": 8,
-     "share": 29,
-     "play": 3430,
-     "created_at": 1611816090,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688502416190328082",
-     "author": "userthuhoai81",
-     "title": "#CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 128,
-     "collect": 12,
-     "comment": 15,
-     "share": 32,
-     "play": 1408,
-     "created_at": 1611816090,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688528505881005333",
-     "author": "viraltemplatesz",
-     "title": "#CapCut #pioneertemplate #capcutpioneer #trend #",
-     "digg": 3574,
-     "collect": 963,
-     "comment": 30,
-     "share": 116,
-     "play": 68852,
-     "created_at": 1609611423,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688745066143436052",
-     "author": "viraltemplatesz",
-     "title": "#CapCut #pioneertemplate #capcutpioneer #trend #",
-     "digg": 63,
-     "collect": 19,
-     "comment": 1,
-     "share": 7,
-     "play": 1139,
-     "created_at": 1609611423,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688353604784246036",
-     "author": "amarbukanamer22",
-     "title": "#CapCut #capcutpioneer #pioneertemplate ",
-     "digg": 2742,
-     "collect": 503,
-     "comment": 6,
-     "share": 51,
-     "play": 36978,
-     "created_at": 1608396951,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
-    },
-    {
-     "video_id": "7688562774984723733",
-     "author": "olwen010",
-     "title": "tryin’ to keep up wit this 🎵 before it dies out... 🎶Tag someone who’d nail this wit u👇#CapCut #fyp #capcutpioneer #pione",
-     "digg": 1,
-     "collect": 0,
-     "comment": 1,
-     "share": 0,
-     "play": 14,
-     "created_at": 1521625501,
-     "linked": true,
-     "anchor": "CapCut · Try this template",
-     "topics": [
-      "capcutpioneer"
-     ]
     }
    ]
   },
   "capcutnow": {
    "api_status": "success",
-   "count_fresh": 168,
+   "count_fresh": 253,
    "items": [
+    {
+     "video_id": "7688818091274276118",
+     "author": "griffinmung5",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 1,
+     "play": 169,
+     "created_at": 1790192473,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
     {
      "video_id": "7688805749874511111",
      "author": "yiyi_17177",
@@ -1242,6 +1655,22 @@
      ]
     },
     {
+     "video_id": "7688780921721441558",
+     "author": "halliemak56",
+     "title": "Try this filter here⬆️  Try not to laugh   😅😂 satu squad humornya receh semua #syifdam  #hiburan  #capcutpioneer #capcut",
+     "digg": 87,
+     "collect": 25,
+     "comment": 3,
+     "share": 50,
+     "play": 12906,
+     "created_at": 1790183819,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688774398161046804",
      "author": "pattytyler8865v8ae",
      "title": "Try this filter here ⬆️ celebrity filter effect  🔥 This filter tells which celebrity you look alike ✨ how to make the ce",
@@ -1322,6 +1751,54 @@
      ]
     },
     {
+     "video_id": "7688767145035042061",
+     "author": "vuthyhnh8610",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 21,
+     "created_at": 1790180616,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688765365584792845",
+     "author": "m93rk7opnw3jlkupk",
+     "title": "So cool #capcut #capcutpioneer #capcutnow ",
+     "digg": 3,
+     "collect": 3,
+     "comment": 1,
+     "share": 0,
+     "play": 10,
+     "created_at": 1790180206,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688760840400489750",
+     "author": "jennywallace296",
+     "title": "#capcut #capcutpioneer #capcutnow       تبا لزمن أصبح الحيوان رمزاً للوفاء والبشر رمزاً للحقاره\n  الفيلم يجنن ويكسر القل",
+     "digg": 1033,
+     "collect": 102,
+     "comment": 17,
+     "share": 334,
+     "play": 40757,
+     "created_at": 1790179141,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688759693883280647",
      "author": "vongoctran37",
      "title": "#capcut #capcutpioneer #capcutnow  ✨ Have you ever imagined turning your normal portrait into a deeply emotional “cry fa",
@@ -1333,6 +1810,22 @@
      "created_at": 1790178875,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688759188234784022",
+     "author": "loganbarlow32",
+     "title": "#capcut #capcutpioneer #capcutnow       تبا لزمن أصبح الحيوان رمزاً للوفاء والبشر رمزاً للحقاره\n  الفيلم يجنن ويكسر القل",
+     "digg": 618,
+     "collect": 61,
+     "comment": 20,
+     "share": 139,
+     "play": 22865,
+     "created_at": 1790178755,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -1386,6 +1879,38 @@
      ]
     },
     {
+     "video_id": "7688756117798653206",
+     "author": "halliemak56",
+     "title": "Try this filter here⬆️  Try not to laugh   😅😂 satu squad humornya receh semua #syifdam  #hiburan  #capcutpioneer #capcut",
+     "digg": 42,
+     "collect": 3,
+     "comment": 2,
+     "share": 18,
+     "play": 6269,
+     "created_at": 1790178040,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688755642387025182",
+     "author": "happykafvxy",
+     "title": "#capcutpioneer #capcutnow #capcut #capcutpioneer #capcutnow ",
+     "digg": 3,
+     "collect": 2,
+     "comment": 0,
+     "share": 0,
+     "play": 296,
+     "created_at": 1790177937,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688755147861757205",
      "author": "user2974777569040",
      "title": "#capcut #capcutpioneer #capcutnow Xu hướng nhảy Tung Tung Tung Sahur đang gây sốt trên TikTok!   Bạn cũng muốn tạo video",
@@ -1413,6 +1938,38 @@
      "created_at": 1790177598,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688751877202234654",
+     "author": "wza1nullold",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 4,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 154,
+     "created_at": 1790177063,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688751866238242061",
+     "author": "m93rk7opnw3jlkupk",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 12,
+     "collect": 2,
+     "comment": 0,
+     "share": 0,
+     "play": 272,
+     "created_at": 1790177061,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -1589,6 +2146,22 @@
      "created_at": 1790175415,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688743725387812097",
+     "author": "safa_9587",
+     "title": "Car trend 🔥trending ai photo and video free template tutorial , gemini /chatgpt to make stylish ai photo prompt ✨how to ",
+     "digg": 13307,
+     "collect": 2114,
+     "comment": 124,
+     "share": 3494,
+     "play": 314981,
+     "created_at": 1790175156,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -1786,6 +2359,22 @@
      ]
     },
     {
+     "video_id": "7688731039572806934",
+     "author": "sapopz2",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 602,
+     "created_at": 1790172203,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688730819359149320",
      "author": "yr5sdowfg6",
      "title": "AI ai filter effect tutorial How to make this Al beat-synced effect: Tutorial - just import your photos into CapCut and ",
@@ -1946,6 +2535,38 @@
      ]
     },
     {
+     "video_id": "7688723075436760353",
+     "author": "mj9qpakvs3",
+     "title": "#capcut #capcutpioneer #capcutnow ✨ Chicken Joe ilə berberdə foto 📸 Azərbaycan TikTok’ini sarsıdı viral trend Əgər son g",
+     "digg": 392,
+     "collect": 158,
+     "comment": 19,
+     "share": 85,
+     "play": 21139,
+     "created_at": 1790170347,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688722533855628576",
+     "author": "kristiche29760",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 273,
+     "created_at": 1790170220,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688722246986321173",
      "author": "kumgjeevttep71",
      "title": "#capcut #capcutpioneer #capcutnow          🪇🌟 اپنی اگلی ویڈیو میں پاکستان سے متاثر اس دلچسپ ڈانس ٹرینڈ کو شامل کریں اور ",
@@ -1962,6 +2583,54 @@
      ]
     },
     {
+     "video_id": "7688721991343492355",
+     "author": "edward.y43",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 10,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 725,
+     "created_at": 1790170098,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688721435401145622",
+     "author": "ivsw.tkls",
+     "title": "#capcut #capcutpioneer #capcutnow ‎مين يقدر يقاوم تنين وردي صغير ولطيف بهذا الشكل؟ 🐉💗 كأنه حقيقي، جالس بهدوء في راحة الي",
+     "digg": 201,
+     "collect": 12,
+     "comment": 1,
+     "share": 28,
+     "play": 7019,
+     "created_at": 1790169967,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688721218278673686",
+     "author": "kgfm5gh9m4",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 3,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 225,
+     "created_at": 1790169917,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688720325051174162",
      "author": "sharlvanhorn",
      "title": "#capcut #capcutpioneer #capcutnow Membuat efek rambut biru merah pakai Capcut tidak ribet! Cukup unggah satu foto dan pa",
@@ -1973,6 +2642,22 @@
      "created_at": 1790169707,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688719811916041495",
+     "author": "sir20937",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 7,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 231,
+     "created_at": 1790169588,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2010,6 +2695,22 @@
      ]
     },
     {
+     "video_id": "7688717773828017416",
+     "author": "zztanvwcyuo",
+     "title": "#capcut #capcutpioneer #capcutnow  AI Creative Editing, AI Photo Editing, Google Gemini AI, Prompt, AI Prompt, ai image ",
+     "digg": 401,
+     "collect": 32,
+     "comment": 3,
+     "share": 52,
+     "play": 6223,
+     "created_at": 1790169116,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688717229503925525",
      "author": "larry84254",
      "title": "#capcut #capcutpioneer #capcutnow 😭 Have you ever imagined turning your normal portrait into a deeply emotional “cry fac",
@@ -2021,6 +2722,22 @@
      "created_at": 1790168985,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688716575439850774",
+     "author": "hildabarlow",
+     "title": "كيف تسوين صورة ترند التنين الوردي بهذا الشكل الواقعي والكيوت جدًا؟ 🐉🩷 كل اللي تحتاجينه صورة واحدة ليدك، ومع البرومبت الم",
+     "digg": 791,
+     "collect": 142,
+     "comment": 8,
+     "share": 389,
+     "play": 59857,
+     "created_at": 1790168835,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2186,6 +2903,22 @@
      ]
     },
     {
+     "video_id": "7688702011365264648",
+     "author": "pp6tav9",
+     "title": "#capcut #capcutpioneer #capcutnow The template in the lower left corner is ready. Upload a photo to make the same video.",
+     "digg": 14,
+     "collect": 0,
+     "comment": 1,
+     "share": 35,
+     "play": 888,
+     "created_at": 1790165444,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688699690367470881",
      "author": "dayi04821",
      "title": "#capcutpioneer #capcutnow #capcut CLICK ON THE CAPCUT ICON ABOVE TO GENERATE THE SAME STYLE AS THE VIDEO. PHOTOGENIC FIL",
@@ -2213,6 +2946,22 @@
      "created_at": 1790164831,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688698552528243986",
+     "author": "vis8433",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 84,
+     "created_at": 1790164638,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2474,6 +3223,22 @@
      ]
     },
     {
+     "video_id": "7688685324700028192",
+     "author": "kristiche29760",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 13,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 759,
+     "created_at": 1790161557,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688684158855499038",
      "author": "a1556375ju3",
      "title": "Yellow teeth filter🔥☠️#yellowteethcheck #trending #capcut #capcutpioneer #capcutnow ",
@@ -2554,6 +3319,22 @@
      ]
     },
     {
+     "video_id": "7688682724189654294",
+     "author": "bradleyzuan67",
+     "title": "#capcut #capcutpioneer #capcutnow    ✨✨ ✨ اس ٹرینڈ کا حصہ بنیں! یہ وائرل ویڈیو تیزی سے بنانے کا طریقہ یہ ہے—بس چند تصاوی",
+     "digg": 493,
+     "collect": 118,
+     "comment": 5,
+     "share": 545,
+     "play": 41391,
+     "created_at": 1790160954,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688679012373187873",
      "author": "dayi04821",
      "title": "#capcutpioneer #capcutnow #capcut CLICK ON THE CAPCUT ICON ABOVE TO GENERATE THE SAME STYLE AS THE VIDEO. PHOTOGENIC FIL",
@@ -2565,6 +3346,22 @@
      "created_at": 1790160088,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688678743765716246",
+     "author": "danielwhitley622",
+     "title": "#capcut #capcutpioneer #capcutnow   ‎مين يقدر يقاوم تنين وردي صغير ولطيف بهذا الشكل؟ 🐉💗 كأنه حقيقي، جالس بهدوء في راحة ا",
+     "digg": 496,
+     "collect": 109,
+     "comment": 16,
+     "share": 205,
+     "play": 30377,
+     "created_at": 1790160029,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2597,6 +3394,22 @@
      "created_at": 1790159367,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688675652815408405",
+     "author": "ipp5g8",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 1,
+     "created_at": 1790159306,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2698,6 +3511,102 @@
      ]
     },
     {
+     "video_id": "7688672861564783894",
+     "author": "dhiu158",
+     "title": "Who can set a new record? 📈👑🎖️ #capcutpioneer #capcutnow #fyp #london #capcut ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 758,
+     "created_at": 1790158659,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688672373838581024",
+     "author": "everettcan022",
+     "title": "No one can stay patient here. 😬⏳🚫#capcutpioneer #capcutnow #fyp#uktiktok🇬🇧uk #capcut",
+     "digg": 21,
+     "collect": 3,
+     "comment": 0,
+     "share": 0,
+     "play": 7441,
+     "created_at": 1790158544,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688671975048236310",
+     "author": "x19fow0",
+     "title": "#capcut #capcutpioneer #capcutnow rone wala filter asar. rone wala filter asar ka tutorial. AI rota hua chehra. aansuon ",
+     "digg": 750,
+     "collect": 251,
+     "comment": 11,
+     "share": 620,
+     "play": 111617,
+     "created_at": 1790158454,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688671798170340640",
+     "author": "curtischoi9452",
+     "title": "No one can stay patient here. 😬⏳🚫#capcutpioneer #capcutnow #fyp#uktiktok🇬🇧uk #capcut",
+     "digg": 4,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 509,
+     "created_at": 1790158410,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688671789999738134",
+     "author": "conniegan7064",
+     "title": "No one can stay patient here. 😬⏳🚫#capcutpioneer #capcutnow #fyp#uktiktok🇬🇧uk #capcut",
+     "digg": 6,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 1365,
+     "created_at": 1790158410,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688671515453230358",
+     "author": "chrliyytt",
+     "title": "No one can stay patient here. 😬⏳🚫#capcutpioneer #capcutnow #fyp#uktiktok🇬🇧uk #capcut",
+     "digg": 3,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 259,
+     "created_at": 1790158346,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688669420524244238",
      "author": "luckyc986",
      "title": "I’ll type a code and we’ll dance together #CapCut  #capcutpioneer  #capcutnow #Meme #MemeCut ",
@@ -2709,6 +3618,22 @@
      "created_at": 1790157869,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688669031473089825",
+     "author": "mj9qpakvs3",
+     "title": "#capcut #capcutpioneer #capcutnow Diyorlar ki, bir erkek ve bir kız birbirine benziyorsa, bu kaderdir. Senin ona ya da o",
+     "digg": 139,
+     "collect": 74,
+     "comment": 1,
+     "share": 84,
+     "play": 19566,
+     "created_at": 1790157763,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2733,14 +3658,46 @@
      "video_id": "7688668742200593684",
      "author": "j00rvrecz6",
      "title": "#capcut #capcutpioneer #capcutnow How to make atmospheric AI emotional short dramas📸｜Generate emotional short dramas wit",
-     "digg": 315,
+     "digg": 318,
      "collect": 75,
      "comment": 3,
-     "share": 639,
-     "play": 36270,
+     "share": 644,
+     "play": 36430,
      "created_at": 1790157697,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688667492138405150",
+     "author": "colbecklj2o",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 89,
+     "created_at": 1790157415,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688664511653383446",
+     "author": "danielwhitley622",
+     "title": "#capcut #capcutpioneer #capcutnow تباً لزمن أصبح الحيوان اوفى من البشر🥀 قالب الوشم بالذكاء الاصطناعي في CapCut ✨ وشك في ",
+     "digg": 660,
+     "collect": 122,
+     "comment": 18,
+     "share": 148,
+     "play": 25292,
+     "created_at": 1790156715,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2778,6 +3735,22 @@
      ]
     },
     {
+     "video_id": "7688660909304171796",
+     "author": "byncs85",
+     "title": "#capcut #capcutpioneer #capcutnow  एआईबाट प्रो अभिने बन्ने इफेक्ट भिडियो निःशुल्क बनाउने ट्यूटोरियल आएको छ, एउटा तस्बिर ",
+     "digg": 239,
+     "collect": 28,
+     "comment": 6,
+     "share": 136,
+     "play": 9921,
+     "created_at": 1790155874,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688658553380343061",
      "author": "shuxukmkq80",
      "title": "#capcut #capcutpioneer #capcutnow แจกฟรีวิธีทำรูปสวยๆด้วย ผลลัพธ์ที่ได้อาจจะไม่ ตรง100%แต โดยรวมแล้วคล้ายคลึง วิธีใช้ Go",
@@ -2789,6 +3762,22 @@
      "created_at": 1790155325,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688656685467979040",
+     "author": "shug4410",
+     "title": "Nobody can finish so fast. ⏱️🚀😳 #capcutpioneer #capcutnow #fyp #london #capcut ",
+     "digg": 4,
+     "collect": 3,
+     "comment": 1,
+     "share": 1,
+     "play": 412,
+     "created_at": 1790154890,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2869,6 +3858,22 @@
      "created_at": 1790153946,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688651918641532182",
+     "author": "halliemak56",
+     "title": "Try this filter here⬆️  Try not to laugh   😅😂 satu squad humornya receh semua #syifdam  #hiburan  #capcutpioneer #capcut",
+     "digg": 431,
+     "collect": 69,
+     "comment": 9,
+     "share": 159,
+     "play": 60488,
+     "created_at": 1790153784,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -2986,6 +3991,54 @@
      ]
     },
     {
+     "video_id": "7688642536575110421",
+     "author": "napolatf5zj",
+     "title": "#CapCut #capcutpioneer #capcutnow ",
+     "digg": 8,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 196,
+     "created_at": 1790151598,
+     "linked": true,
+     "anchor": "CapCut · Editing made easy",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688641906003201283",
+     "author": "hgddg648",
+     "title": "No one could possibly do better. 🥇🚫😳 #capcutpioneer #capcutnow #fyp #london #capcut ",
+     "digg": 2,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 240,
+     "created_at": 1790151452,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688641834884648214",
+     "author": "fhfdj132",
+     "title": "No one can try only once. 🥴🔁😤 #capcutpioneer #capcutnow #fyp #london #capcut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 167,
+     "created_at": 1790151437,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688641765980654879",
      "author": "wilderness387",
      "title": "🔥🔥#capcutpioneer #capcutnow #capcut #michaeljackson #mj ",
@@ -3012,6 +4065,38 @@
      "play": 489,
      "created_at": 1790150790,
      "linked": null,
+     "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688638244522577183",
+     "author": "floydou750",
+     "title": "#capcut #capcutpioneer #capcutnow  🔥 Want to jump on this trend? Here’s how to make this viral video in just a few secon",
+     "digg": 2,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 138,
+     "created_at": 1790150607,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688638108392426754",
+     "author": "luna049697",
+     "title": "#capcutpioneer #capcutnow #capcut ",
+     "digg": 7,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 665,
+     "created_at": 1790150568,
+     "linked": false,
      "anchor": "",
      "topics": [
       "capcutnow"
@@ -3045,6 +4130,22 @@
      "created_at": 1790149815,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688634670661078279",
+     "author": "user4694023072127",
+     "title": "#capcut #capcutpioneer #capcutnow  كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تحققت في م",
+     "digg": 982,
+     "collect": 164,
+     "comment": 7,
+     "share": 400,
+     "play": 30293,
+     "created_at": 1790149768,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3098,17 +4199,81 @@
      ]
     },
     {
+     "video_id": "7688625453887884565",
+     "author": "dumei25",
+     "title": "#capcut #capcutpioneer #capcutnow AI Creative Editing, AI Photo Editing, Google Gemini AI, Prompt, AI Prompt, ai image g",
+     "digg": 536,
+     "collect": 116,
+     "comment": 4,
+     "share": 317,
+     "play": 15087,
+     "created_at": 1790147618,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688624610711096597",
      "author": "adeline_9730",
      "title": "HorizonFlipEffect👉🏻🔥😇😁 #InvertedCamera #funnyfilter#capcut #capcutpioneer #capcutnow ",
-     "digg": 22861,
-     "collect": 2920,
-     "comment": 43,
-     "share": 456,
-     "play": 1603520,
+     "digg": 27504,
+     "collect": 3539,
+     "comment": 58,
+     "share": 552,
+     "play": 1867785,
      "created_at": 1790147423,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688624577466993953",
+     "author": "dghh45610",
+     "title": "No one could possibly do better. 🥇🚫😳 #capcutpioneer #capcutnow #fyp #uktiktok🇬🇧uk #capcut ",
+     "digg": 61,
+     "collect": 7,
+     "comment": 3,
+     "share": 6,
+     "play": 21005,
+     "created_at": 1790147416,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688623536172338434",
+     "author": "halliemak56",
+     "title": "Try this filter here⬆️  Try not to laugh   😅😂 satu squad humornya receh semua #syifdam  #hiburan  #capcutpioneer #capcut",
+     "digg": 1229,
+     "collect": 165,
+     "comment": 13,
+     "share": 255,
+     "play": 127052,
+     "created_at": 1790147175,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688623312594980099",
+     "author": "ivsw.tkls",
+     "title": "#capcut #capcutpioneer #capcutnow ‎مين يقدر يقاوم تنين وردي صغير ولطيف بهذا الشكل؟ 🐉💗 كأنه حقيقي، جالس بهدوء في راحة الي",
+     "digg": 1445,
+     "collect": 213,
+     "comment": 7,
+     "share": 202,
+     "play": 59120,
+     "created_at": 1790147122,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3117,14 +4282,14 @@
      "video_id": "7688621573330259232",
      "author": "snum.simb",
      "title": "#capcut #capcutpioneer #capcutnow how to make david mccall trend  david mccall trend capcut tutorial  david mccall trend",
-     "digg": 15585,
-     "collect": 3550,
-     "comment": 629,
-     "share": 1672,
-     "play": 881989,
+     "digg": 15762,
+     "collect": 3589,
+     "comment": 636,
+     "share": 1680,
+     "play": 889827,
      "created_at": 1790146716,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3141,6 +4306,38 @@
      "created_at": 1790146389,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688619103157849376",
+     "author": "kristiche29760",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 11,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 723,
+     "created_at": 1790146140,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688617952601722134",
+     "author": "pqma9616062",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 4,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 246,
+     "created_at": 1790145877,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3178,17 +4375,49 @@
      ]
     },
     {
+     "video_id": "7688611606007270678",
+     "author": "iliepasvr5",
+     "title": "#capcut #capcutpioneer #capcutnow كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تحققت في مش",
+     "digg": 1633,
+     "collect": 257,
+     "comment": 4,
+     "share": 439,
+     "play": 93882,
+     "created_at": 1790144399,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688609463539961108",
      "author": "fioz9g8",
      "title": "#capcut #capcutpioneer #capcutnow ✨👨🏻‍✈️ ✨How to get this trending effect instantly? Just upload one photo! Super easy s",
-     "digg": 481,
+     "digg": 486,
      "collect": 32,
      "comment": 24,
-     "share": 49,
-     "play": 18485,
+     "share": 53,
+     "play": 18661,
      "created_at": 1790143897,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688609441079430418",
+     "author": "u6a6m4",
+     "title": "#capcut #capcutpioneer #capcutnow အင်တာနက်တွင် အရမ်းခေတ်စားနေသော ဗီဒီယိုပုံစံရောက်လာပြီ!👇 ဓာတ်ပုံတစ်ပုံသာ လိုအပ်ပြီး အင်",
+     "digg": 128,
+     "collect": 7,
+     "comment": 0,
+     "share": 61,
+     "play": 2930,
+     "created_at": 1790143890,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3306,6 +4535,38 @@
      ]
     },
     {
+     "video_id": "7688596379786104086",
+     "author": "vickiyam3603",
+     "title": "😏😏💁#capcut #capcutpioneer #capcutnow ",
+     "digg": 3,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 197,
+     "created_at": 1790140854,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688595710639394070",
+     "author": "leohsuan07",
+     "title": "🙈😜😜#capcut #capcutpioneer #capcutnow ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 139,
+     "created_at": 1790140698,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688593165959400734",
      "author": "xbus2604108653",
      "title": "Try this viral bounce hair template! Your photo will get bouncy hair effect with the opa opa opa sound. Just upload one ",
@@ -3370,6 +4631,38 @@
      ]
     },
     {
+     "video_id": "7688580076140711175",
+     "author": "l8a2qdkqh6",
+     "title": "#capcut #capcutpioneer #capcutnow እንዴት ድባብ የተሞላ የAI ስሜታዊ አጭር ድራማዎችን መስራት ይቻላል📸｜በAI አማካኝነት ስሜታዊ አጭር ድራማዎችን ይፍጠሩ🤖｜ምስል ለማመን",
+     "digg": 1258,
+     "collect": 291,
+     "comment": 20,
+     "share": 491,
+     "play": 35433,
+     "created_at": 1790137057,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688577873065790723",
+     "author": "bradleyzuan67",
+     "title": "#capcut #capcutpioneer #capcutnow      تبا لزمن أصبح الحيوان رمزاً للوفاء والبشر رمزاً للحقاره\n الفيلم يجنن ويكسر القلب ",
+     "digg": 780,
+     "collect": 128,
+     "comment": 5,
+     "share": 228,
+     "play": 45953,
+     "created_at": 1790136545,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688576521660796190",
      "author": "sweet889951",
      "title": "Yellow teeth filter🔥☠️#capcut#capcutnow#capcutpioneer#trollface#trending  ",
@@ -3386,6 +4679,22 @@
      ]
     },
     {
+     "video_id": "7688576162909523222",
+     "author": "halliemak56",
+     "title": "Try this filter here⬆️  Try not to laugh   😅😂 satu squad humornya receh semua #syifdam  #hiburan  #capcutpioneer #capcut",
+     "digg": 398,
+     "collect": 89,
+     "comment": 12,
+     "share": 385,
+     "play": 81751,
+     "created_at": 1790136152,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688569025210715400",
      "author": "vongoctran37",
      "title": "#capcut #capcutpioneer #capcutnow 😭 Have you ever imagined turning your normal portrait into a deeply emotional “cry fac",
@@ -3397,6 +4706,38 @@
      "created_at": 1790134483,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688567568541568269",
+     "author": "tjghh71",
+     "title": "#capcut #capcutpioneer #capcutnow \"Just upload one photo, and the template in the bottom left corner will generate this ",
+     "digg": 49,
+     "collect": 20,
+     "comment": 1,
+     "share": 68,
+     "play": 3018,
+     "created_at": 1790134149,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688567477038615830",
+     "author": "rosalyncou2",
+     "title": "#capcut #capcutpioneer #capcutnow ✨✨ ✨ اس ٹرینڈ کا حصہ بنیں! یہ وائرل ویڈیو تیزی سے بنانے کا طریقہ یہ ہے—بس چند تصاویر ی",
+     "digg": 28,
+     "collect": 1,
+     "comment": 3,
+     "share": 4,
+     "play": 1037,
+     "created_at": 1790134131,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3429,6 +4770,22 @@
      "created_at": 1790133139,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688555517953969431",
+     "author": "kristiche29760",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 30,
+     "collect": 3,
+     "comment": 1,
+     "share": 0,
+     "play": 687,
+     "created_at": 1790131344,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3514,6 +4871,22 @@
      ]
     },
     {
+     "video_id": "7688543719921863957",
+     "author": "adeline_9730",
+     "title": "#capcut #capcutpioneer #capcutnow hair style effect filter ai tutorial",
+     "digg": 3298,
+     "collect": 361,
+     "comment": 17,
+     "share": 201,
+     "play": 253925,
+     "created_at": 1790128590,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688540388361178386",
      "author": "vongoctran37",
      "title": "#capcut #capcutpioneer #capcutnow  ✨ Have you ever imagined turning your normal portrait into a deeply emotional “cry fa",
@@ -3566,14 +4939,14 @@
      "video_id": "7688503389092629790",
      "author": "kling585",
      "title": "#capcut #capcutpioneer #capcutnow रंगमा हुँदा म चाँहि कालो सेतो आफैंलाई भेट्छु! 🌈⚡️ कसरी अविश्वसनीय डुअल बर्स्ट​ तस्बिर ",
-     "digg": 3096,
-     "collect": 311,
-     "comment": 56,
-     "share": 1023,
-     "play": 88518,
+     "digg": 3104,
+     "collect": 312,
+     "comment": 57,
+     "share": 1027,
+     "play": 88887,
      "created_at": 1790119206,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3611,6 +4984,54 @@
      ]
     },
     {
+     "video_id": "7688438968488168726",
+     "author": "waynecheung083",
+     "title": "#capcut #capcutpioneer #capcutnow Siyah takım çift trendi nasıl yapılır Siyah takım çift trendi yapmak için AI nasıl kul",
+     "digg": 1602,
+     "collect": 1446,
+     "comment": 17,
+     "share": 3026,
+     "play": 328632,
+     "created_at": 1790104200,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688426485413104918",
+     "author": "vickiyam3603",
+     "title": "👌🏻✌🏻#capcut #capcutpioneer #capcutnow ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 203,
+     "created_at": 1790101294,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688392507679411489",
+     "author": "kristiche29760",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 6,
+     "collect": 1,
+     "comment": 0,
+     "share": 1,
+     "play": 754,
+     "created_at": 1790093381,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688390508334370079",
      "author": "kling585",
      "title": "#capcut #capcutpioneer #capcutnow रंगमा हुँदा म चाँहि कालो सेतो आफैंलाई भेट्छु! 🌈⚡️ कसरी अविश्वसनीय डुअल बर्स्ट​ तस्बिर ",
@@ -3622,6 +5043,54 @@
      "created_at": 1790092936,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688385494442364193",
+     "author": "eg1oa2",
+     "title": "#capcut #capcutpioneer #capcutnow 🔥🔥 ✨How to get this trending effect instantly? Just upload one photo! Super easy steps",
+     "digg": 12,
+     "collect": 1,
+     "comment": 2,
+     "share": 4,
+     "play": 367,
+     "created_at": 1790091746,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688368580592815391",
+     "author": "athmanncerullo976",
+     "title": "wait for the transition try this template with your own pics #capcut #capcutpioneer #capcutnow #fyp #trending ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 30,
+     "created_at": 1790087831,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688361082422955286",
+     "author": "ostd8",
+     "title": "Which Disney princess looks like you?😍#capcut #capcutpioneer #capcutnow ",
+     "digg": 24,
+     "collect": 1,
+     "comment": 1,
+     "share": 0,
+     "play": 233,
+     "created_at": 1790086070,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3643,6 +5112,38 @@
      ]
     },
     {
+     "video_id": "7688350330349702433",
+     "author": "minervahoratio",
+     "title": "#capcut #capcutpioneer #capcutnow 🎶🧚‍♀️✨How to get this trending effect instantly? Just upload one photo! Super easy ste",
+     "digg": 13,
+     "collect": 2,
+     "comment": 1,
+     "share": 0,
+     "play": 223,
+     "created_at": 1790083561,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688346034900077846",
+     "author": "vinnielaw3439",
+     "title": "No one could possibly beat everyone. 🥇 #capcutpioneer #capcutnow #fyp #trending #capcut ",
+     "digg": 143,
+     "collect": 37,
+     "comment": 1,
+     "share": 5,
+     "play": 42100,
+     "created_at": 1790082562,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688344839280250134",
      "author": "everetthang4",
      "title": "Half me,half Euphoria character,this filter is so magical ✨#EuphoriaLookalike #SplitFaceChallenge #capcut #capcutpioneer",
@@ -3654,6 +5155,70 @@
      "created_at": 1790082289,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688319328881577238",
+     "author": "patriciapih3",
+     "title": "1080p  #CapCut #pioneertemplate #capcut #capcutpioneer #capcutnow",
+     "digg": 11,
+     "collect": 2,
+     "comment": 0,
+     "share": 1,
+     "play": 766,
+     "created_at": 1790076349,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688316569675451680",
+     "author": "kristiche29760",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 6,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 776,
+     "created_at": 1790075700,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688311548275608850",
+     "author": "kerwikivoyx",
+     "title": "#CapCut #capcutpioneer #capcutnow ",
+     "digg": 8,
+     "collect": 1,
+     "comment": 1,
+     "share": 0,
+     "play": 66,
+     "created_at": 1790074532,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688302757958372611",
+     "author": "gjfgj177",
+     "title": "I bet you’ll try many times. 🔁😤🤦‍♀️ #capcutpioneer #capcutnow #fyp #london #capcut ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 720,
+     "created_at": 1790072493,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3675,6 +5240,22 @@
      ]
     },
     {
+     "video_id": "7688295252800572705",
+     "author": "jaylaau1662476",
+     "title": "No one can stay patient here. 😬⏳🚫 #fyp #uktiktok🇬🇧uk #capcut #capcutpioneer #capcutnow",
+     "digg": 3,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 1145,
+     "created_at": 1790070739,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688295090715938061",
      "author": "one55629",
      "title": "English:Use this trending head bop template on CapCut.Upload your portrait photo and the character will shake its head t",
@@ -3691,6 +5272,22 @@
      ]
     },
     {
+     "video_id": "7688294752407555360",
+     "author": "angelayip14658",
+     "title": "No one can stay patient here. 😬⏳🚫 #fyp #uktiktok🇬🇧uk #capcut #capcutpioneer #capcutnow",
+     "digg": 6,
+     "collect": 1,
+     "comment": 0,
+     "share": 2,
+     "play": 1930,
+     "created_at": 1790070623,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688287298483506439",
      "author": "lbyde9gp28",
      "title": "#capcut #capcutpioneer #capcutnow มีบทช่วยสอนฟรี วิธีทำวิดีโอเอฟเฟกต์เปลี่ยนรูปนักแสดงมืออาชีพด้วย AI เพียงแค่มีรูปภาพหน",
@@ -3702,6 +5299,70 @@
      "created_at": 1790068893,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688285545205746966",
+     "author": "gjfgj177",
+     "title": "I bet you’ll try many times. 🔁😤🤦‍♀️ #capcutpioneer #capcutnow #fyp #london #capcut ",
+     "digg": 2,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 744,
+     "created_at": 1790068488,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688284900356558098",
+     "author": "kerwikivoyx",
+     "title": "#CapCut #capcutpioneer #capcutnow ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 1,
+     "share": 2,
+     "play": 48,
+     "created_at": 1790068335,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688283566748241172",
+     "author": "adeline_9730",
+     "title": "crying ai prompt video Today, I’m going to share how to create the viral AI \"crying face\" effect seen on TikTok. It is i",
+     "digg": 166,
+     "collect": 101,
+     "comment": 10,
+     "share": 819,
+     "play": 30331,
+     "created_at": 1790068017,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688283140061793558",
+     "author": "arinagurung7",
+     "title": "🥺  . . . . : : : : . . / / ; I can feel it 🤧  #capcutedit #capcutnow #capcut #trendiing #AI ",
+     "digg": 6,
+     "collect": 0,
+     "comment": 0,
+     "share": 1,
+     "play": 330,
+     "created_at": 1790067930,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3734,6 +5395,70 @@
      "created_at": 1790062968,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688253093246455043",
+     "author": "fhfdj132",
+     "title": "No one can stay patient here. 😬⏳🚫 #capcutpioneer #capcutnow #fyp #london #capcut ",
+     "digg": 1,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 728,
+     "created_at": 1790060926,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688250336917654817",
+     "author": "kristiche29760",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 14,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 754,
+     "created_at": 1790060291,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688237210608373014",
+     "author": "fhfdj132",
+     "title": "Who can set a new record? 📈👑🎖️ #capcutpioneer #capcutnow #fyp #london #capcut ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 242,
+     "created_at": 1790057232,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
+     "video_id": "7688236750648511766",
+     "author": "hhsghtpryhr",
+     "title": "Nobody can play this perfectly. 💯😌✨ #capcutpioneer #capcutnow #fyp #uktiktok #capcut ",
+     "digg": 17,
+     "collect": 3,
+     "comment": 2,
+     "share": 0,
+     "play": 5226,
+     "created_at": 1790057134,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
      "topics": [
       "capcutnow"
      ]
@@ -3803,6 +5528,22 @@
      ]
     },
     {
+     "video_id": "7688179605643005217",
+     "author": "kristiche29760",
+     "title": "#capcut #capcutpioneer #capcutnow ",
+     "digg": 0,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 756,
+     "created_at": 1790043851,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
+    },
+    {
      "video_id": "7688174844571077906",
      "author": "yr5sdowfg6",
      "title": "AI ai filter effect tutorial How to make this Al beat-synced effect: Tutorial - just import your photos into CapCut and ",
@@ -3833,12 +5574,28 @@
      "topics": [
       "capcutnow"
      ]
+    },
+    {
+     "video_id": "7688146622651452690",
+     "author": "hhp9epcmd8",
+     "title": "#capcut #capcutpioneer #capcutnow Have you ever imagined turning your normal portrait into a deeply emotional “cry face”",
+     "digg": 217,
+     "collect": 241,
+     "comment": 14,
+     "share": 780,
+     "play": 28330,
+     "created_at": 1790036138,
+     "linked": true,
+     "anchor": "CapCut · Try this template",
+     "topics": [
+      "capcutnow"
+     ]
     }
    ]
   },
   "hypic": {
    "api_status": "success",
-   "count_fresh": 140,
+   "count_fresh": 164,
    "items": [
     {
      "video_id": "7688848201431928071",
@@ -3988,6 +5745,23 @@
      ]
     },
     {
+     "video_id": "7688803827465866504",
+     "author": "ao0dmobup1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 17,
+     "collect": 2,
+     "comment": 3,
+     "share": 2,
+     "play": 3662,
+     "created_at": 1790189156,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688803701108051232",
      "author": "gs97n8g59u2k61cv",
      "title": "#hypic #hypiccreator #Godpic كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تحققت في مشهد حق",
@@ -4045,10 +5819,10 @@
      "collect": 0,
      "comment": 0,
      "share": 0,
-     "play": 168,
+     "play": 170,
      "created_at": 1790188823,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "godpic",
       "hypic"
@@ -4217,6 +5991,22 @@
      ]
     },
     {
+     "video_id": "7688772117978090770",
+     "author": "l8a2qdkqh6",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 79,
+     "collect": 9,
+     "comment": 1,
+     "share": 12,
+     "play": 5861,
+     "created_at": 1790181767,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
      "video_id": "7688771867716455700",
      "author": "sir.heinz2",
      "title": "#Hypic ",
@@ -4227,6 +6017,22 @@
      "play": 7,
      "created_at": 1790181708,
      "linked": null,
+     "anchor": "",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
+     "video_id": "7688759310804962581",
+     "author": "everencarnacionyapoort",
+     "title": "#fy #hypic #paratiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii #yapoort #evereverencarnacionyapoort ",
+     "digg": 5104,
+     "collect": 201,
+     "comment": 70,
+     "share": 65,
+     "play": 81387,
+     "created_at": 1790178784,
+     "linked": false,
      "anchor": "",
      "topics": [
       "hypic"
@@ -4306,10 +6112,10 @@
      "collect": 0,
      "comment": 0,
      "share": 0,
-     "play": 764,
+     "play": 779,
      "created_at": 1790176842,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "hypic",
       "hypiccreator"
@@ -4382,6 +6188,23 @@
      ]
     },
     {
+     "video_id": "7688745171550506258",
+     "author": "user4694023072127",
+     "title": "#hypic #hypiccreator  والله هالتريند اللي كل البنات في الخليج كله بيعملوه حالياً! 📸 تعلم كيف تحط صورتك على هاد القالب ال",
+     "digg": 845,
+     "collect": 73,
+     "comment": 10,
+     "share": 186,
+     "play": 45320,
+     "created_at": 1790175492,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688743723730996513",
      "author": "t0bagcvgx2",
      "title": "Click the link in the lower left corner to download Hypic to get the wallpaper#DynamicWallpaper  #hypic #hypiccreator #h",
@@ -4402,17 +6225,18 @@
      "video_id": "7688743002855984392",
      "author": "moshunli",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين صورة ترند التنين الوردي بهذا الشكل الواقعي والكيوت جدًا؟ 🐉🩷 كل اللي",
-     "digg": 1550,
-     "collect": 235,
+     "digg": 1569,
+     "collect": 240,
      "comment": 17,
-     "share": 593,
-     "play": 127461,
+     "share": 607,
+     "play": 128525,
      "created_at": 1790174988,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
-      "hypiccreator"
+      "hypiccreator",
+      "godpic"
      ]
     },
     {
@@ -4521,16 +6345,17 @@
      "video_id": "7688736677388406036",
      "author": "gqdxa42",
      "title": "eyes trend photo prompt TikTok eyes effect filter #hypic #hypiccreator #Godpic @hypic_global editing tutorial Eyes trend",
-     "digg": 146,
-     "collect": 48,
+     "digg": 155,
+     "collect": 50,
      "comment": 9,
-     "share": 69,
-     "play": 17436,
+     "share": 71,
+     "play": 18607,
      "created_at": 1790173513,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
-      "hypic"
+      "hypic",
+      "hypiccreator"
      ]
     },
     {
@@ -4612,6 +6437,39 @@
      "created_at": 1790171693,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
+     "video_id": "7688727787162602760",
+     "author": "c6er6f2",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic   @hypic_global @hypic_vn_official  @hypic_br_official @hypic_sa_global ",
+     "digg": 38,
+     "collect": 7,
+     "comment": 0,
+     "share": 0,
+     "play": 2014,
+     "created_at": 1790171444,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688727636268387602",
+     "author": "user4694023072127",
+     "title": "#hypic #hypiccreator  والله هالتريند اللي كل البنات في الخليج كله بيعملوه حالياً! 📸 تعلم كيف تحط صورتك على هاد القالب ال",
+     "digg": 250,
+     "collect": 44,
+     "comment": 5,
+     "share": 98,
+     "play": 14349,
+     "created_at": 1790171410,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic"
      ]
@@ -4867,6 +6725,22 @@
      ]
     },
     {
+     "video_id": "7688700603924581650",
+     "author": "c6er6f2",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic   @hypic_global @hypic_vn_official  @hypic_br_official @hypic_sa_global ",
+     "digg": 24,
+     "collect": 4,
+     "comment": 0,
+     "share": 0,
+     "play": 575,
+     "created_at": 1790165116,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
      "video_id": "7688696038097521952",
      "author": "yozhwgidd8",
      "title": "#hypic ✨Hit the hypic icon up top to replicate the precise visual look shown in this video. Give this vibrant  photogeni",
@@ -4897,6 +6771,23 @@
      "topics": [
       "hypiccreator",
       "hypic"
+     ]
+    },
+    {
+     "video_id": "7688694055601016072",
+     "author": "moshunli",
+     "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين صورة ترند التنين الوردي بهذا الشكل الواقعي والكيوت جدًا؟ 🐉🩷 كل اللي",
+     "digg": 131,
+     "collect": 15,
+     "comment": 3,
+     "share": 158,
+     "play": 11935,
+     "created_at": 1790163591,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
      ]
     },
     {
@@ -5032,6 +6923,22 @@
      ]
     },
     {
+     "video_id": "7688679843344534791",
+     "author": "ao0dmobup1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 3,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 733,
+     "created_at": 1790160285,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
      "video_id": "7688678050682539285",
      "author": "tt173656",
      "title": "#hypic #hypiccreator Free tutorial: If you cannot see Hypic in the bottom left corner, go to the homepage and open this ",
@@ -5128,6 +7035,22 @@
      "created_at": 1790159407,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
+     "video_id": "7688675932118207751",
+     "author": "user4694023072127",
+     "title": "#hypic #hypiccreator  والله هالتريند اللي كل البنات في الخليج كله بيعملوه حالياً! 📸 تعلم كيف تحط صورتك على هاد القالب ال",
+     "digg": 395,
+     "collect": 63,
+     "comment": 7,
+     "share": 104,
+     "play": 26602,
+     "created_at": 1790159371,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic"
      ]
@@ -5338,12 +7261,13 @@
      "collect": 60,
      "comment": 3,
      "share": 46,
-     "play": 8206,
+     "play": 8208,
      "created_at": 1790155029,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
-      "hypic"
+      "hypic",
+      "hypiccreator"
      ]
     },
     {
@@ -5364,6 +7288,42 @@
      ]
     },
     {
+     "video_id": "7688652443298565384",
+     "author": "l8a2qdkqh6",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 35,
+     "collect": 5,
+     "comment": 0,
+     "share": 8,
+     "play": 5039,
+     "created_at": 1790153901,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688651071559879943",
+     "author": "ao0dmobup1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 34,
+     "collect": 2,
+     "comment": 1,
+     "share": 0,
+     "play": 5586,
+     "created_at": 1790153584,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
      "video_id": "7688647808626412807",
      "author": "revdavidohenedontoh",
      "title": "IT IS NOT OVER#hypic#goviral#gospel @ASSEMBLIES OF GOD",
@@ -5375,6 +7335,38 @@
      "created_at": 1790152825,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
+     "video_id": "7688647116926799136",
+     "author": "user8131609381778",
+     "title": "#hypic #hypiccreator #Godpic كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تحققت في مشهد حق",
+     "digg": 1060,
+     "collect": 63,
+     "comment": 15,
+     "share": 159,
+     "play": 40915,
+     "created_at": 1790152661,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
+     "video_id": "7688644770507410710",
+     "author": "waynecheung083",
+     "title": "#hypic #hypiccreator ✨ Boğulmak için denize gerek yok 📸 TikTok Türkiye’de patlayan duygusal araba trendi Her şeyden önce",
+     "digg": 552,
+     "collect": 461,
+     "comment": 1,
+     "share": 769,
+     "play": 155095,
+     "created_at": 1790152118,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic"
      ]
@@ -5448,6 +7440,23 @@
      ]
     },
     {
+     "video_id": "7688622862613171478",
+     "author": "waynecheung083",
+     "title": "#hypic #hypiccreator 🎂🖤 Şimdi sık sık Capsize tarzında atmosferik fotoğraflar görülebiliyor — koyu arka plan, vintage fl",
+     "digg": 1232,
+     "collect": 386,
+     "comment": 2,
+     "share": 782,
+     "play": 212114,
+     "created_at": 1790147018,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688622494973988129",
      "author": "yozhwgidd8",
      "title": "#hypic ✨Hit the hypic icon up top to replicate the precise visual look shown in this video. Give this vibrant  photogeni",
@@ -5459,6 +7468,40 @@
      "created_at": 1790146930,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688618793538440466",
+     "author": "user4694023072127",
+     "title": "#hypic #hypiccreator  والله هالتريند اللي كل البنات في الخليج كله بيعملوه حالياً! 📸 تعلم كيف تحط صورتك على هاد القالب ال",
+     "digg": 939,
+     "collect": 82,
+     "comment": 11,
+     "share": 274,
+     "play": 47106,
+     "created_at": 1790146069,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688610456746921249",
+     "author": "mj9qpakvs3",
+     "title": "#hypic #hypiccreator benziyorsa, bu kaderdir. Senin ona ya da onun sana ne kadar benzediğini öğrenmek ister misin? Bu ya",
+     "digg": 363,
+     "collect": 120,
+     "comment": 2,
+     "share": 176,
+     "play": 80748,
+     "created_at": 1790144128,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator"
@@ -5501,16 +7544,17 @@
      "video_id": "7688602980588784918",
      "author": "waynecheung083",
      "title": "#hypic #hypiccreator Siyah takım çift trendi nasıl yapılır Siyah takım çift trendi yapmak için AI nasıl kullanılır Siyah",
-     "digg": 1851,
-     "collect": 1261,
+     "digg": 1859,
+     "collect": 1270,
      "comment": 7,
-     "share": 2194,
-     "play": 449636,
+     "share": 2228,
+     "play": 455036,
      "created_at": 1790142390,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
-      "hypic"
+      "hypic",
+      "hypiccreator"
      ]
     },
     {
@@ -5567,14 +7611,14 @@
      "video_id": "7688595486260874518",
      "author": "iliepasvr5",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
-     "digg": 3524,
-     "collect": 372,
+     "digg": 3527,
+     "collect": 373,
      "comment": 25,
      "share": 627,
-     "play": 197959,
+     "play": 198167,
      "created_at": 1790140643,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator",
@@ -5585,17 +7629,35 @@
      "video_id": "7688586558445833492",
      "author": "tt173656",
      "title": "#hypic #hypiccreator Free tutorial: If you cannot see Hypic in the bottom left corner, go to the homepage and open this ",
-     "digg": 2843,
-     "collect": 354,
+     "digg": 2913,
+     "collect": 358,
      "comment": 33,
-     "share": 452,
-     "play": 134874,
+     "share": 458,
+     "play": 135830,
      "created_at": 1790138563,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688577826806697249",
+     "author": "mj9qpakvs3",
+     "title": "#hypic #hypiccreator AI Yaratıcı Düzenleme, AI Fotoğraf Düzenleme, Google Gemini AI, Prompt, AI Prompt, AI görüntü oluşt",
+     "digg": 621,
+     "collect": 102,
+     "comment": 6,
+     "share": 156,
+     "play": 61937,
+     "created_at": 1790136558,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypiccreator",
+      "godpic",
+      "hypic"
      ]
     },
     {
@@ -5635,14 +7697,14 @@
      "video_id": "7688563186672454934",
      "author": "iliepasvr5",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
-     "digg": 6113,
-     "collect": 629,
+     "digg": 6116,
+     "collect": 631,
      "comment": 28,
      "share": 665,
-     "play": 394525,
+     "play": 394723,
      "created_at": 1790133130,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator"
@@ -5664,6 +7726,22 @@
       "hypic",
       "hypiccreator",
       "godpic"
+     ]
+    },
+    {
+     "video_id": "7688544857949785377",
+     "author": "mj9qpakvs3",
+     "title": "#hypic #hypiccreator Diyorlar ki, bir erkek ve bir kız birbirine benziyorsa, bu kaderdir. Senin ona ya da onun sana ne k",
+     "digg": 904,
+     "collect": 258,
+     "comment": 2,
+     "share": 186,
+     "play": 191967,
+     "created_at": 1790128884,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic"
      ]
     },
     {
@@ -5698,6 +7776,22 @@
      "topics": [
       "hypic",
       "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688538521350491414",
+     "author": "mj9qpakvs3",
+     "title": "#hypic #hypiccreator AI Yaratıcı Düzenleme, AI Fotoğraf Düzenleme, Google Gemini AI, Prompt, AI Prompt, AI görüntü oluşt",
+     "digg": 511,
+     "collect": 133,
+     "comment": 4,
+     "share": 148,
+     "play": 55613,
+     "created_at": 1790127410,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic"
      ]
     },
     {
@@ -5857,6 +7951,22 @@
      ]
     },
     {
+     "video_id": "7688420368721120519",
+     "author": "user4694023072127",
+     "title": "#hypic #hypiccreator  والله هالتريند اللي كل البنات في الخليج كله بيعملوه حالياً! 📸 تعلم كيف تحط صورتك على هاد القالب ال",
+     "digg": 428,
+     "collect": 45,
+     "comment": 8,
+     "share": 140,
+     "play": 34819,
+     "created_at": 1790099872,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic"
+     ]
+    },
+    {
      "video_id": "7688416241169616148",
      "author": "noiat5",
      "title": "هل تابعت الترند الشهير لفلتر الفلاش العراقي المنتشر بقوة على تيك توك مؤخرًا✨؟ هذا التأثير الفريد هو ما يبحث عنه الكثير م",
@@ -5905,6 +8015,41 @@
      "anchor": "",
      "topics": [
       "hypic"
+     ]
+    },
+    {
+     "video_id": "7688361651019500821",
+     "author": "cxwkb05",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_vn_official @hypic_br_official @hypic_sa_global @hypic_global   ",
+     "digg": 24,
+     "collect": 4,
+     "comment": 1,
+     "share": 2,
+     "play": 2563,
+     "created_at": 1790086199,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688357164913790229",
+     "author": "ho7ngh1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 11,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 719,
+     "created_at": 1790085153,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator",
+      "godpic"
      ]
     },
     {
@@ -6005,6 +8150,23 @@
      "linked": null,
      "anchor": "",
      "topics": [
+      "hypic"
+     ]
+    },
+    {
+     "video_id": "7688237893571054880",
+     "author": "user8131609381778",
+     "title": "#hypic #hypiccreator #Godpic كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تحققت في مشهد حق",
+     "digg": 18506,
+     "collect": 1663,
+     "comment": 174,
+     "share": 1445,
+     "play": 489278,
+     "created_at": 1790057390,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "godpic",
       "hypic"
      ]
     },
@@ -6146,14 +8308,14 @@
      "video_id": "7688152651091037458",
      "author": "huobo9",
      "title": "iPhone 18 is not out of reach, but photo editing gives you more bang for the buck! Cool editing tricks. Bookmark this & ",
-     "digg": 4868,
-     "collect": 372,
-     "comment": 54,
-     "share": 338,
-     "play": 308461,
+     "digg": 4884,
+     "collect": 375,
+     "comment": 55,
+     "share": 340,
+     "play": 309261,
      "created_at": 1790037547,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "hypic",
       "hypiccreator",
@@ -6182,7 +8344,7 @@
   },
   "hypiccreator": {
    "api_status": "success",
-   "count_fresh": 219,
+   "count_fresh": 250,
    "items": [
     {
      "video_id": "7688855457930186004",
@@ -6352,6 +8514,23 @@
      ]
     },
     {
+     "video_id": "7688803827465866504",
+     "author": "ao0dmobup1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 17,
+     "collect": 2,
+     "comment": 3,
+     "share": 2,
+     "play": 3662,
+     "created_at": 1790189156,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688803701108051232",
      "author": "gs97n8g59u2k61cv",
      "title": "#hypic #hypiccreator #Godpic كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تحققت في مشهد حق",
@@ -6397,6 +8576,22 @@
      "created_at": 1790188150,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688794462696492308",
+     "author": "kgrlq1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic   @hypic_global @hypic_vn_official  @hypic_br_official @hypic_sa_global ",
+     "digg": 44,
+     "collect": 7,
+     "comment": 1,
+     "share": 0,
+     "play": 1389,
+     "created_at": 1790186972,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "hypiccreator"
      ]
@@ -6452,6 +8647,39 @@
      ]
     },
     {
+     "video_id": "7688772252426325266",
+     "author": "ao0dmobup1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 10,
+     "collect": 2,
+     "comment": 0,
+     "share": 2,
+     "play": 1282,
+     "created_at": 1790181801,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688772088345185544",
+     "author": "scjkt5",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 5,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 757,
+     "created_at": 1790181759,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688771355172474120",
      "author": "gj2ohvugr9",
      "title": "#hypic #hypiccreator  #Godpic @hypic_global @hypic_br_official ¡No imaginas lo sencillo que es conseguir tu diseño de ta",
@@ -6479,6 +8707,38 @@
      "created_at": 1790180102,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688763538990583047",
+     "author": "user4694023072127",
+     "title": "#hypic #hypiccreator #Godpic @hypic_global   🤯هل رأيت اتجاه الذكاء الاصطناعي للوالدين والطفل الذي كان شائعا على الإنترنت",
+     "digg": 252,
+     "collect": 25,
+     "comment": 6,
+     "share": 111,
+     "play": 34264,
+     "created_at": 1790179769,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688762746946538774",
+     "author": "salmashen5",
+     "title": "#hypic #hypiccreator #Godpic قالوا “أحرق الدنيا عشانها”… وهذا التنين أخذ الكلام حرفياً 💔🔥🐉 منو معاي إن الحيوان صار أوفى ",
+     "digg": 223,
+     "collect": 24,
+     "comment": 5,
+     "share": 51,
+     "play": 28913,
+     "created_at": 1790179583,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypiccreator"
      ]
@@ -6535,16 +8795,17 @@
      "video_id": "7688757059495562497",
      "author": "dryhgixijxb",
      "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
-     "digg": 572,
-     "collect": 122,
-     "comment": 14,
-     "share": 400,
-     "play": 30878,
+     "digg": 645,
+     "collect": 147,
+     "comment": 19,
+     "share": 504,
+     "play": 34669,
      "created_at": 1790178265,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
-      "hypiccreator"
+      "hypiccreator",
+      "godpic"
      ]
     },
     {
@@ -6733,10 +8994,10 @@
      "collect": 0,
      "comment": 0,
      "share": 0,
-     "play": 764,
+     "play": 779,
      "created_at": 1790176842,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "hypic",
       "hypiccreator"
@@ -6857,6 +9118,39 @@
      ]
     },
     {
+     "video_id": "7688745171550506258",
+     "author": "user4694023072127",
+     "title": "#hypic #hypiccreator  والله هالتريند اللي كل البنات في الخليج كله بيعملوه حالياً! 📸 تعلم كيف تحط صورتك على هاد القالب ال",
+     "digg": 845,
+     "collect": 73,
+     "comment": 10,
+     "share": 186,
+     "play": 45320,
+     "created_at": 1790175492,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688744435802262806",
+     "author": "lnbyctfdp6",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 8,
+     "collect": 2,
+     "comment": 0,
+     "share": 0,
+     "play": 1508,
+     "created_at": 1790175322,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688743723730996513",
      "author": "t0bagcvgx2",
      "title": "Click the link in the lower left corner to download Hypic to get the wallpaper#DynamicWallpaper  #hypic #hypiccreator #h",
@@ -6910,17 +9204,18 @@
      "video_id": "7688743002855984392",
      "author": "moshunli",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين صورة ترند التنين الوردي بهذا الشكل الواقعي والكيوت جدًا؟ 🐉🩷 كل اللي",
-     "digg": 1550,
-     "collect": 235,
+     "digg": 1569,
+     "collect": 240,
      "comment": 17,
-     "share": 593,
-     "play": 127461,
+     "share": 607,
+     "play": 128525,
      "created_at": 1790174988,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
-      "hypiccreator"
+      "hypiccreator",
+      "godpic"
      ]
     },
     {
@@ -7038,6 +9333,22 @@
      ]
     },
     {
+     "video_id": "7688739713326370069",
+     "author": "pglny8kkh6",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_sa_global",
+     "digg": 11,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 212,
+     "created_at": 1790174221,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688739677561507090",
      "author": "hetzna3",
      "title": "#hypic #hypiccreator #Godpic #tutorial #trend @hypic_global ❤️❤️❤️ ✨How to get this trending effect instantly? Just uplo",
@@ -7138,6 +9449,23 @@
      ]
     },
     {
+     "video_id": "7688736677388406036",
+     "author": "gqdxa42",
+     "title": "eyes trend photo prompt TikTok eyes effect filter #hypic #hypiccreator #Godpic @hypic_global editing tutorial Eyes trend",
+     "digg": 155,
+     "collect": 50,
+     "comment": 9,
+     "share": 71,
+     "play": 18607,
+     "created_at": 1790173513,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688736179394596104",
      "author": "nb5hgxtba8",
      "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
@@ -7205,6 +9533,22 @@
      ]
     },
     {
+     "video_id": "7688733599532780818",
+     "author": "scjkt5",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 38,
+     "collect": 7,
+     "comment": 0,
+     "share": 3,
+     "play": 3236,
+     "created_at": 1790172798,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688730815458495751",
      "author": "user6142627073519",
      "title": "تريد تعرف شون تسوي هيج صوره انت شخص تحبه على chatGPT: بطريقة realistic cinematic black and white رهيبة 🎬✨؟ هذا التريند ا",
@@ -7235,6 +9579,39 @@
      "topics": [
       "hypiccreator",
       "godpic"
+     ]
+    },
+    {
+     "video_id": "7688729257387904274",
+     "author": "kccnyp1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic",
+     "digg": 8,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 522,
+     "created_at": 1790171788,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688727787162602760",
+     "author": "c6er6f2",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic   @hypic_global @hypic_vn_official  @hypic_br_official @hypic_sa_global ",
+     "digg": 38,
+     "collect": 7,
+     "comment": 0,
+     "share": 0,
+     "play": 2014,
+     "created_at": 1790171444,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator"
      ]
     },
     {
@@ -7403,6 +9780,22 @@
      ]
     },
     {
+     "video_id": "7688719197676866838",
+     "author": "lnbyctfdp6",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 4,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 734,
+     "created_at": 1790169448,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688719071730355477",
      "author": "bjgfh67",
      "title": "#hypic #hypiccreator #Godpic @hypic_global @hypic_br_official desenhos estéticos desenhos estéticos a lápis desenhos est",
@@ -7499,6 +9892,22 @@
      "anchor": "",
      "topics": [
       "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688712660090785032",
+     "author": "wtnnlujdo6",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_vn_official @hypic_br_official @hypic_sa_global @hypic_global ",
+     "digg": 8,
+     "collect": 2,
+     "comment": 0,
+     "share": 2,
+     "play": 3628,
+     "created_at": 1790167923,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
       "hypiccreator"
      ]
     },
@@ -7683,6 +10092,22 @@
      ]
     },
     {
+     "video_id": "7688701656669654294",
+     "author": "sneqqnieu6",
+     "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
+     "digg": 1066,
+     "collect": 165,
+     "comment": 8,
+     "share": 509,
+     "play": 83339,
+     "created_at": 1790165362,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688701155123514644",
      "author": "juju117825",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
@@ -7748,17 +10173,51 @@
      ]
     },
     {
+     "video_id": "7688694055601016072",
+     "author": "moshunli",
+     "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين صورة ترند التنين الوردي بهذا الشكل الواقعي والكيوت جدًا؟ 🐉🩷 كل اللي",
+     "digg": 131,
+     "collect": 15,
+     "comment": 3,
+     "share": 158,
+     "play": 11935,
+     "created_at": 1790163591,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688693097370275078",
      "author": "dryhgixijxb",
      "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
-     "digg": 214,
-     "collect": 55,
-     "comment": 11,
-     "share": 163,
-     "play": 10403,
+     "digg": 224,
+     "collect": 58,
+     "comment": 13,
+     "share": 175,
+     "play": 10822,
      "created_at": 1790163373,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688691785161444615",
+     "author": "vegbmr8",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic ",
+     "digg": 4,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 706,
+     "created_at": 1790163062,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "hypiccreator"
      ]
@@ -7791,6 +10250,22 @@
      "created_at": 1790162766,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688689611257924885",
+     "author": "ezruly2",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 6,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 697,
+     "created_at": 1790162556,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "hypiccreator"
      ]
@@ -8226,6 +10701,54 @@
      ]
     },
     {
+     "video_id": "7688660368394046740",
+     "author": "muckelvaneyboyles7842",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global ",
+     "digg": 6,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 696,
+     "created_at": 1790155749,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688659974985190677",
+     "author": "muckelvaneyboyles7842",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global ",
+     "digg": 5,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 722,
+     "created_at": 1790155656,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688659393356827912",
+     "author": "sqvbg5",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global ",
+     "digg": 6,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 735,
+     "created_at": 1790155523,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688659368031554849",
      "author": "yozhwgidd8",
      "title": "#hypic ✨Hit the hypic icon up top to replicate the precise visual look shown in this video. Give this vibrant  photogeni",
@@ -8237,6 +10760,23 @@
      "created_at": 1790155515,
      "linked": null,
      "anchor": "",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688657286369185044",
+     "author": "user8172979449047",
+     "title": "#hypic #hypiccreator Free tutorial: If you can't see Hypic in the bottom left corner, go to the homepage and open the vi",
+     "digg": 225,
+     "collect": 60,
+     "comment": 3,
+     "share": 46,
+     "play": 8208,
+     "created_at": 1790155029,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator"
@@ -8289,6 +10829,42 @@
      "anchor": "",
      "topics": [
       "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688652443298565384",
+     "author": "l8a2qdkqh6",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 35,
+     "collect": 5,
+     "comment": 0,
+     "share": 8,
+     "play": 5039,
+     "created_at": 1790153901,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688651071559879943",
+     "author": "ao0dmobup1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 34,
+     "collect": 2,
+     "comment": 1,
+     "share": 0,
+     "play": 5586,
+     "created_at": 1790153584,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator",
+      "godpic"
      ]
     },
     {
@@ -8378,14 +10954,14 @@
      "video_id": "7688635589901421846",
      "author": "sneqqnieu6",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
-     "digg": 1755,
-     "collect": 257,
+     "digg": 1761,
+     "collect": 258,
      "comment": 10,
-     "share": 590,
-     "play": 112824,
+     "share": 592,
+     "play": 113206,
      "created_at": 1790149979,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypiccreator",
       "godpic"
@@ -8437,6 +11013,23 @@
      "linked": null,
      "anchor": "",
      "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688622862613171478",
+     "author": "waynecheung083",
+     "title": "#hypic #hypiccreator 🎂🖤 Şimdi sık sık Capsize tarzında atmosferik fotoğraflar görülebiliyor — koyu arka plan, vintage fl",
+     "digg": 1232,
+     "collect": 386,
+     "comment": 2,
+     "share": 782,
+     "play": 212114,
+     "created_at": 1790147018,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
       "hypiccreator"
      ]
     },
@@ -8506,6 +11099,40 @@
      ]
     },
     {
+     "video_id": "7688618793538440466",
+     "author": "user4694023072127",
+     "title": "#hypic #hypiccreator  والله هالتريند اللي كل البنات في الخليج كله بيعملوه حالياً! 📸 تعلم كيف تحط صورتك على هاد القالب ال",
+     "digg": 939,
+     "collect": 82,
+     "comment": 11,
+     "share": 274,
+     "play": 47106,
+     "created_at": 1790146069,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688610456746921249",
+     "author": "mj9qpakvs3",
+     "title": "#hypic #hypiccreator benziyorsa, bu kaderdir. Senin ona ya da onun sana ne kadar benzediğini öğrenmek ister misin? Bu ya",
+     "digg": 363,
+     "collect": 120,
+     "comment": 2,
+     "share": 176,
+     "play": 80748,
+     "created_at": 1790144128,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688610426698894613",
      "author": "qmxs4kxwc5",
      "title": "#hypic #hypiccreator #hypicATETHAT #Godpic   @hypic_global @hypic_vn_official  @hypic_br_official @hypic_sa_global ",
@@ -8550,6 +11177,23 @@
      "linked": null,
      "anchor": "",
      "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688602980588784918",
+     "author": "waynecheung083",
+     "title": "#hypic #hypiccreator Siyah takım çift trendi nasıl yapılır Siyah takım çift trendi yapmak için AI nasıl kullanılır Siyah",
+     "digg": 1859,
+     "collect": 1270,
+     "comment": 7,
+     "share": 2228,
+     "play": 455036,
+     "created_at": 1790142390,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
       "hypiccreator"
      ]
     },
@@ -8607,14 +11251,14 @@
      "video_id": "7688595486260874518",
      "author": "iliepasvr5",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
-     "digg": 3524,
-     "collect": 372,
+     "digg": 3527,
+     "collect": 373,
      "comment": 25,
      "share": 627,
-     "play": 197959,
+     "play": 198167,
      "created_at": 1790140643,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator",
@@ -8673,14 +11317,14 @@
      "video_id": "7688586558445833492",
      "author": "tt173656",
      "title": "#hypic #hypiccreator Free tutorial: If you cannot see Hypic in the bottom left corner, go to the homepage and open this ",
-     "digg": 2843,
-     "collect": 354,
+     "digg": 2913,
+     "collect": 358,
      "comment": 33,
-     "share": 452,
-     "play": 134874,
+     "share": 458,
+     "play": 135830,
      "created_at": 1790138563,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator"
@@ -8726,13 +11370,14 @@
      "collect": 102,
      "comment": 6,
      "share": 156,
-     "play": 61877,
+     "play": 61937,
      "created_at": 1790136558,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypiccreator",
-      "godpic"
+      "godpic",
+      "hypic"
      ]
     },
     {
@@ -8788,14 +11433,14 @@
      "video_id": "7688563186672454934",
      "author": "iliepasvr5",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
-     "digg": 6113,
-     "collect": 629,
+     "digg": 6116,
+     "collect": 631,
      "comment": 28,
      "share": 665,
-     "play": 394525,
+     "play": 394723,
      "created_at": 1790133130,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator"
@@ -8951,16 +11596,17 @@
      "video_id": "7688545268911983888",
      "author": "dryhgixijxb",
      "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
-     "digg": 1700,
-     "collect": 611,
+     "digg": 1708,
+     "collect": 614,
      "comment": 77,
-     "share": 810,
-     "play": 78022,
+     "share": 811,
+     "play": 78324,
      "created_at": 1790128959,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
-      "hypiccreator"
+      "hypiccreator",
+      "godpic"
      ]
     },
     {
@@ -9204,16 +11850,17 @@
      "video_id": "7688495321617272081",
      "author": "dryhgixijxb",
      "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
-     "digg": 5134,
-     "collect": 1332,
+     "digg": 5141,
+     "collect": 1335,
      "comment": 171,
-     "share": 984,
-     "play": 441831,
+     "share": 988,
+     "play": 441965,
      "created_at": 1790117362,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
-      "hypiccreator"
+      "hypiccreator",
+      "godpic"
      ]
     },
     {
@@ -9368,6 +12015,22 @@
      ]
     },
     {
+     "video_id": "7688361782448049425",
+     "author": "mew43flaw4",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 50,
+     "collect": 0,
+     "comment": 0,
+     "share": 1,
+     "play": 3448,
+     "created_at": 1790086242,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator"
+     ]
+    },
+    {
      "video_id": "7688360420968647943",
      "author": "saorrsa1",
      "title": "📼 👀ကျောင်းသားသားသားဘဝ ပြန်လန်လည်ရောက်ရှိက်ရှိလာတဲ့ အမှတ်တတ်တရပုံစံက ဘယ်လိုယ်လိုပုံစံရှိမလဲ? | ChatGPT မြန်မာကျောင်းင်းအမ",
@@ -9381,6 +12044,24 @@
      "anchor": "",
      "topics": [
       "hypiccreator"
+     ]
+    },
+    {
+     "video_id": "7688357164913790229",
+     "author": "ho7ngh1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 11,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 719,
+     "created_at": 1790085153,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator",
+      "godpic"
      ]
     },
     {
@@ -9768,14 +12449,14 @@
      "video_id": "7688152651091037458",
      "author": "huobo9",
      "title": "iPhone 18 is not out of reach, but photo editing gives you more bang for the buck! Cool editing tricks. Bookmark this & ",
-     "digg": 4868,
-     "collect": 372,
-     "comment": 54,
-     "share": 338,
-     "play": 308461,
+     "digg": 4884,
+     "collect": 375,
+     "comment": 55,
+     "share": 340,
+     "play": 309261,
      "created_at": 1790037547,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "hypic",
       "hypiccreator",
@@ -9804,7 +12485,7 @@
   },
   "godpic": {
    "api_status": "success",
-   "count_fresh": 72,
+   "count_fresh": 85,
    "items": [
     {
      "video_id": "7688849283717614881",
@@ -9896,14 +12577,14 @@
      "video_id": "7688805627161758983",
      "author": "coco11585",
      "title": "#hypic #hypiccreator Free tutorial: If you cannot see Hypic in the bottom left corner, go to the homepage and open this ",
-     "digg": 152,
+     "digg": 156,
      "collect": 31,
      "comment": 10,
-     "share": 48,
-     "play": 1998,
+     "share": 49,
+     "play": 2021,
      "created_at": 1790189576,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "godpic"
      ]
@@ -9916,10 +12597,10 @@
      "collect": 0,
      "comment": 0,
      "share": 0,
-     "play": 168,
+     "play": 170,
      "created_at": 1790188823,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "godpic",
       "hypic"
@@ -9976,6 +12657,23 @@
      ]
     },
     {
+     "video_id": "7688772252426325266",
+     "author": "ao0dmobup1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 10,
+     "collect": 2,
+     "comment": 0,
+     "share": 2,
+     "play": 1282,
+     "created_at": 1790181801,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
      "video_id": "7688762440124763400",
      "author": "hetzna3",
      "title": "#hypic #hypiccreator #Godpic @hypic_global 🔥🔥 ✨How to get this trending effect instantly? Just upload one photo! Super e",
@@ -9988,6 +12686,23 @@
      "linked": null,
      "anchor": "",
      "topics": [
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688757059495562497",
+     "author": "dryhgixijxb",
+     "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
+     "digg": 645,
+     "collect": 147,
+     "comment": 19,
+     "share": 504,
+     "play": 34669,
+     "created_at": 1790178265,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypiccreator",
       "godpic"
      ]
     },
@@ -10036,6 +12751,24 @@
      "linked": null,
      "anchor": "",
      "topics": [
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688743002855984392",
+     "author": "moshunli",
+     "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين صورة ترند التنين الوردي بهذا الشكل الواقعي والكيوت جدًا؟ 🐉🩷 كل اللي",
+     "digg": 1569,
+     "collect": 240,
+     "comment": 17,
+     "share": 607,
+     "play": 128525,
+     "created_at": 1790174988,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypic",
       "hypiccreator",
       "godpic"
      ]
@@ -10241,6 +12974,23 @@
      ]
     },
     {
+     "video_id": "7688693097370275078",
+     "author": "dryhgixijxb",
+     "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
+     "digg": 224,
+     "collect": 58,
+     "comment": 13,
+     "share": 175,
+     "play": 10822,
+     "created_at": 1790163373,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
      "video_id": "7688689746842815764",
      "author": "tobiasgun900",
      "title": "คุณสามารถสร้างเอฟเฟกต์วิดีโอแบบนี้ได้อย่างไรโดยใช้รูปภาพของคุณเอง? ง่ายมากและฟรีอย่างสมบูรณ์ ตอนนี้ฉันจะแนะนำคุณ ขั้นแรก",
@@ -10253,6 +13003,24 @@
      "linked": null,
      "anchor": "",
      "topics": [
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688652443298565384",
+     "author": "l8a2qdkqh6",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 35,
+     "collect": 5,
+     "comment": 0,
+     "share": 8,
+     "play": 5039,
+     "created_at": 1790153901,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator",
       "godpic"
      ]
     },
@@ -10273,6 +13041,24 @@
      ]
     },
     {
+     "video_id": "7688651071559879943",
+     "author": "ao0dmobup1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic @hypic_global @hypic_vn_official @hypic_br_official @hypic_sa_global",
+     "digg": 34,
+     "collect": 2,
+     "comment": 1,
+     "share": 0,
+     "play": 5586,
+     "created_at": 1790153584,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
      "video_id": "7688646925968526614",
      "author": "lanepee21",
      "title": "تبا لزمن يصبح الحيوان رمز تباً لزمن أصبح الحيوان اوفى من البشر مامعين بااللي يكول احرك الدنيا ع مودج هذا طبق المقوله تبا",
@@ -10289,17 +13075,33 @@
      ]
     },
     {
+     "video_id": "7688646505107868950",
+     "author": "ellajin168",
+     "title": "#hypic#hypiccreator#Godpic@hypic_global How to get this trending effect instantly?just upload one photo! Supereasy  kon ",
+     "digg": 301,
+     "collect": 22,
+     "comment": 4,
+     "share": 14,
+     "play": 11578,
+     "created_at": 1790152524,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "godpic"
+     ]
+    },
+    {
      "video_id": "7688635589901421846",
      "author": "sneqqnieu6",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
-     "digg": 1755,
-     "collect": 257,
+     "digg": 1761,
+     "collect": 258,
      "comment": 10,
-     "share": 590,
-     "play": 112824,
+     "share": 592,
+     "play": 113206,
      "created_at": 1790149979,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypiccreator",
       "godpic"
@@ -10406,14 +13208,14 @@
      "video_id": "7688595486260874518",
      "author": "iliepasvr5",
      "title": "#hypic #hypiccreator #Godpic @hypic_global كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تح",
-     "digg": 3524,
-     "collect": 372,
+     "digg": 3527,
+     "collect": 373,
      "comment": 25,
      "share": 627,
-     "play": 197959,
+     "play": 198167,
      "created_at": 1790140643,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypic",
       "hypiccreator",
@@ -10444,12 +13246,29 @@
      "collect": 102,
      "comment": 6,
      "share": 156,
-     "play": 61877,
+     "play": 61937,
      "created_at": 1790136558,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
       "hypiccreator",
+      "godpic",
+      "hypic"
+     ]
+    },
+    {
+     "video_id": "7688573670020730134",
+     "author": "mathis2433",
+     "title": "What if you lived in the 80s? Try this retro effect. #hypic #hypiccreator #godpic #hypic #hypiccreator ",
+     "digg": 0,
+     "collect": 1,
+     "comment": 0,
+     "share": 0,
+     "play": 235,
+     "created_at": 1790135570,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
       "godpic"
      ]
     },
@@ -10467,6 +13286,23 @@
      "anchor": "",
      "topics": [
       "hypic",
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688545268911983888",
+     "author": "dryhgixijxb",
+     "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
+     "digg": 1708,
+     "collect": 614,
+     "comment": 77,
+     "share": 811,
+     "play": 78324,
+     "created_at": 1790128959,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
       "hypiccreator",
       "godpic"
      ]
@@ -10609,6 +13445,23 @@
      ]
     },
     {
+     "video_id": "7688495321617272081",
+     "author": "dryhgixijxb",
+     "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
+     "digg": 5141,
+     "collect": 1335,
+     "comment": 171,
+     "share": 988,
+     "play": 441965,
+     "created_at": 1790117362,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
      "video_id": "7688482306071252242",
      "author": "gj2ohvugr9",
      "title": "#hypic #hypiccreator  #Godpic @hypic_global @hypic_br_official Black and white mirror reflection portrait 🖤Elegant dark ",
@@ -10678,6 +13531,22 @@
      ]
     },
     {
+     "video_id": "7688388480040258833",
+     "author": "dryhgixijxb",
+     "title": "Click the bottom left corner to download CapCut. Free of chargeTurn everything into the same filter style with AI. #hypi",
+     "digg": 757,
+     "collect": 390,
+     "comment": 25,
+     "share": 568,
+     "play": 19634,
+     "created_at": 1790092463,
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
+     "topics": [
+      "godpic"
+     ]
+    },
+    {
      "video_id": "7688383292307131668",
      "author": "zoha.ai8",
      "title": "✌️✌️Create similar photos with one click for free, click capcut in the bottom left corner to create it for free.  New Ca",
@@ -10706,6 +13575,41 @@
      "linked": null,
      "anchor": "",
      "topics": [
+      "hypiccreator",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688361651019500821",
+     "author": "cxwkb05",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_vn_official @hypic_br_official @hypic_sa_global @hypic_global   ",
+     "digg": 24,
+     "collect": 4,
+     "comment": 1,
+     "share": 2,
+     "play": 2563,
+     "created_at": 1790086199,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
+      "godpic"
+     ]
+    },
+    {
+     "video_id": "7688357164913790229",
+     "author": "ho7ngh1",
+     "title": "#hypic #hypiccreator #hypicATETHAT #Godpic@hypic_global",
+     "digg": 11,
+     "collect": 0,
+     "comment": 0,
+     "share": 0,
+     "play": 719,
+     "created_at": 1790085153,
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
+     "topics": [
+      "hypic",
       "hypiccreator",
       "godpic"
      ]
@@ -10861,16 +13765,17 @@
      "video_id": "7688237893571054880",
      "author": "user8131609381778",
      "title": "#hypic #hypiccreator #Godpic كيف تسوين فيديو AI سينمائي ومؤثر بهذا الشكل، كأن مقولة \"أحرق الدنيا عشانك\" تحققت في مشهد حق",
-     "digg": 18492,
-     "collect": 1662,
+     "digg": 18506,
+     "collect": 1663,
      "comment": 174,
      "share": 1445,
-     "play": 488829,
+     "play": 489278,
      "created_at": 1790057390,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic｜Try this photo template",
      "topics": [
-      "godpic"
+      "godpic",
+      "hypic"
      ]
     },
     {
@@ -10944,14 +13849,14 @@
      "video_id": "7688152651091037458",
      "author": "huobo9",
      "title": "iPhone 18 is not out of reach, but photo editing gives you more bang for the buck! Cool editing tricks. Bookmark this & ",
-     "digg": 4868,
-     "collect": 372,
-     "comment": 54,
-     "share": 338,
-     "play": 308461,
+     "digg": 4884,
+     "collect": 375,
+     "comment": 55,
+     "share": 340,
+     "play": 309261,
      "created_at": 1790037547,
-     "linked": null,
-     "anchor": "",
+     "linked": true,
+     "anchor": "Hypic • Edit like a pro",
      "topics": [
       "hypic",
       "hypiccreator",
