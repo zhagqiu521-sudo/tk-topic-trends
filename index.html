@@ -56,7 +56,10 @@
 </div>
 
 <script>
-const BASE = "https://cdn.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data";
+// local file (file://) loads data from jsDelivr; when served by the worker, use same-origin /data proxy
+const BASE = location.protocol === "file:"
+  ? "https://cdn.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data"
+  : location.origin + "/data";
 const COLORS = { capcut:"#58a6ff", capcutpioneer:"#bc8cff", capcutnow:"#f0883e" };
 const NAMES  = { capcut:"#capcut", capcutpioneer:"#capcutpioneer", capcutnow:"#capcutnow" };
 const fmt = n => n>=10000 ? (n/10000).toFixed(1)+"w" : n>=1000 ? (n/1000).toFixed(1)+"k" : String(n);
