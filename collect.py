@@ -26,7 +26,7 @@ PRODUCTS = {
     "capcut": {"label": "CapCut（剪映）", "tags": ["capcut", "capcutpioneer", "capcutnow"]},
     "hypic": {"label": "Hypic（醒图）", "tags": ["hypic", "hypiccreator", "godpic"]},
 }
-PAGES_PER_TOPIC = 6       # big topics return mixed-age feeds; more pages = more fresh hits
+PAGES_PER_TOPIC = 15      # 300 items scanned per topic per hour; ~90 req/run = 2160/day of the 10k free quota
 COUNT_PER_PAGE = 20
 MAX_AGE_HOURS = 48        # keep only works published in the last 48 hours
 SLEEP_BETWEEN_REQ = 1.6   # tikwm: 1 request/sec per IP
