@@ -42,6 +42,9 @@
   .chip:hover { border-color:var(--green); }
   .chip.active { background:rgba(46,204,113,.16); border-color:var(--green); color:var(--green); font-weight:bold; }
   .chip .dir { font-size:11px; }
+  .filterbar select { background:#363d4a; color:var(--text); border:1px solid var(--border);
+                      border-radius:4px; padding:4px 8px; font-size:13px; cursor:pointer; max-width:260px; }
+  .filterbar select:hover { border-color:var(--green); }
   .sep { width:100%; height:7px; }
 
   .meta { color:var(--dim); font-size:12.5px; margin-bottom:8px; }
@@ -113,6 +116,8 @@
     <span class="chip topic" data-topic="capcut">CapCut（剪映）</span>
     <span class="chip topic" data-topic="hypic">Hypic（醒图）</span>
     <span class="chip linked" data-linked="0">🔗 仅挂链</span>
+    <span class="chiplabel" style="margin-left:8px">模板</span>
+    <select id="tplSelect"><option value="">全部</option></select>
   </div>
   <div class="sep"></div>
   <div class="chiprow">
@@ -165,7 +170,7 @@ const TZ_OPTIONS = [ ["纽约","America/New_York"], ["洛杉矶","America/Los_An
                      ["东京","Asia/Tokyo"], ["首尔","Asia/Seoul"], ["新加坡","Asia/Singapore"],
                      ["悉尼","Australia/Sydney"], ["北京","Asia/Shanghai"], ["UTC","UTC"] ];
 const PAGE_SIZE = 50;
-const state = { product:"all", sortKey:"created_at", sortDir:"desc", hours:48, page:1, linkedOnly:false };
+const state = { product:"all", sortKey:"created_at", sortDir:"desc", hours:48, page:1, linkedOnly:false, tpl:"" };
 let viewTz = localStorage.getItem("viewTz") || "America/New_York";
 let viewTzName = "纽约";
 
@@ -236,6 +241,20 @@ function render(){
     vids = vids.filter(v=>v.tags.some(t=>tags.includes(t)));
   }
   if(state.linkedOnly) vids = vids.filter(v=>v.linked===true);
+  if(state.tpl) vids = vids.filter(v=>v.anchor===state.tpl);
+
+  // 模板下拉：从已确认挂链的作品聚合 keyword
+  const kwSet = new Map();
+  for(const v of allVideos()){
+    if(v.linked===true && v.anchor) kwSet.set(v.anchor,(kwSet.get(v.anchor)||0)+1);
+  }
+  const tplSel=document.getElementById("tplSelect");
+  const cur=state.tpl;
+  tplSel.innerHTML = "<option value=''>全部（"+kwSet.size+" 个锚点）</option>" +
+    [...kwSet.entries()].sort((a,b)=>b[1]-a[1])
+      .map(([k,c])=>"<option value='"+escapeHtml(k)+"'>"+escapeHtml(k)+"（"+c+"）</option>").join("");
+  tplSel.value=[...tplSel.options].some(o=>o.value===cur)?cur:"";
+  state.tpl=tplSel.value;
   const nowTs = Date.now()/1000;
   vids = vids.filter(v=>v.created_at >= nowTs - state.hours*3600);
 
@@ -319,6 +338,9 @@ document.querySelector(".chip.linked").addEventListener("click",()=>{
   state.linkedOnly=!state.linkedOnly;
   document.querySelector(".chip.linked").classList.toggle("active", state.linkedOnly);
   resetPage(); render();
+});
+document.getElementById("tplSelect").addEventListener("change",()=>{
+  state.tpl=document.getElementById("tplSelect").value; resetPage(); render();
 });
 document.querySelectorAll(".chip.window").forEach(ch=>ch.addEventListener("click",()=>{
   document.querySelectorAll(".chip.window").forEach(c=>c.classList.remove("active"));
