@@ -427,10 +427,17 @@ window.addEventListener("scroll",()=>{ toTop.classList.toggle("show", window.scr
 toTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 
 // ---- 登录门（tk-auth Worker）----
-const AUTH_URL = "https://tk-auth.zhagqiu-tk.workers.dev/api";
+// 双端点兜底：自定义域名优先（无污染），workers.dev 备用（国内偶发波动）
+const AUTH_ENDPOINTS = ["https://tk.exapple.xyz/api", "https://tk-auth.zhagqiu-tk.workers.dev/api"];
 async function authAPI(payload){
-  const r = await fetch(AUTH_URL, { method:"POST", headers:{ "content-type":"application/json" }, body: JSON.stringify(payload) });
-  return r.json();
+  let lastErr = "";
+  for(const ep of AUTH_ENDPOINTS){
+    try{
+      const r = await fetch(ep, { method:"POST", headers:{ "content-type":"application/json" }, body: JSON.stringify(payload) });
+      return await r.json();
+    }catch(e){ lastErr = ep; }
+  }
+  return { ok:false, msg:"登录服务不可达，稍后重试" };
 }
 function showApp(){
   document.getElementById("authGate").style.display="none";
