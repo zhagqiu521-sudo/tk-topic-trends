@@ -51,14 +51,18 @@ CT_RE = re.compile(r'"createTime":(\d+)')
 
 def fetch_json(url):
     out = subprocess.run(
-        ["curl", "-s", "-m", "30", "--compressed",
+        ["curl", "-s", "-m", "30", "--compressed", "-w", "\n--HTTP:%{http_code}",
          "-H", f"User-Agent: {UA}",
          "-H", "Accept: application/json, text/plain, */*",
          "-H", "Accept-Language: en-US,en;q=0.9",
          "-H", "Referer: https://www.tiktok.com/",
          url],
         capture_output=True, text=True, timeout=45, check=True)
-    return json.loads(out.stdout)
+    body, _, code = out.stdout.rpartition("\n--HTTP:")
+    try:
+        return json.loads(body)
+    except json.JSONDecodeError as e:
+        raise ValueError(f"HTTP {code.strip()} non-JSON: {body[:140]!r}") from e
 
 
 def check_anchor(vid, author):
