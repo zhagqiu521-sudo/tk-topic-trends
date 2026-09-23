@@ -21,10 +21,10 @@ CHALLENGES = {
     "hypiccreator": "7234524314999980059",
     "godpic": "1657530774358033",
 }
-# product grouping consumed by the dashboard
+# product grouping consumed by the dashboard (label + tag list)
 PRODUCTS = {
-    "capcut": ["capcut", "capcutpioneer", "capcutnow"],
-    "hypic": ["hypic", "hypiccreator", "godpic"],
+    "capcut": {"label": "CapCut（剪映）", "tags": ["capcut", "capcutpioneer", "capcutnow"]},
+    "hypic": {"label": "Hypic（醒图）", "tags": ["hypic", "hypiccreator", "godpic"]},
 }
 PAGES_PER_TOPIC = 6       # big topics return mixed-age feeds; more pages = more fresh hits
 COUNT_PER_PAGE = 20
