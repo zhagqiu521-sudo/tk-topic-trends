@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 * * * *"   # GitHub drops scheduled fires under load (observed 9/9 overnight),
     - cron: "10 * * * *"  # so we fire six times per hour; collect.py de-dupes to one
-    - cron: "20 * * * *"  # snapshot per hour.
+    - cron: "20 * * * *"  # snapshot per half-hour.
     - cron: "30 * * * *"
     - cron: "40 * * * *"
     - cron: "50 * * * *"
@@ -23,7 +23,8 @@ jobs:
         env:
           TIKHUB_TOKEN: ${{ secrets.TIKHUB_TOKEN }}
           DATA_KEY: ${{ secrets.DATA_KEY }}
-              - name: Commit snapshot
+        run: python3 collect.py
+      - name: Commit snapshot
         run: |
           git config user.name  "collector-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -37,7 +38,7 @@ jobs:
       - name: Purge jsDelivr CDN cache (keep dashboard fresh)
         run: |
           for f in index.json.enc latest.json.enc; do
-            curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/$f" | head -c 200; echo ""
+            curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/$f" -o /dev/null
           done
           LATEST=$(ls -t data/snapshots/ | head -1)
-          curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/snapshots/$LATEST.enc" | head -c 200; echo ""
+          curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/snapshots/$LATEST" -o /dev/null
