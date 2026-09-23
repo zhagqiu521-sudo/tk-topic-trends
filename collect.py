@@ -85,6 +85,11 @@ def collect_topic(tag, cid, cutoff):
 
 def main():
     now = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
+    ts = now.strftime("%Y-%m-%dT%H%M") + "Z"
+    # six cron fires per hour; only the first one this hour actually collects
+    if os.path.exists(os.path.join("data", "snapshots", ts + ".json")):
+        print(f"snapshot for {ts} already exists — skipping (hourly dedupe)")
+        return 0
     cutoff = int((now - timedelta(hours=MAX_AGE_HOURS)).timestamp())
     snap = {"captured_at": now.isoformat(), "window_hours": MAX_AGE_HOURS, "topics": {}}
 
@@ -102,7 +107,6 @@ def main():
                  if top else "no fresh items")
         print(f"  {tag}: {t['api_status']} | {t['count_fresh']} items | {top_s}")
 
-    ts = now.strftime("%Y-%m-%dT%H%M") + "Z"
     os.makedirs("data/snapshots", exist_ok=True)
     with open(f"data/snapshots/{ts}.json", "w", encoding="utf-8") as f:
         json.dump(snap, f, ensure_ascii=False, indent=1)
