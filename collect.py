@@ -88,10 +88,17 @@ def check_anchor(vid, author):
         return None
 
 
-def collect_topic(tag, cid, cutoff, start_page):
-    """Scan PAGES_PER_TOPIC pages starting at rotating offset; return fresh raw videos."""
-    videos, cursor, pages, status = [], start_page * COUNT_PER_PAGE, 0, "success"
-    for _ in range(PAGES_PER_TOPIC):
+def collect_topic(tag, cid, cutoff, rot_start_page):
+    """Hybrid scan: always refresh freshest pages 0-4 (stats every 30 min for the
+    newest cohort) + a rotating deep window of PAGES_PER_TOPIC pages (coverage)."""
+    page_nos = list(range(0, 5)) + list(range(rot_start_page, rot_start_page + PAGES_PER_TOPIC))
+    videos, pages, status = [], 0, "success"
+    seen = set()
+    for pno in page_nos:
+        if pno in seen:
+            continue
+        seen.add(pno)
+        cursor = pno * COUNT_PER_PAGE
         url = f"{API}/?challenge_id={cid}&count={COUNT_PER_PAGE}&cursor={cursor}"
         try:
             j = fetch_json(url)
@@ -105,8 +112,6 @@ def collect_topic(tag, cid, cutoff, start_page):
         fresh = [v for v in batch if v.get("create_time", 0) >= cutoff]
         videos.extend(fresh)
         pages += 1
-        print(f"  [{tag}] page {pages} (cursor {cursor}): {len(batch)} items, "
-              f"{len(fresh)} fresh(48h), hasMore={j['data'].get('hasMore')}", flush=True)
         if not j["data"].get("hasMore"):
             break
         cursor += COUNT_PER_PAGE
@@ -145,7 +150,7 @@ def main():
 
     statuses = {}
     for tag, cid in CHALLENGES.items():
-        print(f"[{tag}] collecting (window start_page={start_page})...", flush=True)
+        print(f"[{tag}] collecting (fresh 0-4 + deep window {start_page}-{start_page + PAGES_PER_TOPIC})...", flush=True)
         videos, pages, status = collect_topic(tag, cid, cutoff, start_page)
         statuses[tag] = status
         print(f"  [{tag}] fresh scanned this run: {len(videos)}", flush=True)
