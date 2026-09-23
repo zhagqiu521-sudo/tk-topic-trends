@@ -1,0 +1,24 @@
+name: probe11
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: fetch video page and extract createTime
+        run: |
+          curl -s -m 25 -L "https://www.tiktok.com/@prvvo.asia/video/7688755825690578198" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+            -o v.html -w "http %{http_code}, %{size_download} bytes\n"
+          echo "createTime 原始值:"
+          grep -o '"createTime":[0-9]*' v.html | head -2
+          echo "锚点 keyword:"
+          grep -o '"anchors":\[\{"id":"[0-9]*","type":[0-9]*,"keyword":"[^"]*"' v.html | head -1
+          echo "作者/描述参考:"
+          grep -o '"uniqueId":"[^"]*"' v.html | head -1
+          grep -o '"desc":"[^"]\{0,80\}' v.html | head -1
+          echo "UTC与北京时间换算:"
+          CT=$(grep -o '"createTime":[0-9]*' v.html | head -1 | grep -o '[0-9]*')
+          if [ -n "$CT" ]; then
+            node -e "const t=$CT;console.log('unix:',t);console.log('UTC    :',new Date(t*1000).toISOString());console.log('北京   :',new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(t*1000)));console.log('纽约   :',new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(t*1000)));"
+          fi
