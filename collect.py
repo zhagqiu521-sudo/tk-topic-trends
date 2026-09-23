@@ -159,11 +159,14 @@ def store_json(path, obj, key):
 def read_json(path, key, default):
     """Read path.enc (preferred) or legacy plaintext path."""
     enc_path = path + ".enc"
-    src = enc_path if os.path.exists(enc_path) else (path if os.path.exists(path) else None)
-    if src is None:
+    if os.path.exists(enc_path):
+        src, use_key = enc_path, key          # encrypted: decrypt
+    elif os.path.exists(path):
+        src, use_key = path, None             # legacy plaintext: read as-is
+    else:
         return default
     try:
-        return json.loads(dec_read(src, key).decode("utf-8"))
+        return json.loads(dec_read(src, use_key).decode("utf-8"))
     except (subprocess.SubprocessError, json.JSONDecodeError, OSError):
         return default
 
