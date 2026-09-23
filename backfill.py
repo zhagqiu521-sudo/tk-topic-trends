@@ -81,11 +81,57 @@ def load_json_file(path, default):
     return default
 
 
+# ---- at-rest encryption (same format as collect.py): [16B IV][AES-256-CBC] ----
+def data_key():
+    k = os.environ.get("DATA_KEY", "")
+    try:
+        return bytes.fromhex(k) if k else None
+    except ValueError:
+        return None
+
+
+def enc_write(path, data_bytes, key):
+    if not key:
+        with open(path, "wb") as f:
+            f.write(data_bytes)
+        return
+    iv = os.urandom(16)
+    out = subprocess.run(["openssl", "enc", "-aes-256-cbc", "-K", key.hex(), "-iv", iv.hex()],
+                         input=data_bytes, capture_output=True, check=True)
+    with open(path + ".enc", "wb") as f:
+        f.write(iv + out.stdout)
+
+
+def dec_read(path, key):
+    raw = open(path, "rb").read()
+    if not key:
+        return raw
+    out = subprocess.run(["openssl", "enc", "-d", "-aes-256-cbc", "-K", key.hex(), "-iv", raw[:16].hex()],
+                         input=raw[16:], capture_output=True, check=True)
+    return out.stdout
+
+
+def store_json(path, obj, key):
+    enc_write(path, json.dumps(obj, ensure_ascii=False, indent=1).encode("utf-8"), key)
+
+
+def read_json(path, key, default):
+    enc_path = path + ".enc"
+    src = enc_path if os.path.exists(enc_path) else (path if os.path.exists(path) else None)
+    if src is None:
+        return default
+    try:
+        return json.loads(dec_read(src, key).decode("utf-8"))
+    except (subprocess.SubprocessError, json.JSONDecodeError, OSError):
+        return default
+
+
 def main():
     now = datetime.now(timezone.utc)
     cutoff = int((now - timedelta(hours=MAX_AGE_HOURS)).timestamp())
     reg_path = "data/registry.json"
-    registry = load_json_file(reg_path, {})
+    DK = data_key()
+    registry = read_json(reg_path, DK, {})
 
     new_total, req_total = 0, 0
     for tag, cid in CHALLENGES.items():
@@ -161,20 +207,16 @@ def main():
     ts = ts.replace(minute=0 if ts.minute < 30 else 30)
     tss = ts.strftime("%Y-%m-%dT%H%M") + "Z"
     snap_path = f"data/snapshots/{tss}.json"
-    if not os.path.exists(snap_path):
-        with open(snap_path, "w", encoding="utf-8") as f:
-            json.dump(snap, f, ensure_ascii=False, indent=1)
+    if not os.path.exists(snap_path + ".enc") and not os.path.exists(snap_path):
+        store_json(snap_path, snap, DK)
         idx_path = "data/index.json"
-        idx = load_json_file(idx_path, [])
+        idx = read_json(idx_path, DK, [])
         if f"snapshots/{tss}.json" not in idx:
             idx.insert(0, f"snapshots/{tss}.json")
-        with open(idx_path, "w", encoding="utf-8") as f:
-            json.dump(idx[:1440], f, indent=1)
+        store_json(idx_path, idx[:1440], DK)
     # latest.json + registry always updated (backfill data is additive and fresh)
-    with open("data/latest.json", "w", encoding="utf-8") as f:
-        json.dump(snap, f, ensure_ascii=False, indent=1)
-    with open(reg_path, "w", encoding="utf-8") as f:
-        json.dump(registry, f, ensure_ascii=False)
+    store_json("data/latest.json", snap, DK)
+    store_json(reg_path, registry, DK)
 
     linked_total = sum(1 for e in registry.values() if e.get("linked") is True)
     print(f"\nBACKFILL: requests={req_total} | new_fresh={new_total} | "
