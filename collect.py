@@ -18,7 +18,7 @@ CHALLENGES = {
     "capcutpioneer": "7356025154310733831",
     "capcutnow": "1684704995991554",
 }
-PAGES_PER_TOPIC = 2       # 2 pages x 20 items on first pass; tune later
+PAGES_PER_TOPIC = 4       # big topics return mixed-age feeds; more pages = more 7d hits
 COUNT_PER_PAGE = 20
 MAX_AGE_DAYS = 7
 SLEEP_BETWEEN_REQ = 1.6   # tikwm: 1 request/sec per IP
@@ -108,6 +108,20 @@ def main():
         json.dump(snap, f, ensure_ascii=False, indent=1)
     with open("data/latest.json", "w", encoding="utf-8") as f:
         json.dump(snap, f, ensure_ascii=False, indent=1)
+
+    # snapshot index for the dashboard (keep newest first, cap history)
+    idx_path = "data/index.json"
+    idx = []
+    if os.path.exists(idx_path):
+        try:
+            with open(idx_path, encoding="utf-8") as f:
+                idx = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            idx = []
+    if f"snapshots/{ts}.json" not in idx:
+        idx.insert(0, f"snapshots/{ts}.json")
+    with open(idx_path, "w", encoding="utf-8") as f:
+        json.dump(idx[:720], f, indent=1)  # 30 days of hourly snapshots
     return 0 if (ok and total > 0) else 1
 
 
