@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
-"""Tk topic trends collector — hourly snapshot of hashtag video stats via tikwm free API.
+"""Tk topic trends collector — half-hourly deep scan of hashtag videos via tikwm free API.
 
-Rate-limit aware: tikwm allows 1 req/sec per IP; we sleep between all requests.
-Output: data/snapshots/<UTC timestamp>.json + data/latest.json (also printed to stdout).
+Design (v2, 2026-09-24):
+- Two topics only: capcut (1663935709411330), hypic (1667855826908166)
+- Rotating scan windows: each run scans 25 pages starting from a rotating offset
+  (8 windows × 25 pages = 200 pages deep per topic across 4 hours) — multiplies
+  coverage without extra per-run quota.
+- 48h rolling registry (data/registry.json): every scanned item is upserted by
+  video_id, so works never vanish between runs; entries age out after 48h.
+- Anchor (linked) detection: first-seen videos get ONE page fetch (SSR carries
+  "anchors"), cached forever in the registry; also calibrates createTime against
+  TikTok's own SSR value.
+- tikwm free limits: 1 req/sec per IP, 10k/day per IP. This config: ~50 req/run
+  + up to 40 page checks (tiktok.com, free of tikwm quota).
 """
 import json
 import os
@@ -13,64 +23,28 @@ import time
 from datetime import datetime, timezone, timedelta
 
 API = "https://www.tikwm.com/api/challenge/posts"
-# challenge_id values resolved via tikwm search (capcut trio 2026-09-23, hypic trio 2026-09-24)
 CHALLENGES = {
     "capcut": "1663935709411330",
-    "capcutpioneer": "7356025154310733831",
-    "capcutnow": "1684704995991554",
     "hypic": "1667855826908166",
-    "hypiccreator": "7234524314999980059",
-    "godpic": "1657530774358033",
 }
-# product grouping consumed by the dashboard (label + tag list)
 PRODUCTS = {
-    "capcut": {"label": "CapCut（剪映）", "tags": ["capcut", "capcutpioneer", "capcutnow"]},
-    "hypic": {"label": "Hypic（醒图）", "tags": ["hypic", "hypiccreator", "godpic"]},
+    "capcut": {"label": "CapCut（剪映）", "tags": ["capcut"]},
+    "hypic": {"label": "Hypic（醒图）", "tags": ["hypic"]},
 }
-PAGES_PER_TOPIC = 15      # 300 items scanned per topic per hour; ~90 req/run = 2160/day of the 10k free quota
+
+PAGES_PER_TOPIC = 25      # pages scanned per topic per run (from rotating offset)
+ROTATION_STEPS = 8        # 8 distinct windows → 200 pages deep per topic across 4 hours
 COUNT_PER_PAGE = 20
-MAX_AGE_HOURS = 48        # keep only works published in the last 48 hours
+MAX_AGE_HOURS = 48        # rolling registry window
 SLEEP_BETWEEN_REQ = 1.6   # tikwm: 1 request/sec per IP
+MAX_PAGE_CHECKS = 40      # anchor page-checks per run (first-seen videos only)
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
-
-# ---- linked-video (anchor) detection ----
-# tikwm list data has anchors stripped; the video PAGE SSR data carries them:
-# "anchors":[{"id":"0","type":54,"keyword":"CapCut · Smart chroma key",...}]
-# Each video is page-checked once (first time seen); results cached in data/flags.json.
 ANCHOR_RE = re.compile(r'"anchors":\[\{"id":"\d+","type":(\d+),"keyword":"([^"]*)"')
-MAX_PAGE_CHECKS = 40   # per run; unchecked videos queue up for later runs
+CT_RE = re.compile(r'"createTime":(\d+)')
 
-def load_flags():
-    if os.path.exists("data/flags.json"):
-        try:
-            with open("data/flags.json", encoding="utf-8") as f:
-                return json.load(f)
-        except (json.JSONDecodeError, OSError):
-            return {}
-    return {}
 
-def check_anchor(vid, author):
-    """Fetch the video page once; return {'linked':bool,'keyword':str} or None on failure."""
-    url = f"https://www.tiktok.com/@{author}/video/{vid}"
-    try:
-        out = subprocess.run(
-            ["curl", "-s", "-m", "20", "-L",
-             "-H", f"User-Agent: {UA}",
-             "-H", "Accept: text/html,application/xhtml+xml",
-             "-H", "Accept-Language: en-US,en;q=0.9",
-             url],
-            capture_output=True, text=True, timeout=30, check=True)
-        m = ANCHOR_RE.search(out.stdout)
-        if m:
-            return {"linked": True, "keyword": m.group(2)}
-        return {"linked": False}
-    except subprocess.SubprocessError:
-        return None
-
-# tikwm's Cloudflare blocks python-urllib's TLS fingerprint (verified 2026-09-23);
-# curl with browser headers passes from GitHub Actions egress — always shell out.
 def fetch_json(url):
     out = subprocess.run(
         ["curl", "-s", "-m", "30", "--compressed",
@@ -83,125 +57,179 @@ def fetch_json(url):
     return json.loads(out.stdout)
 
 
-def collect_topic(tag, cid, cutoff):
-    """Fetch pages until older-than-cutoff items dominate or pages exhausted."""
-    videos, cursor, pages, api_status = [], 0, 0, None
+def check_anchor(vid, author):
+    """One page fetch: authoritative createTime + anchors (SSR). None on failure."""
+    url = f"https://www.tiktok.com/@{author}/video/{vid}"
+    try:
+        out = subprocess.run(
+            ["curl", "-s", "-m", "20", "-L",
+             "-H", f"User-Agent: {UA}",
+             "-H", "Accept: text/html,application/xhtml+xml",
+             "-H", "Accept-Language: en-US,en;q=0.9",
+             url],
+            capture_output=True, text=True, timeout=30, check=True)
+        s = out.stdout
+        res = {"linked": False, "keyword": "", "ct": None}
+        idx = s.find('"webapp.video-detail"')
+        sub = s[idx:idx + 300000] if idx >= 0 else s
+        m = ANCHOR_RE.search(sub)
+        if m:
+            res["linked"] = True
+            res["keyword"] = m.group(2)
+        c = CT_RE.search(sub)
+        if c:
+            res["ct"] = int(c.group(1))
+        return res
+    except subprocess.SubprocessError:
+        return None
+
+
+def collect_topic(tag, cid, cutoff, start_page):
+    """Scan PAGES_PER_TOPIC pages starting at rotating offset; return fresh raw videos."""
+    videos, cursor, pages, status = [], start_page * COUNT_PER_PAGE, 0, "success"
     for _ in range(PAGES_PER_TOPIC):
         url = f"{API}/?challenge_id={cid}&count={COUNT_PER_PAGE}&cursor={cursor}"
         try:
             j = fetch_json(url)
         except (subprocess.SubprocessError, json.JSONDecodeError, ValueError) as e:
-            api_status = f"error: {e}"
+            status = f"error: {e}"
             break
-        api_status = j.get("msg", "?")
         if j.get("code") != 0 or not j.get("data"):
+            status = j.get("msg", "unknown")
             break
         batch = j["data"].get("videos") or []
         fresh = [v for v in batch if v.get("create_time", 0) >= cutoff]
         videos.extend(fresh)
         pages += 1
-        has_more = j["data"].get("hasMore")
-        oldest = min((v.get("create_time", 0) for v in batch), default=0)
-        print(f"  [{tag}] page {pages}: {len(batch)} items, {len(fresh)} fresh(48h), "
-              f"oldest={datetime.fromtimestamp(oldest, tz=timezone.utc):%Y-%m-%d} hasMore={has_more}", flush=True)
-        if not has_more or oldest >= cutoff and not fresh and batch:
+        print(f"  [{tag}] page {pages} (cursor {cursor}): {len(batch)} items, "
+              f"{len(fresh)} fresh(48h), hasMore={j['data'].get('hasMore')}", flush=True)
+        if not j["data"].get("hasMore"):
             break
-        cursor = j["data"].get("cursor") or (cursor + COUNT_PER_PAGE)
+        cursor += COUNT_PER_PAGE
         time.sleep(SLEEP_BETWEEN_REQ)
+    return videos, pages, status
 
-    items = []
-    for v in videos:
-        items.append({
-            "video_id": str(v.get("video_id", "")),
-            "author": (v.get("author") or {}).get("unique_id", ""),
-            "title": (v.get("title") or "")[:120],
-            "digg": v.get("digg_count", 0),          # likes
-            "collect": v.get("collect_count", 0),    # favorites
-            "comment": v.get("comment_count", 0),
-            "share": v.get("share_count", 0),
-            "play": v.get("play_count", 0),
-            "created_at": v.get("create_time", 0),   # unix sec
-        })
-    items.sort(key=lambda x: x["created_at"], reverse=True)
-    return {"api_status": api_status, "pages": pages, "count_fresh": len(items), "items": items}
+
+def load_json_file(path, default):
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, OSError):
+            return default
+    return default
 
 
 def main():
     now = datetime.now(timezone.utc).replace(second=0, microsecond=0)
-    # 30-minute buckets: two snapshots per hour (HH:00 and HH:30)
     now = now.replace(minute=0 if now.minute < 30 else 30)
     ts = now.strftime("%Y-%m-%dT%H%M") + "Z"
-    # six cron fires per hour; only the first one this hour actually collects
     if os.path.exists(os.path.join("data", "snapshots", ts + ".json")):
-        print(f"snapshot for {ts} already exists — skipping (hourly dedupe)")
+        print(f"snapshot for {ts} already exists — skipping (half-hour dedupe)")
         return 0
-    cutoff = int((now - timedelta(hours=MAX_AGE_HOURS)).timestamp())
-    snap = {"captured_at": now.isoformat(), "window_hours": MAX_AGE_HOURS,
-            "products": PRODUCTS, "topics": {}}
 
+    cutoff = int((now - timedelta(hours=MAX_AGE_HOURS)).timestamp())
+    bucket_idx = int(now.timestamp() // 1800) % ROTATION_STEPS
+    start_page = bucket_idx * PAGES_PER_TOPIC
+
+    reg_path = "data/registry.json"
+    registry = load_json_file(reg_path, {})
+
+    snap = {"captured_at": now.isoformat(), "window_hours": MAX_AGE_HOURS,
+            "products": PRODUCTS, "rotation": {"start_page": start_page, "steps": ROTATION_STEPS},
+            "topics": {}}
+
+    statuses = {}
     for tag, cid in CHALLENGES.items():
-        print(f"[{tag}] collecting...", flush=True)
-        snap["topics"][tag] = collect_topic(tag, cid, cutoff)
+        print(f"[{tag}] collecting (window start_page={start_page})...", flush=True)
+        videos, pages, status = collect_topic(tag, cid, cutoff, start_page)
+        statuses[tag] = status
+        print(f"  [{tag}] fresh scanned this run: {len(videos)}", flush=True)
+        for v in videos:
+            vid = str(v.get("video_id", ""))
+            if not vid:
+                continue
+            entry = registry.get(vid) or {
+                "first_seen": now.isoformat(),
+                "topics": [],
+                "linked": None,
+                "anchor": "",
+                "created_at": v.get("create_time", 0),
+                "author": (v.get("author") or {}).get("unique_id", ""),
+                "title": (v.get("title") or "")[:120],
+            }
+            entry.update({
+                "digg": v.get("digg_count", 0),
+                "collect": v.get("collect_count", 0),
+                "comment": v.get("comment_count", 0),
+                "share": v.get("share_count", 0),
+                "play": v.get("play_count", 0),
+                "last_seen": now.isoformat(),
+            })
+            if tag not in entry["topics"]:
+                entry["topics"].append(tag)
+            registry[vid] = entry
         time.sleep(SLEEP_BETWEEN_REQ)
 
-    ok = all(t["api_status"] == "success" for t in snap["topics"].values())
-    total = sum(t["count_fresh"] for t in snap["topics"].values())
+    # prune entries older than the 48h window
+    for vid in list(registry):
+        if registry[vid].get("created_at", 0) < cutoff:
+            del registry[vid]
 
-    # ---- anchor (linked) detection: page-check first-seen videos only ----
-    flags = load_flags()
+    # anchor page-checks for first-seen videos (+ createTime calibration)
+    to_check = [vid for vid, e in registry.items() if e.get("linked") is None]
     checked = 0
-    all_items = [it for t in snap["topics"].values() for it in t["items"]]
-    for it in all_items:
-        key = it["video_id"]
-        if key in flags:
-            it["linked"] = flags[key].get("linked", False)
-            it["anchor"] = flags[key].get("keyword", "")
-        elif checked < MAX_PAGE_CHECKS:
-            res = check_anchor(key, it["author"])
-            checked += 1
-            if res is None:
-                it["linked"] = None   # check failed; retry next run (not cached)
-                it["anchor"] = ""
-            else:
-                flags[key] = res
-                it["linked"] = res["linked"]
-                it["anchor"] = res.get("keyword", "")
-            time.sleep(2)
-        else:
-            it["linked"] = None       # over per-run cap: queued for later runs
-            it["anchor"] = ""
-    if checked:
-        os.makedirs("data", exist_ok=True)
-        with open("data/flags.json", "w", encoding="utf-8") as f:
-            json.dump(flags, f, ensure_ascii=False)
-        print(f"anchor checks: {checked} new videos page-checked, "
-              f"{sum(1 for it in all_items if it.get('linked'))} linked in this snapshot", flush=True)
-    print(f"\nVERDICT: {'PASS' if ok and total > 0 else 'FAIL'} | api_ok={ok} | fresh_items_7d={total}")
-    for tag, t in snap["topics"].items():
-        top = t["items"][0] if t["items"] else None
-        top_s = (f"top: {top['digg']} likes/{top['collect']} favs {top['title'][:40]}"
-                 if top else "no fresh items")
-        print(f"  {tag}: {t['api_status']} | {t['count_fresh']} items | {top_s}")
+    for vid in to_check[:MAX_PAGE_CHECKS]:
+        res = check_anchor(vid, registry[vid].get("author", ""))
+        checked += 1
+        if res is None:
+            continue  # failed: stays unchecked, retried next run
+        registry[vid]["linked"] = res["linked"]
+        registry[vid]["anchor"] = res.get("keyword", "")
+        if res.get("ct"):
+            registry[vid]["created_at"] = res["ct"]  # calibrate against TikTok SSR
+            registry[vid]["ct_verified"] = True
+        time.sleep(2)
+    linked_total = sum(1 for e in registry.values() if e.get("linked") is True)
+    print(f"anchor checks: {checked} checked this run | linked total in registry: {linked_total}", flush=True)
 
     os.makedirs("data/snapshots", exist_ok=True)
+
+    # build per-topic item views from the registry
+    items_all = []
+    for vid, e in registry.items():
+        items_all.append({
+            "video_id": vid, "author": e.get("author", ""), "title": e.get("title", ""),
+            "digg": e.get("digg", 0), "collect": e.get("collect", 0),
+            "comment": e.get("comment", 0), "share": e.get("share", 0),
+            "play": e.get("play", 0), "created_at": e.get("created_at", 0),
+            "linked": e.get("linked"), "anchor": e.get("anchor", ""),
+            "topics": e.get("topics", []),
+        })
+    items_all.sort(key=lambda x: x["created_at"], reverse=True)
+    for tag in CHALLENGES:
+        tag_items = [i for i in items_all if tag in i["topics"]]
+        snap["topics"][tag] = {"api_status": statuses.get(tag, "success"),
+                               "count_fresh": len(tag_items), "items": tag_items}
+
     with open(f"data/snapshots/{ts}.json", "w", encoding="utf-8") as f:
         json.dump(snap, f, ensure_ascii=False, indent=1)
     with open("data/latest.json", "w", encoding="utf-8") as f:
         json.dump(snap, f, ensure_ascii=False, indent=1)
+    with open(reg_path, "w", encoding="utf-8") as f:
+        json.dump(registry, f, ensure_ascii=False)
 
-    # snapshot index for the dashboard (keep newest first, cap history)
     idx_path = "data/index.json"
-    idx = []
-    if os.path.exists(idx_path):
-        try:
-            with open(idx_path, encoding="utf-8") as f:
-                idx = json.load(f)
-        except (json.JSONDecodeError, OSError):
-            idx = []
+    idx = load_json_file(idx_path, [])
     if f"snapshots/{ts}.json" not in idx:
         idx.insert(0, f"snapshots/{ts}.json")
     with open(idx_path, "w", encoding="utf-8") as f:
         json.dump(idx[:1440], f, indent=1)  # 30 days of half-hourly snapshots
+
+    total = len(items_all)
+    ok = all(s == "success" for s in statuses.values())
+    print(f"\nVERDICT: {'PASS' if ok and total > 0 else 'FAIL'} | registry_size={total} | "
+          f"linked={linked_total} | rotation_window={start_page}-{start_page + PAGES_PER_TOPIC}")
     return 0 if (ok and total > 0) else 1
 
 
