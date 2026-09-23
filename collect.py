@@ -36,8 +36,8 @@ PRODUCTS = {
     "hypic": {"label": "Hypic（醒图）", "tags": ["hypic", "hypiccreator", "godpic"]},
 }
 
-PAGES_PER_TOPIC = 15      # pages scanned per topic per run (from rotating offset)
-ROTATION_STEPS = 8        # 8 windows × 15 pages = 120 pages deep per topic across 4 hours
+PAGES_PER_TOPIC = 50      # pages scanned per topic per run (from rotating offset)
+ROTATION_STEPS = 8        # 8 windows × 50 pages = 400 pages deep per topic across 4 hours
 COUNT_PER_PAGE = 20
 MAX_AGE_HOURS = 48        # rolling registry window
 SLEEP_BETWEEN_REQ = 1.6   # tikwm: 1 request/sec per IP
