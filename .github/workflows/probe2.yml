@@ -6,8 +6,11 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: egress ip
-        run: echo "egress: $(curl -s -m 10 https://api.ipify.org)"
+        run: |
+          echo "egress: $(curl -s -m 10 https://api.ipify.org)"
       - name: curl browser ua
-        run: curl -s -m 15 -w "\nHTTP:%{http_code}\n" "https://www.tikwm.com/api/challenge/posts/?challenge_id=1684704995991554&count=5&cursor=0" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" -H "Accept: application/json, text/plain, */*" -H "Referer: https://www.tiktok.com/" | head -c 400
+        run: |
+          curl -s -m 15 -w "\nHTTP:%{http_code}\n" "https://www.tikwm.com/api/challenge/posts/?challenge_id=1684704995991554&count=5&cursor=0" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" -H "Accept: application/json, text/plain, */*" -H "Referer: https://www.tiktok.com/" | head -c 400
       - name: node fetch
-        run: node -e "fetch('https://www.tikwm.com/api/challenge/posts/?challenge_id=1684704995991554&count=5&cursor=0',{headers:{'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','Accept':'application/json'}}).then(r=>r.text().then(t=>console.log('NODE',r.status,t.slice(0,300)))).catch(e=>console.log('ERR',String(e)))"
+        run: |
+          node -e "fetch('https://www.tikwm.com/api/challenge/posts/?challenge_id=1684704995991554&count=5&cursor=0',{headers:{'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','Accept':'application/json'}}).then(r=>r.text().then(t=>console.log('NODE',r.status,t.slice(0,300)))).catch(e=>console.log('ERR',String(e)))"
