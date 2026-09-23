@@ -112,6 +112,7 @@
     <span class="chip topic active" data-topic="all">全部</span>
     <span class="chip topic" data-topic="capcut">CapCut（剪映）</span>
     <span class="chip topic" data-topic="hypic">Hypic（醒图）</span>
+    <span class="chip linked" data-linked="0">🔗 仅挂链</span>
   </div>
   <div class="sep"></div>
   <div class="chiprow">
@@ -164,7 +165,7 @@ const TZ_OPTIONS = [ ["纽约","America/New_York"], ["洛杉矶","America/Los_An
                      ["东京","Asia/Tokyo"], ["首尔","Asia/Seoul"], ["新加坡","Asia/Singapore"],
                      ["悉尼","Australia/Sydney"], ["北京","Asia/Shanghai"], ["UTC","UTC"] ];
 const PAGE_SIZE = 50;
-const state = { product:"all", sortKey:"created_at", sortDir:"desc", hours:48, page:1 };
+const state = { product:"all", sortKey:"created_at", sortDir:"desc", hours:48, page:1, linkedOnly:false };
 let viewTz = localStorage.getItem("viewTz") || "America/New_York";
 let viewTzName = "纽约";
 
@@ -234,6 +235,7 @@ function render(){
     const tags = (products[state.product] && products[state.product].tags) || [];
     vids = vids.filter(v=>v.tags.some(t=>tags.includes(t)));
   }
+  if(state.linkedOnly) vids = vids.filter(v=>v.linked===true);
   const nowTs = Date.now()/1000;
   vids = vids.filter(v=>v.created_at >= nowTs - state.hours*3600);
 
@@ -280,11 +282,12 @@ function render(){
     const rank = rankBase+i+1;
     const rkCls = rank<=3 ? "top" : rank<=10 ? "gold" : "";
     const tags = v.tags.map(t=>"<span class='tagbadge' style='color:"+TAGCOL[t]+";border-color:"+TAGCOL[t]+"55'>"+TAGS[t]+"</span>").join("");
+    const linkBadge = v.linked ? "<span class='tagbadge' style='color:var(--green);border-color:rgba(46,204,113,.4)' title='"+escapeHtml(v.anchor||"")+"'>🔗 挂链</span>" : "";
     const url = "https://www.tiktok.com/@"+v.author+"/video/"+v.video_id;
     return `<tr data-url="${url}">
       <td><span class="rk ${rkCls}">${rank}</span></td>
       <td class="vtitle" title="${escapeHtml(v.title)}"><a href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${escapeHtml(v.title)||"(无标题)"}</a></td>
-      <td style="white-space:nowrap">${tags}</td>
+      <td style="white-space:nowrap">${linkBadge}${tags}</td>
       <td style="white-space:nowrap">@${escapeHtml(v.author)||"unknown"}</td>
       <td class="num liked"><b>${fmt(v.digg)}</b></td>
       <td class="num faved"><b>${fmt(v.collect)}</b></td>
@@ -312,6 +315,11 @@ document.querySelectorAll(".chip.topic").forEach(ch=>ch.addEventListener("click"
   document.querySelectorAll(".chip.topic").forEach(c=>c.classList.remove("active"));
   ch.classList.add("active"); state.product=ch.dataset.topic; resetPage(); render();
 }));
+document.querySelector(".chip.linked").addEventListener("click",()=>{
+  state.linkedOnly=!state.linkedOnly;
+  document.querySelector(".chip.linked").classList.toggle("active", state.linkedOnly);
+  resetPage(); render();
+});
 document.querySelectorAll(".chip.window").forEach(ch=>ch.addEventListener("click",()=>{
   document.querySelectorAll(".chip.window").forEach(c=>c.classList.remove("active"));
   ch.classList.add("active"); state.hours=+ch.dataset.hours; resetPage(); render();
