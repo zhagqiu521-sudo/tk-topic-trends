@@ -27,3 +27,10 @@ jobs:
             git commit -m "snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
           fi
+      - name: Purge jsDelivr CDN cache (keep dashboard fresh)
+        run: |
+          for f in index.json latest.json; do
+            curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/$f" | head -c 200; echo ""
+          done
+          LATEST=$(ls -t data/snapshots/ | head -1)
+          curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/snapshots/$LATEST" | head -c 200; echo ""
