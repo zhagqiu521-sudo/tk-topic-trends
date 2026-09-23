@@ -1,8 +1,13 @@
 name: collect
 on:
-  workflow_dispatch: {}   # manual trigger (first-run test)
+  workflow_dispatch: {}   # manual trigger
   schedule:
-    - cron: "0 * * * *"   # hourly, UTC
+    - cron: "0 * * * *"   # GitHub drops scheduled fires under load (observed 9/9 overnight),
+    - cron: "10 * * * *"  # so we fire six times per hour; collect.py de-dupes to one
+    - cron: "20 * * * *"  # snapshot per hour.
+    - cron: "30 * * * *"
+    - cron: "40 * * * *"
+    - cron: "50 * * * *"
 permissions:
   contents: write         # allow committing data back
 concurrency:
