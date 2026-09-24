@@ -20,20 +20,23 @@ jobs:
         env:
           TIKHUB_TOKEN: ${{ secrets.TIKHUB_TOKEN }}
           DATA_KEY: ${{ secrets.DATA_KEY }}
-          GH_CHAIN_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 collect.py
-      - name: Commit snapshot
+      - name: Commit snapshot (conflict-tolerant)
         run: |
           git config user.name  "collector-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/
-          if git diff --cached --quiet; then
-            echo "no changes to commit"
-          else
-            git commit -m "snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
-          fi
+          for i in 1 2 3; do
+            git add data/
+            if git diff --cached --quiet; then echo "no changes to commit"; exit 0; fi
+            git commit -m "snapshot $(date -u +%Y-%m-%dT%H:%MZ)" || true
+            if git push; then exit 0; fi
+            echo "push conflict, retry $i — pulling and re-adding"
+            git pull --rebase --autostash || git reset --hard origin/main
+          done
+          echo "push failed 3x — data preserved locally, next run re-merges"
+          exit 0
       - name: Purge jsDelivr CDN cache (keep dashboard fresh)
+        if: always()
         run: |
           for f in index.json.enc latest.json.enc registry.json.enc backfill_state.json.enc; do
             curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/$f" -o /dev/null
@@ -41,13 +44,14 @@ jobs:
           LATEST=$(ls -t data/snapshots/ | head -1)
           curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/snapshots/$LATEST" -o /dev/null
       - name: Heartbeat — dispatch next run + backfill
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           NOW=$(date +%s)
-          NEXT=$(( (NOW / 600 + 1) * 600 + 45 ))   # next 10-min mark + 45s buffer
+          NEXT=$(( (NOW / 600 + 1) * 600 + 45 ))
           WAIT=$(( NEXT - NOW ))
-          [ $WAIT -gt 1500 ] && WAIT=1500          # cap sleep at 25 min
+          [ $WAIT -gt 1500 ] && WAIT=1500
           [ $WAIT -lt 10 ] && WAIT=10
           echo "chain: sleeping ${WAIT}s then dispatching"
           sleep $WAIT
