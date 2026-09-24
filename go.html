@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正在选择线路… · 话题数据看板</title>
+<style>
+  body{background:#16181d;color:#e6e8ec;font-family:"Microsoft YaHei UI",sans-serif;display:flex;
+       align-items:center;justify-content:center;height:100vh;margin:0;font-size:14px}
+  .box{text-align:center;max-width:520px;padding:24px}
+  h2{font-size:16px;margin:0 0 12px}
+  #st{color:#9aa4b2;font-size:12.5px;min-height:18px}
+  #links{margin-top:14px;font-size:13px}
+  a{color:#58a6ff;text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>话题数据看板 · 自动选择线路</h2>
+  <div id="st">准备中…</div>
+  <div id="links"></div>
+</div>
+<script>
+// 依次测试各入口，哪条通用哪条；三条都不通时列出链接供手动选择。
+// 本页放在 GitHub Pages 上，本身不依赖 exapple 域名，所以"主入口整个打不开"时它仍能打开。
+const HOSTS = [
+  "https://lzkj.exapple.xyz",
+  "https://data.exapple.xyz",
+  "https://tk-auth.zhagqiu-tk.workers.dev",
+];
+const st = document.getElementById("st");
+(async () => {
+  for (const h of HOSTS) {
+    st.textContent = "测试线路：" + h.replace("https://", "") + " …";
+    try {
+      const ctl = new AbortController();
+      const timer = setTimeout(() => ctl.abort(), 4000);
+      const r = await fetch(h + "/api", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ action: "ping", username: "", token: "" }),
+        signal: ctl.signal,
+        cache: "no-store",
+      });
+      clearTimeout(timer);
+      if (r.ok) { location.replace(h + "/"); return; }
+    } catch (e) { /* 该线路不可用，试下一条 */ }
+  }
+  st.textContent = "三条线路都不可达，请检查网络后刷新本页，或手动选择：";
+  document.getElementById("links").innerHTML =
+    HOSTS.map(h => '<a href="' + h + '/">' + h.replace("https://", "") + '</a>').join(" · ");
+})();
+</script>
+</body>
+</html>
