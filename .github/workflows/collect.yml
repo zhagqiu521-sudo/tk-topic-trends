@@ -1,28 +1,26 @@
 name: collect
 on:
-  workflow_dispatch: {}   # manual trigger
-  schedule:
-    - cron: "0 * * * *"   # GitHub drops scheduled fires under load (observed 9/9 overnight),
-    - cron: "10 * * * *"  # so we fire six times per hour; collect.py de-dupes to one
-    - cron: "20 * * * *"  # snapshot per half-hour.
+  workflow_dispatch: {}   # manual trigger + chained by the heartbeat step below
+  schedule:               # backup only: GitHub drops these most of the time (observed)
+    - cron: "0 * * * *"
     - cron: "30 * * * *"
-    - cron: "40 * * * *"
-    - cron: "50 * * * *"
 permissions:
-  contents: write         # allow committing data back
+  contents: write
+  actions: write
 concurrency:
   group: collect
   cancel-in-progress: false
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - name: Run collector
         env:
           TIKHUB_TOKEN: ${{ secrets.TIKHUB_TOKEN }}
           DATA_KEY: ${{ secrets.DATA_KEY }}
+          GH_CHAIN_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 collect.py
       - name: Commit snapshot
         run: |
@@ -37,8 +35,25 @@ jobs:
           fi
       - name: Purge jsDelivr CDN cache (keep dashboard fresh)
         run: |
-          for f in index.json.enc latest.json.enc; do
+          for f in index.json.enc latest.json.enc registry.json.enc backfill_state.json.enc; do
             curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/$f" -o /dev/null
           done
           LATEST=$(ls -t data/snapshots/ | head -1)
           curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/snapshots/$LATEST" -o /dev/null
+      - name: Heartbeat — dispatch next run + backfill
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          NOW=$(date +%s)
+          NEXT=$(( (NOW / 600 + 1) * 600 + 45 ))   # next 10-min mark + 45s buffer
+          WAIT=$(( NEXT - NOW ))
+          [ $WAIT -gt 1500 ] && WAIT=1500          # cap sleep at 25 min
+          [ $WAIT -lt 10 ] && WAIT=10
+          echo "chain: sleeping ${WAIT}s then dispatching"
+          sleep $WAIT
+          curl -s -X POST -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/zhagqiu521-sudo/tk-topic-trends/actions/workflows/collect.yml/dispatches \
+            -d '{"ref":"main"}' -o /dev/null -w "chain-collect %{http_code}\n"
+          curl -s -X POST -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/zhagqiu521-sudo/tk-topic-trends/actions/workflows/backfill.yml/dispatches \
+            -d '{"ref":"main"}' -o /dev/null -w "chain-backfill %{http_code}\n"
