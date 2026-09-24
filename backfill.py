@@ -131,9 +131,20 @@ def read_json(path, key, default):
 
 def main():
     now = datetime.now(timezone.utc)
+    # self-dedupe: skip if last backfill < 7h ago (the heartbeat dispatches us every ~10 min)
+    DK = data_key()
+    state = read_json("data/backfill_state.json", DK, {})
+    last = state.get("last_backfill", "")
+    if last:
+        try:
+            lt = datetime.fromisoformat(last)
+            if (now - lt).total_seconds() < 7 * 3600:
+                print(f"backfill skipped — last sweep {last} (< 7h)")
+                return 0
+        except ValueError:
+            pass
     cutoff = int((now - timedelta(hours=MAX_AGE_HOURS)).timestamp())
     reg_path = "data/registry.json"
-    DK = data_key()
     registry = read_json(reg_path, DK, {})
 
     new_total, req_total = 0, 0
@@ -220,6 +231,7 @@ def main():
     # latest.json + registry always updated (backfill data is additive and fresh)
     store_json("data/latest.json", snap, DK)
     store_json(reg_path, registry, DK)
+    store_json("data/backfill_state.json", {"last_backfill": now.isoformat()}, DK)
 
     linked_total = sum(1 for e in registry.values() if e.get("linked") is True)
     print(f"\nBACKFILL: requests={req_total} | new_fresh={new_total} | "
