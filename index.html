@@ -184,9 +184,9 @@
 
 <script>
 // data source: encrypted JSON lives on github.io (same-origin) and jsDelivr (CORS open, for file:// and tk.exapple.xyz)
-const BASE = (location.protocol === "file:" || location.hostname.endsWith("exapple.xyz"))
-  ? "https://cdn.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data"
-  : location.pathname.replace(/index\.html?$/, "") + "data";
+const BASE = (location.protocol === "file:")
+  ? "https://lzkj.exapple.xyz/data"
+  : (location.hostname.endsWith("exapple.xyz") ? location.origin + "/data" : location.pathname.replace(/index\.html?$/, "") + "data");
 
 const FALLBACK_PRODUCTS = {
   capcut: { label: "CapCut（剪映）", tags: ["capcut", "capcutpioneer", "capcutnow"] },
