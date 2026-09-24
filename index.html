@@ -248,7 +248,7 @@ let cache = null, products = FALLBACK_PRODUCTS;
 
 async function load(){
   if(window._creds){ authAPI({action:"ping", username:window._creds.username, token:window._creds.token})
-    .then(r=>{ if(r.ok && r.dkey) window._dkey = r.dkey; }).catch(()=>{}); }
+    .then(r=>{ if(r.ok && r.dkey){ window._dkey = r.dkey; localStorage.setItem("tk_dkey_cache", JSON.stringify({username:window._creds.username, dkey:r.dkey})); } }).catch(()=>{}); }
   try{
     const el=document.getElementById("list");
     el.className="loading"; el.textContent="正在加载……";
@@ -472,6 +472,7 @@ function showGate(){
 }
 async function initAuth(){
   const c = JSON.parse(localStorage.getItem("tk_auth") || "null");
+  const dc = JSON.parse(localStorage.getItem("tk_dkey_cache") || "null");
   window._creds = c;
   if(c && c.username){
     document.getElementById("au").value = c.username;   // 账号名本地记住并回填
@@ -479,8 +480,18 @@ async function initAuth(){
   if(c && c.username && c.token){
     try{
       const r = await authAPI({action:"ping", username:c.username, token:c.token});
-      if(r.ok){ if(r.dkey) window._dkey = r.dkey; showApp(); return; }
-    }catch(e){ /* 登录服务不可达：本次放行（游客模式），数据本身公开 */ }
+      if(r.ok){
+        if(r.dkey){ window._dkey = r.dkey; localStorage.setItem("tk_dkey_cache", JSON.stringify({username:c.username, dkey:r.dkey})); }
+        showApp(); return;
+      }
+      // 服务明确拒绝（会话失效/被禁用）→ 清缓存，回登录门
+      localStorage.removeItem("tk_dkey_cache");
+      showGate(); return;
+    }catch(e){
+      // 网络不可达（登录域被墙/波动）→ 离线宽限：用本机缓存的密钥继续
+      if(dc && dc.username === c.username && dc.dkey){ window._dkey = dc.dkey; showApp(); return; }
+      showGate(); return;
+    }
   }
   showGate();
 }
@@ -493,7 +504,10 @@ document.getElementById("loginForm").addEventListener("submit", async (e)=>{
   if(r.ok){
     localStorage.setItem("tk_auth", JSON.stringify({username:u, token:r.token}));
     window._creds = {username:u, token:r.token};
-    if(r.dkey) window._dkey = r.dkey;
+    if(r.dkey){
+      window._dkey = r.dkey;
+      localStorage.setItem("tk_dkey_cache", JSON.stringify({username:u, dkey:r.dkey}));
+    }
     showApp();
   } else { document.getElementById("amsg").textContent = r.msg || "登录失败"; }
 });
