@@ -1,0 +1,34 @@
+name: guard
+on:
+  schedule:
+    # 与 collect 的 0/30 cron 错开；GitHub 丢定时是常态，丢一两拍无妨
+    - cron: "8,23,38,53 * * * *"
+  workflow_dispatch: {}
+permissions:
+  actions: write
+  contents: read
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Heal heartbeat chain if stale
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          API="https://api.github.com/repos/$GITHUB_REPOSITORY"
+          busy=$(curl -s -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "$API/actions/workflows/collect.yml/runs?per_page=5" \
+            | python3 -c "import sys,json;rs=json.load(sys.stdin).get('workflow_runs',[]);print(sum(1 for r in rs if r['status']!='completed'))")
+          last=$(curl -s -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "$API/commits?path=data/snapshots&per_page=1" \
+            | python3 -c "import sys,json;print(json.load(sys.stdin)[0]['commit']['author']['date'])")
+          age=$(( ( $(date -u +%s) - $(date -u -d "$last" +%s) ) / 60 ))
+          echo "collect busy=$busy | last snapshot commit ${age} min ago ($last)"
+          if [ "$busy" -eq 0 ] && [ "$age" -ge 60 ]; then
+            echo "chain looks broken -> dispatching collect"
+            curl -s -X POST -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "$API/actions/workflows/collect.yml/dispatches" -d '{"ref":"main"}' -o /dev/null -w "heal-dispatch %{http_code}\n"
+          else
+            echo "chain ok, nothing to do"
+          fi
