@@ -1,10 +1,6 @@
 name: backfill
 on:
-  workflow_dispatch: {}
-  schedule:
-    - cron: "0 1 * * *"    # 09:00 北京
-    - cron: "0 9 * * *"    # 17:00 北京
-    - cron: "0 17 * * *"   # 01:00 北京
+  workflow_dispatch: {}   # dispatched by the collect heartbeat; self-dedupes to 3x/day
 permissions:
   contents: write
 concurrency:
@@ -13,7 +9,7 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Run TikHub backfill
@@ -34,6 +30,6 @@ jobs:
           fi
       - name: Purge jsDelivr CDN cache
         run: |
-          for f in index.json.enc latest.json.enc registry.json.enc; do
+          for f in index.json.enc latest.json.enc registry.json.enc backfill_state.json.enc; do
             curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/$f" -o /dev/null
           done
