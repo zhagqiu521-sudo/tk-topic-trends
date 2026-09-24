@@ -446,7 +446,11 @@ toTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 
 // ---- 登录门（tk-auth Worker）----
 // 双端点兜底：自定义域名优先（无污染），workers.dev 备用（国内偶发波动）
-const AUTH_ENDPOINTS = ["https://lzkj.exapple.xyz/api", "https://tk-auth.zhagqiu-tk.workers.dev/api"];
+const AUTH_ENDPOINTS = [
+  location.protocol + "//" + location.host + "/api",   // 当前域名自己的接口（data/lzkj 上直接命中）
+  "https://lzkj.exapple.xyz/api",
+  "https://tk-auth.zhagqiu-tk.workers.dev/api",
+];
 async function authAPI(payload){
   let lastErr = "";
   for(const ep of AUTH_ENDPOINTS){
