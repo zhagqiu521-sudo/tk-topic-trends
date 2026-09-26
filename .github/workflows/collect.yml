@@ -1,15 +1,14 @@
 name: collect
 on:
-  workflow_dispatch: {}   # manual trigger + chained by the heartbeat step below
-  schedule:               # backup only: GitHub drops these most of the time (observed)
+  workflow_dispatch: {}   # dispatched every 30 min by the Cloudflare trigger worker (tk-trigger)
+  schedule:               # backup: GitHub can delay/drop these under load
     - cron: "0 * * * *"
     - cron: "30 * * * *"
 permissions:
   contents: write
-  actions: write
 concurrency:
   group: collect
-  cancel-in-progress: false
+  cancel-in-progress: true   # a hung/zombie run gets superseded by the next trigger instead of blocking it
 jobs:
   collect:
     runs-on: ubuntu-latest
@@ -43,21 +42,3 @@ jobs:
           done
           LATEST=$(ls -t data/snapshots/ | head -1)
           curl -s -m 30 "https://purge.jsdelivr.net/gh/zhagqiu521-sudo/tk-topic-trends@main/data/snapshots/$LATEST" -o /dev/null
-      - name: Heartbeat — dispatch next run + backfill
-        if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          NOW=$(date +%s)
-          NEXT=$(( (NOW / 600 + 1) * 600 + 45 ))
-          WAIT=$(( NEXT - NOW ))
-          [ $WAIT -gt 1500 ] && WAIT=1500
-          [ $WAIT -lt 10 ] && WAIT=10
-          echo "chain: sleeping ${WAIT}s then dispatching"
-          sleep $WAIT
-          curl -s -X POST -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/zhagqiu521-sudo/tk-topic-trends/actions/workflows/collect.yml/dispatches \
-            -d '{"ref":"main"}' -o /dev/null -w "chain-collect %{http_code}\n"
-          curl -s -X POST -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/zhagqiu521-sudo/tk-topic-trends/actions/workflows/backfill.yml/dispatches \
-            -d '{"ref":"main"}' -o /dev/null -w "chain-backfill %{http_code}\n"
