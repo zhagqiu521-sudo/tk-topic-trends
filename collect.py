@@ -34,7 +34,7 @@ ROTATION_STEPS = 8        # 8 windows × 50 pages = 400 pages deep per topic acr
 FRESH_PAGES = 5           # always-refresh head pages (newest cohort stats every 30 min)
 COUNT_PER_PAGE = 20
 MAX_AGE_HOURS = 48
-SLEEP_BETWEEN_REQ = 1.6   # tikwm: 1 request/sec per IP
+SLEEP_BETWEEN_REQ = 1.2   # tikwm: 1 request/sec per IP (keep >1.0)
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
@@ -226,7 +226,7 @@ def main():
     # anchor page-checks for first-seen videos (+ createTime calibration)
     to_check = [vid for vid, e in registry.items() if e.get("linked") is None]
     checked = 0
-    for vid in to_check[:40]:
+    for vid in to_check[:12]:
         res = check_anchor(vid, registry[vid].get("author", ""))
         checked += 1
         if res is None:
