@@ -15,6 +15,8 @@ import sys
 import time
 from datetime import datetime, timezone, timedelta
 
+from backfill import fetch_tikhub, map_video   # shared TikHub helpers (no import side effects)
+
 API = "https://www.tikwm.com/api/challenge/posts"
 CHALLENGES = {
     "capcut": "1663935709411330",
@@ -40,6 +42,109 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 ANCHOR_RE = re.compile(r'"anchors":\[\{"id":"\d+","type":(\d+),"keyword":"([^"]*)"')
 CT_RE = re.compile(r'"createTime":(\d+)')
+
+
+def registry_items(registry):
+    """Flatten the registry into snapshot items (newest first)."""
+    items_all = []
+    for vid, e in registry.items():
+        items_all.append({
+            "video_id": vid, "author": e.get("author", ""), "title": e.get("title", ""),
+            "digg": e.get("digg", 0), "collect": e.get("collect", 0),
+            "comment": e.get("comment", 0), "share": e.get("share", 0),
+            "play": e.get("play", 0), "created_at": e.get("created_at", 0),
+            "linked": e.get("linked"), "anchor": e.get("anchor", ""),
+            "topics": e.get("topics", []),
+        })
+    items_all.sort(key=lambda x: x["created_at"], reverse=True)
+    return items_all
+
+
+def latest_bucket_age_min():
+    """Minutes since the newest snapshot bucket started (999 if unknown)."""
+    try:
+        files = sorted((f for f in os.listdir("data/snapshots") if f.endswith(".json.enc")),
+                       reverse=True)
+        if not files:
+            return 999
+        m = re.match(r"(\d{4}-\d{2}-\d{2})T(\d{2})(\d{2})Z", files[0])
+        if not m:
+            return 999
+        bdt = datetime.fromisoformat(f"{m.group(1)}T{m.group(2)}:{m.group(3)}:00+00:00")
+        return int((datetime.now(timezone.utc) - bdt).total_seconds() / 60)
+    except (OSError, ValueError):
+        return 999
+
+
+def extract_video_stats(sub):
+    """Pull play/digg/... counts from the webapp.video-detail itemStruct blob."""
+    idx = sub.find('"itemStruct"')
+    seg = sub[idx:idx + 200000] if idx >= 0 else sub
+
+    def grab(field):
+        m = re.search(r'"' + field + r'":(\d+)', seg)
+        return int(m.group(1)) if m else 0
+
+    st = {"digg": grab("diggCount"), "comment": grab("commentCount"),
+          "share": grab("shareCount"), "collect": grab("collectCount"),
+          "play": grab("playCount")}
+    return st if (st["play"] or st["digg"]) else None
+
+
+def tikhub_emergency(registry, cutoff, now):
+    """Last-resort discovery: pull the fresh head of every topic via TikHub."""
+    got, reqs = 0, 0
+    for tag, cid in CHALLENGES.items():
+        try:
+            j = fetch_tikhub(cid, 0)
+            reqs += 1
+        except (subprocess.SubprocessError, json.JSONDecodeError, RuntimeError, ValueError) as e:
+            print(f"  [{tag}] tikhub emergency error: {e}", flush=True)
+            continue
+        data = j.get("data") or {}
+        batch = data.get("videos") or data.get("aweme_list") or []
+        for x in batch:
+            if x.get("create_time", 0) < cutoff:
+                continue
+            it = map_video(x, tag)
+            vid = it["video_id"]
+            if not vid:
+                continue
+            entry = registry.get(vid) or {
+                "first_seen": now.isoformat(), "topics": [],
+                "created_at": it["created_at"], "author": it["author"],
+                "title": it["title"], "linked": None, "anchor": "",
+            }
+            entry.update({k: it[k] for k in ("digg", "collect", "comment", "share", "play")})
+            entry["created_at"] = it["created_at"]
+            if it["linked"] or entry.get("linked") is not True:
+                entry["linked"] = it["linked"]
+                if it["anchor"]:
+                    entry["anchor"] = it["anchor"]
+            if tag not in entry["topics"]:
+                entry["topics"].append(tag)
+            registry[vid] = entry
+            got += 1
+        time.sleep(0.5)
+    print(f"tikhub emergency: {reqs} requests, {got} fresh items", flush=True)
+    return got
+
+
+def refresh_recent_stats(registry, cutoff, now, limit=15):
+    """No tikwm and no tikhub: refresh the newest videos' stats from TikTok pages."""
+    recent = sorted(
+        (v for v, e in registry.items()
+         if e.get("created_at", 0) >= cutoff and e.get("author")),
+        key=lambda v: registry[v].get("created_at", 0), reverse=True)[:limit]
+    n = 0
+    for vid in recent:
+        res = check_anchor(vid, registry[vid].get("author", ""))
+        if res and res.get("stats"):
+            registry[vid].update(res["stats"])
+            registry[vid]["last_stat_refresh"] = now.isoformat()
+            n += 1
+        time.sleep(1.0)
+    return n
 
 
 def fetch_json(url):
@@ -76,6 +181,9 @@ def check_anchor(vid, author):
         c = CT_RE.search(sub)
         if c:
             res["ct"] = int(c.group(1))
+        st = extract_video_stats(sub)
+        if st:
+            res["stats"] = st
         return res
     except subprocess.SubprocessError:
         return None
@@ -233,6 +341,8 @@ def main():
             continue
         registry[vid]["linked"] = res["linked"]
         registry[vid]["anchor"] = res.get("keyword", "")
+        if res.get("stats"):
+            registry[vid].update(res["stats"])
         if res.get("ct"):
             registry[vid]["created_at"] = res["ct"]
             registry[vid]["ct_verified"] = True
@@ -241,27 +351,35 @@ def main():
     print(f"anchor checks: {checked} checked | linked total: {linked_total}", flush=True)
 
     os.makedirs("data/snapshots", exist_ok=True)
-    items_all = []
-    for vid, e in registry.items():
-        items_all.append({
-            "video_id": vid, "author": e.get("author", ""), "title": e.get("title", ""),
-            "digg": e.get("digg", 0), "collect": e.get("collect", 0),
-            "comment": e.get("comment", 0), "share": e.get("share", 0),
-            "play": e.get("play", 0), "created_at": e.get("created_at", 0),
-            "linked": e.get("linked"), "anchor": e.get("anchor", ""),
-            "topics": e.get("topics", []),
-        })
-    items_all.sort(key=lambda x: x["created_at"], reverse=True)
+    items_all = registry_items(registry)
 
     total = len(items_all)
     ok_any = any(s == "success" for s in statuses.values())
+    source = "tikwm"
 
     if not ok_any or total == 0:
-        # all topics rate-limited (shared-IP quota) — persist registry (anchor
-        # checks may have advanced) and exit 0 silently; backfill covers data.
-        store_json(reg_path, registry, DK)
-        print(f"\nVERDICT: SKIP | all topics rate-limited | registry intact ({total})")
-        return 0
+        # tikwm lost the shared-IP lottery. Escalate only when the newest
+        # snapshot bucket is >=75 min old (2+ buckets already missed):
+        #   1) TikHub emergency pull — a few paid requests, discovery continues
+        #   2) stat refresh of the newest registry videos via their TikTok pages
+        #   3) otherwise: persist registry only and exit silently
+        stale_min = latest_bucket_age_min()
+        got, refreshed = 0, 0
+        if stale_min >= 75:
+            print(f"tikwm limited, latest bucket {stale_min} min old — escalating", flush=True)
+            got = tikhub_emergency(registry, cutoff, now)
+            if got == 0:
+                refreshed = refresh_recent_stats(registry, cutoff, now)
+            items_all = registry_items(registry)
+            total = len(items_all)
+        if got:
+            snap["source"] = "tikhub-emergency"
+        elif refreshed:
+            snap["source"] = "video-page-refresh"
+        else:
+            store_json(reg_path, registry, DK)
+            print(f"\nVERDICT: SKIP | all topics rate-limited | registry intact ({total})")
+            return 0
 
     for tag in CHALLENGES:
         tag_items = [i for i in items_all if tag in i["topics"]]
